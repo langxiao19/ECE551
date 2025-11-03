@@ -1,0 +1,77 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2024.3 2024.09, Sep 10 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/WINDOWS/system32
+T_opt
+!s110 1758122817
+VBo1>G5NIa24XAg?PNb5Lo0
+04 11 4 work saturate_tb fast 0
+=1-4cd71794e509-68cad33f-219-4230
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM10U2 
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2024.3;79
+vsaturate
+2I:/ECE551/Ex06/saturate.sv
+Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1758122800
+!i10b 1
+!s100 YCgC>=0ON^1LDR@cF6j`b3
+I`b<01mZ7=;SEC`c<ff>YH3
+S1
+Z3 dI:/ECE551/Ex06
+w1758122748
+8I:/ECE551/Ex06/saturate.sv
+FI:/ECE551/Ex06/saturate.sv
+!i122 1
+L0 1 27
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2024.3;79
+r1
+!s85 0
+31
+!s108 1758122799.000000
+!s107 I:/ECE551/Ex06/saturate.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/Ex06/saturate.sv|
+!i113 0
+Z6 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vsaturate_tb
+2I:/ECE551/Ex06/saturate_tb.sv
+R2
+!s110 1758122801
+!i10b 1
+!s100 _;eFEVT_H;n6?4XX8MPT_1
+I70hT=j5T38h[WV9h@=g@41
+S1
+R3
+w1758122795
+8I:/ECE551/Ex06/saturate_tb.sv
+FI:/ECE551/Ex06/saturate_tb.sv
+!i122 2
+L0 1 108
+R4
+R5
+r1
+!s85 0
+31
+!s108 1758122800.000000
+!s107 I:/ECE551/Ex06/saturate_tb.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/Ex06/saturate_tb.sv|
+!i113 0
+R6
+R1

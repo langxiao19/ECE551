@@ -1,0 +1,82 @@
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2024.3 win64 Sep 10 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# vsim -t 1ps Auth_blk_final_tb -do "run 10ms; quit" 
+# Start time: 18:12:32 on Nov 02,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading sv_std.std
+# Loading work.Auth_blk_final_tb(fast)
+# run 10ms
+# ========================================
+# Auth_blk Final Testbench Starting
+# Testing Authentication State Machine
+# ========================================
+# 
+# --- Test 1: Initial state after reset ---
+# PASS: Initial state - should be PWR_DWN - pwr_up=0 as expected at time 230
+# 
+# --- Test 2: Send invalid characters ---
+# PASS: After 'A' - should stay PWR_DWN - pwr_up=0 as expected at time 330
+# PASS: After 'S' in PWR_DWN - should stay PWR_DWN - pwr_up=0 as expected at time 430
+# PASS: After 'X' - should stay PWR_DWN - pwr_up=0 as expected at time 530
+# 
+# --- Test 3: Send 'G' to transition to PWR_UP ---
+# Time 550: State transition PWR_DWN ->  PWR_UP
+# PASS: After 'G' - should transition to PWR_UP - pwr_up=1 as expected at time 630
+# 
+# --- Test 4: Send invalid chars while in PWR_UP ---
+# PASS: After 'A' in PWR_UP - should stay PWR_UP - pwr_up=1 as expected at time 730
+# PASS: After second 'G' in PWR_UP - should stay PWR_UP - pwr_up=1 as expected at time 830
+# 
+# --- Test 5: Send 'S' while rider is ON (should not shutdown) ---
+# PASS: After 'S' with rider ON - should stay PWR_UP - pwr_up=1 as expected at time 970
+# 
+# --- Test 6: Send 'S' while rider is OFF (should shutdown) ---
+# Time 990: State transition  PWR_UP -> PWR_DWN
+# PASS: After 'S' with rider OFF - should shutdown to PWR_DWN - pwr_up=0 as expected at time 1110
+# 
+# --- Test 7: Power up again and test shutdown pending ---
+# Time 1170: State transition PWR_DWN ->  PWR_UP
+# PASS: After 'G' - should power up again - pwr_up=1 as expected at time 1250
+# PASS: After 'S' with rider ON - should stay PWR_UP but mark shutdown pending - pwr_up=1 as expected at time 1350
+# Time 1370: State transition  PWR_UP -> PWR_DWN
+# PASS: After rider OFF with shutdown pending - should shutdown - pwr_up=0 as expected at time 1450
+# 
+# --- Test 8: Test shutdown pending cancellation ---
+# Time 1470: State transition PWR_DWN ->  PWR_UP
+# PASS: After 'G' - should power up - pwr_up=1 as expected at time 1550
+# PASS: After 'S' - should stay powered, shutdown pending - pwr_up=1 as expected at time 1690
+# PASS: After 'G' - should stay powered, shutdown cleared - pwr_up=1 as expected at time 1790
+# PASS: After rider OFF with no pending shutdown - should stay PWR_UP - pwr_up=1 as expected at time 1890
+# 
+# --- Test 9: Multiple transitions ---
+# Time 1910: State transition  PWR_UP -> PWR_DWN
+# PASS: After 'S' with rider OFF - should shutdown - pwr_up=0 as expected at time 1990
+# Time 2010: State transition PWR_DWN ->  PWR_UP
+# PASS: After 'G' - should power up - pwr_up=1 as expected at time 2090
+# Time 2110: State transition  PWR_UP -> PWR_DWN
+# PASS: After 'S' with rider OFF - should shutdown again - pwr_up=0 as expected at time 2190
+# 
+# --- Test 10: Reset while powered up ---
+# Time 2210: State transition PWR_DWN ->  PWR_UP
+# PASS: After 'G' - should power up - pwr_up=1 as expected at time 2290
+# PASS: After reset - should be PWR_DWN - pwr_up=0 as expected at time 2450
+# 
+# ========================================
+# Auth_blk Final Testbench Complete
+# All tests passed successfully!
+# Authentication state machine working correctly.
+# ========================================
+# ** Note: $finish    : Auth_blk_final_tb.sv(175)
+#    Time: 2650 ps  Iteration: 1  Instance: /Auth_blk_final_tb

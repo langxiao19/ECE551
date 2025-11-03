@@ -1,0 +1,126 @@
+m255
+K4
+z2
+Z0 !s12c _opt1
+Z1 !s99 nomlopt
+Z2 !s12c _opt
+R1
+R0
+R1
+R2
+R1
+!s11f vlog 2024.3 2024.09, Sep 10 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 dI:/ECE551/Ex13
+T_opt
+!s110 1760395915
+VMhzCS`TjV?Y``MLX3iNQL1
+04 10 4 work UART_tx_tb fast 0
+=1-4cd717936f90-68ed828a-32-4da0
+R1
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM10U2 
+Z7 !s135 nogc
+Z8 o-quiet -auto_acc_if_foreign -work work
+Z9 tCvgOpt 0
+n@_opt
+Z10 OL;O;2024.3;79
+R3
+T_opt1
+!s110 1760395934
+V;9CMhbUhW=PlG1`C:[AE12
+04 19 4 work UART_tx_detailed_tb fast 0
+=1-4cd717936f90-68ed829c-263-39c8
+R1
+R4
+R5
+R6
+R7
+R8
+R9
+n@_opt1
+R10
+vUART_tx
+2UART_tx.sv
+Z11 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z12 !s110 1760395911
+!i10b 1
+!s100 ]@R2L15nK4SFV=bnkRFC90
+IC5>JBk3]5S8:ZoaO[2fF42
+S1
+R3
+w1760395907
+8UART_tx.sv
+FUART_tx.sv
+!i122 3
+L0 1 72
+Z13 VDg1SIo80bB@j0V0VzS_@n1
+Z14 OL;L;2024.3;79
+r1
+!s85 0
+31
+!s108 1760395910.000000
+!s107 UART_tx.sv|
+!s90 UART_tx.sv|
+!i113 0
+Z15 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R9
+n@u@a@r@t_tx
+vUART_tx_detailed_tb
+2UART_detailed_tb.sv
+R11
+!s110 1760395930
+!i10b 1
+!s100 bz?[C][0cb6dcDeJ]Sb]Z3
+Iifkg;`QPQ06KWaU[58[z=0
+S1
+R3
+w1760395906
+8UART_detailed_tb.sv
+FUART_detailed_tb.sv
+!i122 5
+L0 1 61
+R13
+R14
+r1
+!s85 0
+31
+!s108 1760395930.000000
+!s107 UART_detailed_tb.sv|
+!s90 UART_detailed_tb.sv|
+!i113 0
+R15
+R9
+n@u@a@r@t_tx_detailed_tb
+vUART_tx_tb
+2UART_tx_tb.sv
+R11
+R12
+!i10b 1
+!s100 RP4lL8_M=VKFlnKTW>daQ3
+IFm2=`kRSBo^UcXbLSJnJZ3
+S1
+R3
+w1760395688
+8UART_tx_tb.sv
+FUART_tx_tb.sv
+!i122 4
+L0 1 92
+R13
+R14
+r1
+!s85 0
+31
+!s108 1760395911.000000
+!s107 UART_tx_tb.sv|
+!s90 UART_tx_tb.sv|
+!i113 0
+R15
+R9
+n@u@a@r@t_tx_tb

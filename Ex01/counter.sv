@@ -1,0 +1,20 @@
+// generate a 4-bit counter with interface clk, rst_n, en, up_down_n
+module counter(
+    input logic clk,
+    input logic rst_n,
+    input logic en,
+    input logic up_dwn_n,
+    output logic [3:0] cnt
+);
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            cnt <= 4'b0000;
+        end else if (en) begin
+            if (up_dwn_n) begin
+                cnt <= cnt + 1;
+            end else begin
+                cnt <= cnt - 1;
+            end
+        end
+    end
+endmodule

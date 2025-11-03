@@ -1,0 +1,135 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+!s11f vlog 2024.3 2024.09, Sep 10 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dI:/ECE551/Ex15
+T_opt
+!s110 1761579178
+Vh<JXUSD>i]iK2QM6ROe870
+04 10 4 work PID_dbg_tb fast 0
+=1-4cd71794e509-68ff90a8-3b2-55b4
+R1
+!s12f OEM100
+!s12b OEM100
+!s124 OEM10U2 
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work
+Z3 tCvgOpt 0
+n@_opt
+OL;O;2024.3;79
+R2
+vbalance_cntrl
+Z4 2PID.sv|balance_cntrl.sv|..\Ex08\SegwayMath.sv
+Z5 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z6 !s110 1761579202
+!i10b 1
+!s100 ND9Kg4W]jEjDCQHR5FD@P2
+IL_eQX79?IL152^bCI?P0T2
+S1
+R2
+w1760714973
+8balance_cntrl.sv
+Fbalance_cntrl.sv
+!i122 6
+L0 4 48
+Z7 VDg1SIo80bB@j0V0VzS_@n1
+Z8 OL;L;2024.3;79
+r1
+!s85 0
+31
+Z9 !s108 1761579202.000000
+!s107 ..\\Ex08\\SegwayMath.sv|balance_cntrl.sv|PID.sv|
+Z10 !s90 -work|work|PID.sv|balance_cntrl.sv|..\Ex08\SegwayMath.sv|
+!i113 0
+Z11 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+vPID
+R4
+R5
+R6
+!i10b 1
+!s100 S8D3SVH9ONNX_aMcV0QA]0
+Id3Y9>Qd^E_7CgS5Z0Ed=X3
+S1
+R2
+w1761579062
+8PID.sv
+FPID.sv
+!i122 6
+L0 4 153
+R7
+R8
+r1
+!s85 0
+31
+R9
+Z12 !s107 ..\\Ex08\\SegwayMath.sv|balance_cntrl.sv|PID.sv|
+R10
+!i113 0
+R11
+R3
+n@p@i@d
+vPID_dbg_tb
+2PID_fastsim_tb.sv
+R5
+!s110 1761579166
+!i10b 1
+!s100 2fGN6^>GTOWg7JIi]EZGh0
+IA<Xh7Di=<@min2SJEU8D62
+S1
+R2
+w1761578502
+8PID_fastsim_tb.sv
+FPID_fastsim_tb.sv
+!i122 4
+L0 1 213
+R7
+R8
+r1
+!s85 0
+31
+!s108 1761579165.000000
+!s107 PID_fastsim_tb.sv|
+!s90 -work|work|PID_fastsim_tb.sv|
+!i113 0
+R11
+R3
+n@p@i@d_dbg_tb
+vSegwayMath
+R4
+R5
+R6
+!i10b 1
+!s100 lLS`o7V2z9@LSl3@LOF372
+IEF9H^Pl9=13dGlkoZ`nao0
+S1
+R2
+w1758728364
+8..\Ex08\SegwayMath.sv
+F..\Ex08\SegwayMath.sv
+!i122 6
+L0 1 109
+R7
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 0
+R11
+R3
+n@segway@math

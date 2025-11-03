@@ -1,0 +1,7 @@
+BEGIN 1:Auth_blk:fast:work
+    state :  1:Auth_blk_simple_tb:fast:work
+    rx_data :  1:Auth_blk_simple_tb:fast:work
+    shutdown_pending :  1:Auth_blk_simple_tb:fast:work
+    clr_rx_rdy :  1:Auth_blk_simple_tb:fast:work
+    rx_rdy :  1:Auth_blk_simple_tb:fast:work
+END 

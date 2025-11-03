@@ -1,0 +1,55 @@
+/*
+ * STEERING ENABLE STATE MACHINE BUBBLE DIAGRAM
+ * 
+ * Based on the requirements and implementation in steer_en_SM.sv
+ *
+ *                    sum_lt_min
+ *              ┌─────────────────────┐
+ *              │                     │
+ *              ▼                     │
+ *     ┌─────────────────┐            │    sum_lt_min
+ *     │   INITIAL       │            │ ┌─────────────────┐
+ *     │   (2'b00)       │            │ │                 │
+ *     │                 │            │ │                 ▼
+ *     │ rider_off = 1   │            │ │    ┌─────────────────┐
+ *     │ en_steer = 0    │            │ │    │   STEER_EN      │
+ *     │ clr_tmr = 0     │            │ │    │   (2'b10)       │
+ *     └─────────────────┘            │ │    │                 │
+ *              │                     │ │    │ rider_off = 0   │
+ *              │ sum_gt_min          │ │    │ en_steer = 1    │
+ *              │                     │ │    │ clr_tmr = 0     │
+ *              ▼                     │ │    └─────────────────┘
+ *     ┌─────────────────┐            │ │             │
+ *     │  WAIT_BALANCE   │            │ │             │ diff_gt_15_16
+ *     │   (2'b01)       │            │ │             │
+ *     │                 │────────────┘ │             │
+ *     │ rider_off = 0   │              │             │
+ *     │ en_steer = 0    │              └─────────────┘
+ *     │ clr_tmr = 1     │
+ *     │ (when diff_gt_1_4)           
+ *     └─────────────────┘
+ *              │
+ *              │ tmr_full && !diff_gt_1_4
+ *              │
+ *              └─────────────────────┘
+ *
+ * STATE TRANSITIONS:
+ * 
+ * INITIAL → WAIT_BALANCE:    sum_gt_min (rider gets on)
+ * WAIT_BALANCE → INITIAL:    sum_lt_min (rider steps off completely)  
+ * WAIT_BALANCE → STEER_EN:   tmr_full && !diff_gt_1_4 (balanced for 1.3 sec)
+ * STEER_EN → INITIAL:        sum_lt_min (rider fell off suddenly - highest priority)
+ * STEER_EN → WAIT_BALANCE:   diff_gt_15_16 (rider stepping off)
+ * 
+ * OUTPUT SIGNALS:
+ * 
+ * INITIAL:      rider_off = 1, en_steer = 0, clr_tmr = 0
+ * WAIT_BALANCE: rider_off = 0, en_steer = 0, clr_tmr = 1 (when diff_gt_1_4)
+ * STEER_EN:     rider_off = 0, en_steer = 1, clr_tmr = 0
+ *
+ * NOTES:
+ * - Timer is cleared (clr_tmr = 1) when transitioning to WAIT_BALANCE
+ * - Timer is cleared (clr_tmr = 1) while in WAIT_BALANCE if diff_gt_1_4 is asserted
+ * - In STEER_EN state, sum_lt_min has priority over diff_gt_15_16
+ * - The 1.3 second timer is used to ensure rider is balanced before enabling steering
+ */

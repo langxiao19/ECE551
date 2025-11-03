@@ -1,0 +1,8 @@
+I:/ECE551/HW4/UART_tx.sv {1 {vlog -work work -vopt -sv -stats=none I:/ECE551/HW4/UART_tx.sv
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module UART_tx
+
+Top level modules:
+	UART_tx
+
+} {} {}}

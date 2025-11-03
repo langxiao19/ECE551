@@ -1,0 +1,119 @@
+$date
+	Fri Sep 12 10:26:42 2025
+$end
+$version
+	Questa Intel Starter FPGA Edition Version 2024.3
+$end
+$timescale
+	1ps
+$end
+
+$scope module MSFF_tb $end
+$var reg 1 ! d $end
+$var reg 1 " clk $end
+$var wire 1 # q $end
+
+$scope module dut $end
+$var wire 1 $ d $end
+$var wire 1 % clk $end
+$var wire 1 # q $end
+$var wire 1 & md $end
+$var wire 1 ' mp $end
+$var wire 1 ( sd $end
+$var wand 1 ) md_weak $end
+$var wand 1 * sd_weak $end
+$var wire 1 + mq $end
+$var wire 1 , clkk $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+x#
+x&
+z'
+x(
+x)
+x*
+x+
+z,
+0%
+0$
+$end
+#5000
+1"
+1%
+#7000
+1!
+1$
+#10000
+0"
+0%
+#15000
+1"
+1%
+#17000
+0!
+0$
+#20000
+0"
+0%
+#25000
+1"
+1%
+#27000
+1!
+1$
+#30000
+0"
+0%
+#35000
+1"
+1%
+#37000
+0!
+0$
+#40000
+0"
+0%
+#45000
+1"
+1%
+#47000
+1!
+1$
+#50000
+0"
+0%
+#55000
+1"
+1%
+#57000
+0!
+0$
+#60000
+0"
+0%
+#65000
+1"
+1%
+#67000
+1!
+1$
+#70000
+0"
+0%
+#75000
+1"
+1%
+#77000
+0!
+0$
+#80000
+0"
+0%
+#85000
+1"
+1%

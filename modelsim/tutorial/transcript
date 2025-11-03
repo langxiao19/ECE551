@@ -1,0 +1,163 @@
+# //  Questa Sim
+# //  Version 2023.2_1 linux May 12 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading project tutorial
+# Compile of busint.v was successful.
+# Compile of New File.v was successful.
+# Compile of errors.v failed with 2 errors.
+# Compile of mux.v was successful.
+# Compile of receive.v was successful.
+# Compile of ssp.v was successful.
+# Compile of t_errors.v was successful.
+# Compile of t_receive.v was successful.
+# Compile of t_ssp.v was successful.
+# Compile of t_transmit.v was successful.
+# Compile of transmit.v was successful.
+# 11 compiles, 1 failed with 2 errors.
+# Compile of errors.v failed with 2 errors.
+# Compile of errors.v was successful.
+vsim work.t_receive -voptargs=+acc
+# vsim work.t_receive -voptargs="+acc" 
+# Start time: 17:53:36 on Sep 09,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "Receive(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.t_receive(fast)
+# Loading work.Receive(fast)
+run 100ns
+run -all
+# ** Note: $stop    : /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_receive.v(66)
+#    Time: 7905 ns  Iteration: 0  Instance: /t_receive
+# Break in Module t_receive at /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_receive.v line 66
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.t_receive(fast)
+# Loading work.Receive(fast)
+quit -sim
+# End time: 18:03:30 on Sep 09,2025, Elapsed time: 0:09:54
+# Errors: 0, Warnings: 2
+vsim -voptargs=+acc work.t_receive
+# vsim -voptargs="+acc" work.t_receive 
+# Start time: 18:03:45 on Sep 09,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.t_receive(fast)
+# Loading work.Receive(fast)
+run -all
+# ** Note: $stop    : /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_receive.v(66)
+#    Time: 7905 ns  Iteration: 0  Instance: /t_receive
+# Break in Module t_receive at /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_receive.v line 66
+add wave  \
+sim:/t_receive/ExpectedDataOut \
+sim:/t_receive/DataOut \
+sim:/t_receive/Clk \
+sim:/t_receive/SerData
+add wave -position insertpoint sim:/t_receive/DUT/*
+add wave -position insertpoint sim:/t_receive/DUT/*
+restart
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.t_receive(fast)
+# Loading work.Receive(fast)
+vsim -voptargs=+acc work.t_receive
+# End time: 18:08:43 on Sep 09,2025, Elapsed time: 0:04:58
+# Errors: 0, Warnings: 1
+# vsim -voptargs="+acc" work.t_receive 
+# Start time: 18:08:43 on Sep 09,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.t_receive(fast)
+# Loading work.Receive(fast)
+add wave -position insertpoint sim:/t_receive/DUT/*
+add wave -position insertpoint sim:/t_receive/DUT/*
+run
+# Causality operation skipped due to absence of debug database file
+quit -sim
+# End time: 18:13:42 on Sep 09,2025, Elapsed time: 0:04:59
+# Errors: 0, Warnings: 1
+vsim -voptargs=+acc work.t_receive
+# vsim -voptargs="+acc" work.t_receive 
+# Start time: 18:13:58 on Sep 09,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.t_receive(fast)
+# Loading work.Receive(fast)
+add wave -position insertpoint sim:/t_receive/DUT/*
+run -all
+# ** Note: $stop    : /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_receive.v(66)
+#    Time: 7905 ns  Iteration: 0  Instance: /t_receive
+# Break in Module t_receive at /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_receive.v line 66
+add wave  \
+sim:/t_receive/ExpectedDataOut \
+sim:/t_receive/DataOut \
+sim:/t_receive/Clk \
+sim:/t_receive/SerData
+run -all
+#  Trace back: bad window path name ".main_pane.wave.interior.cs.body.pw.wf.grid.tmpcolsep2"
+#     while executing
+# "place $grid.tmpcolsep$num -x $xpos -y 0"
+#     (procedure "mtigrid_colsep_motion" line 27)
+#     invoked from within
+# "mtigrid_colsep_motion  .main_pane.wave.interior.cs.body.pw.wf.grid 3 .main_pane.wave.interior.cs.body.pw.wf.grid.colsep3 1 107"
+#     (command bound to event)
+#    <2:/cae/apps/data/mentor-2023/questasim/linux/tk8.6/bgerror.tcl:106: ::tkerror {bad window path name ".main_pane.wave.interior.cs.body.pw.wf.grid.tmpcolsep2"}
+#    <1:eval:1: ::tk::dialog::error::bgerror {bad window path name ".main_pane.wave.interior.cs.body.pw.wf.grid.tmpcolsep2"}
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /filespace/l/lxiao49/ECE551/modelsim/tutorial/wave.do
+# Break key hit
+# Simulation stop requested.
+vsim -voptargs=+acc work.t_receive
+# End time: 18:30:08 on Sep 09,2025, Elapsed time: 0:16:10
+# Errors: 0, Warnings: 1
+# vsim -voptargs="+acc" work.t_receive 
+# Start time: 18:30:08 on Sep 09,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.t_receive(fast)
+# Loading work.Receive(fast)
+add wave  \
+sim:/t_receive/ExpectedDataOut \
+sim:/t_receive/DataOut \
+sim:/t_receive/Clk \
+sim:/t_receive/SerData
+add wave -position insertpoint sim:/t_receive/DUT/*
+run
+run -all
+# ** Note: $stop    : /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_receive.v(66)
+#    Time: 7905 ns  Iteration: 0  Instance: /t_receive
+# Break in Module t_receive at /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_receive.v line 66
+run -all
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /filespace/l/lxiao49/ECE551/modelsim/tutorial/wave.do
+# Break key hit
+# Simulation stop requested.
+quit -sim
+# End time: 18:38:00 on Sep 09,2025, Elapsed time: 0:07:52
+# Errors: 0, Warnings: 1
+vsim -voptargs=+acc work.t_ssp
+# vsim -voptargs="+acc" work.t_ssp 
+# Start time: 18:38:25 on Sep 09,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "Receive(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "transmit(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.t_ssp(fast)
+# Loading work.ssp(fast)
+# Loading work.BusInt(fast)
+# Loading work.Receive(fast)
+# Loading work.transmit(fast)
+add wave -position insertpoint sim:/t_ssp/*
+run -all
+# ** Note: $stop    : /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_ssp.v(105)
+#    Time: 1280505 ns  Iteration: 0  Instance: /t_ssp
+# Break in Module t_ssp at /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_ssp.v line 105
+# End time: 18:48:09 on Sep 09,2025, Elapsed time: 0:09:44
+# Errors: 0, Warnings: 2

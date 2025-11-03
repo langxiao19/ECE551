@@ -1,0 +1,119 @@
+|PWM11_test
+clk => clk.IN4
+RST_n => RST_n.IN1
+inc => inc.IN1
+LED[0] << PWM11:iDUT.PWM1
+LED[1] << <GND>
+LED[2] << PWM11:iDUT.PWM2
+LED[3] << <GND>
+LED[4] << cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+LED[5] << cnt[1].DB_MAX_OUTPUT_PORT_TYPE
+LED[6] << cnt[2].DB_MAX_OUTPUT_PORT_TYPE
+LED[7] << cnt[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|PWM11_test|rst_synch:iRST
+RST_n => ff2.ACLR
+RST_n => ff1.ACLR
+clk => ff2.CLK
+clk => ff1.CLK
+rst_n <= ff2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|PWM11_test|PB_release:iPB
+PB => released.IN1
+PB => ff3.IN0
+clk => ff3.CLK
+clk => ff2.CLK
+clk => ff1.CLK
+rst_n => ff3.IN1
+rst_n => ff3.ACLR
+rst_n => ff2.ACLR
+rst_n => ff1.ACLR
+released <= released.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|PWM11_test|up_dwn_cnt4:iCNT
+en => cnt[0]~reg0.ENA
+en => cnt[3]~reg0.ENA
+en => cnt[2]~reg0.ENA
+en => cnt[1]~reg0.ENA
+dwn => cnt.OUTPUTSELECT
+dwn => cnt.OUTPUTSELECT
+dwn => cnt.OUTPUTSELECT
+dwn => cnt.OUTPUTSELECT
+clk => cnt[0]~reg0.CLK
+clk => cnt[1]~reg0.CLK
+clk => cnt[2]~reg0.CLK
+clk => cnt[3]~reg0.CLK
+rst_n => cnt[0]~reg0.ACLR
+rst_n => cnt[1]~reg0.ACLR
+rst_n => cnt[2]~reg0.ACLR
+rst_n => cnt[3]~reg0.ACLR
+cnt[0] <= cnt[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[1] <= cnt[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[2] <= cnt[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[3] <= cnt[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|PWM11_test|PWM11:iDUT
+clk => PWM2_reg.CLK
+clk => PWM1_reg.CLK
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+clk => cnt[8].CLK
+clk => cnt[9].CLK
+clk => cnt[10].CLK
+rst_n => cnt[0].ACLR
+rst_n => cnt[1].ACLR
+rst_n => cnt[2].ACLR
+rst_n => cnt[3].ACLR
+rst_n => cnt[4].ACLR
+rst_n => cnt[5].ACLR
+rst_n => cnt[6].ACLR
+rst_n => cnt[7].ACLR
+rst_n => cnt[8].ACLR
+rst_n => cnt[9].ACLR
+rst_n => cnt[10].ACLR
+rst_n => PWM1_reg.ACLR
+rst_n => PWM2_reg.ACLR
+duty[0] => LessThan1.IN11
+duty[0] => LessThan2.IN11
+duty[0] => LessThan4.IN15
+duty[1] => LessThan1.IN10
+duty[1] => LessThan2.IN10
+duty[1] => LessThan4.IN14
+duty[2] => LessThan1.IN9
+duty[2] => LessThan2.IN9
+duty[2] => LessThan4.IN13
+duty[3] => LessThan1.IN8
+duty[3] => LessThan2.IN8
+duty[3] => LessThan4.IN12
+duty[4] => LessThan1.IN7
+duty[4] => LessThan2.IN7
+duty[4] => LessThan4.IN11
+duty[5] => LessThan1.IN6
+duty[5] => LessThan2.IN6
+duty[5] => LessThan4.IN10
+duty[6] => LessThan1.IN5
+duty[6] => Add1.IN10
+duty[7] => LessThan1.IN4
+duty[7] => Add1.IN9
+duty[8] => LessThan1.IN3
+duty[8] => Add1.IN8
+duty[9] => LessThan1.IN2
+duty[9] => Add1.IN7
+duty[10] => LessThan1.IN1
+duty[10] => Add1.IN6
+PWM1 <= PWM1_reg.DB_MAX_OUTPUT_PORT_TYPE
+PWM2 <= PWM2_reg.DB_MAX_OUTPUT_PORT_TYPE
+PWM_synch <= WideNor0.DB_MAX_OUTPUT_PORT_TYPE
+ovr_I_blank <= ovr_I_blank.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,137 @@
+m255
+K4
+z2
+!s12c _opt2
+Z0 !s99 nomlopt
+!s12c _opt1
+R0
+!s12c _opt
+R0
+!s11f vlog 2024.3 2024.09, Sep 10 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dI:/ECE551/HW3
+T_opt
+!s110 1760390002
+VSY_UP:SSmETo_iJIMme@Q3
+Z2 04 14 4 work steer_en_SM_tb fast 0
+=1-4cd717936f90-68ed6b70-2ab-3a10
+R0
+Z3 !s12f OEM100
+Z4 !s12b OEM100
+Z5 !s124 OEM10U2 
+Z6 !s135 nogc
+Z7 o-quiet -auto_acc_if_foreign -work work
+Z8 tCvgOpt 0
+n@_opt
+Z9 OL;O;2024.3;79
+R1
+T_opt1
+!s110 1760390224
+VILALX<]H7?A`4BnfN6@>b1
+04 20 4 work steer_en_SM_extra_tb fast 0
+=1-4cd717936f90-68ed6c4e-1c4-3cbc
+R0
+R3
+R4
+R5
+R6
+R7
+R8
+n@_opt1
+R9
+R1
+T_opt2
+!s110 1760392978
+VPDW@>_hSekQc4Xm>e?IR<3
+R2
+=1-4cd717936f90-68ed7710-166-4018
+R0
+R3
+R4
+R5
+R6
+o-quiet -auto_acc_if_foreign -work work +acc
+R8
+n@_opt2
+R9
+vsteer_en_SM
+2I:/ECE551/HW3/steer_en_SM.sv
+Z10 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1760392957
+!i10b 1
+!s100 RN7>FVh^S`n]f`M3kC`lZ0
+I:z@`>@nz:ed<7G::cm9I>2
+S1
+R1
+w1760389837
+8I:/ECE551/HW3/steer_en_SM.sv
+FI:/ECE551/HW3/steer_en_SM.sv
+!i122 2
+L0 1 101
+Z11 VDg1SIo80bB@j0V0VzS_@n1
+Z12 OL;L;2024.3;79
+r1
+!s85 0
+31
+Z13 !s108 1760392957.000000
+!s107 I:/ECE551/HW3/steer_en_SM.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/HW3/steer_en_SM.sv|
+!i113 0
+o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R8
+nsteer_en_@s@m
+vsteer_en_SM_extra_tb
+2steer_en_SM.sv|steer_en_SM_extra_tb.sv
+R10
+!s110 1760390220
+!i10b 1
+!s100 olFA3iYP^STmi`BDF[c`J3
+Iz>c2bCijiH;9a_QRShZcf0
+S1
+R1
+w1760390026
+8steer_en_SM_extra_tb.sv
+Fsteer_en_SM_extra_tb.sv
+!i122 1
+L0 1 78
+R11
+R12
+r1
+!s85 0
+31
+!s108 1760390219.000000
+!s107 steer_en_SM_extra_tb.sv|steer_en_SM.sv|
+!s90 steer_en_SM.sv|steer_en_SM_extra_tb.sv|
+!i113 0
+o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R8
+nsteer_en_@s@m_extra_tb
+vsteer_en_SM_tb
+2I:/ECE551/HW3/steer_en_SM_tb.v
+!s110 1760392958
+!i10b 1
+!s100 mB0X`EGjXTBCc0MQ[O^jH1
+I3EjnNTYYNXa;Yz;aMa<M22
+R1
+w1760389716
+8I:/ECE551/HW3/steer_en_SM_tb.v
+FI:/ECE551/HW3/steer_en_SM_tb.v
+!i122 3
+L0 1 168
+R11
+R12
+r1
+!s85 0
+31
+R13
+!s107 I:/ECE551/HW3/steer_en_SM_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/ECE551/HW3/steer_en_SM_tb.v|
+!i113 0
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R8
+nsteer_en_@s@m_tb

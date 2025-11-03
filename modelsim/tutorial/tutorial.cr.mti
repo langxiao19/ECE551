@@ -1,0 +1,74 @@
+/filespace/l/lxiao49/ECE551/modelsim/tutorial/receive.v {1 {vlog -work work -vopt -stats=none /filespace/l/lxiao49/ECE551/modelsim/tutorial/receive.v
+QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+-- Compiling module Receive
+
+Top level modules:
+	Receive
+
+} {} {}} /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_errors.v {1 {vlog -work work -vopt -stats=none /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_errors.v
+QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+-- Compiling module t_errors
+
+Top level modules:
+	t_errors
+
+} {} {}} /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_transmit.v {1 {vlog -work work -vopt -stats=none /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_transmit.v
+QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+-- Compiling module t_transmit
+
+Top level modules:
+	t_transmit
+
+} {} {}} /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_ssp.v {1 {vlog -work work -vopt -stats=none /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_ssp.v
+QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+-- Compiling module t_ssp
+
+Top level modules:
+	t_ssp
+
+} {} {}} /filespace/l/lxiao49/ECE551/modelsim/tutorial/errors.v {1 {vlog -work work -vopt -stats=none /filespace/l/lxiao49/ECE551/modelsim/tutorial/errors.v
+QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+-- Compiling module mux
+
+Top level modules:
+	mux
+
+} {} {}} /filespace/l/lxiao49/ECE551/modelsim/tutorial/busint.v {1 {vlog -work work -vopt -stats=none /filespace/l/lxiao49/ECE551/modelsim/tutorial/busint.v
+QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+-- Compiling module BusInt
+
+Top level modules:
+	BusInt
+
+} {} {}} /filespace/l/lxiao49/ECE551/modelsim/tutorial/transmit.v {1 {vlog -work work -vopt -stats=none /filespace/l/lxiao49/ECE551/modelsim/tutorial/transmit.v
+QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+-- Compiling module transmit
+
+Top level modules:
+	transmit
+
+} {} {}} /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_receive.v {1 {vlog -work work -vopt -stats=none /filespace/l/lxiao49/ECE551/modelsim/tutorial/t_receive.v
+QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+-- Compiling module t_receive
+
+Top level modules:
+	t_receive
+
+} {} {}} /filespace/l/lxiao49/ECE551/modelsim/tutorial/ssp.v {1 {vlog -work work -vopt -stats=none /filespace/l/lxiao49/ECE551/modelsim/tutorial/ssp.v
+QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+-- Compiling module ssp
+
+Top level modules:
+	ssp
+
+} {} {}} /filespace/l/lxiao49/ECE551/modelsim/tutorial/mux.v {1 {vlog -work work -vopt -stats=none /filespace/l/lxiao49/ECE551/modelsim/tutorial/mux.v
+QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+-- Compiling module mux
+
+Top level modules:
+	mux
+
+} {} {}} {/filespace/l/lxiao49/ECE551/modelsim/tutorial/New File.v} {1 {vlog -work work -vopt -stats=none {/filespace/l/lxiao49/ECE551/modelsim/tutorial/New File.v}
+QuestaSim vlog 2023.2_1 Compiler 2023.05 May 12 2023
+
+} {} {}}

@@ -1,0 +1,9 @@
+BEGIN 1:PID:fast:work
+    prev_ptch_rt :  1:debug_test:fast:work
+    D_term :  1:debug_test:fast:work
+    PID_sum :  1:debug_test:fast:work
+    P_term :  1:debug_test:fast:work
+    d_temp :  1:debug_test:fast:work
+    I_term :  1:debug_test:fast:work
+    integrator :  1:debug_test:fast:work
+END 

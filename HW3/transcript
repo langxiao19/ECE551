@@ -1,0 +1,36 @@
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2024.3 win64 Sep 10 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# vsim -do "add wave -radix binary sim:/steer_en_SM_tb/iDUT/state; add wave -radix binary sim:/steer_en_SM_tb/*; run -all; quit" work.steer_en_SM_tb 
+# Start time: 16:18:14 on Oct 13,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.steer_en_SM_tb(fast)
+# Loading sv_std.std
+# Loading work.steer_en_SM(fast)
+# add wave -radix binary sim:/steer_en_SM_tb/iDUT/state
+#  add wave -radix binary sim:/steer_en_SM_tb/*
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/steer_en_SM_tb/*'.
+#  run -all
+# Yahoo! test passed!
+# 
+# However, We did not test that when in normal mode with
+# 
+# steering enabled you transition to the initial state and
+# 
+# assert rider_off if sum_lt_min occurs.  You should test that
+# 
+# ** Note: $stop    : steer_en_SM_tb.v(157)
+#    Time: 320 ns  Iteration: 1  Instance: /steer_en_SM_tb
+# Break at steer_en_SM_tb.v line 157
+#  quit

@@ -1,0 +1,125 @@
+STEP-BY-STEP INSTRUCTIONS TO DRAW THE STEERING ENABLE STATE MACHINE BUBBLE DIAGRAM
+
+MATERIALS NEEDED:
+- Paper (preferably 8.5" x 11" or larger)
+- Pencil (for initial sketch)
+- Pen or marker (for final lines)
+- Ruler (for straight lines)
+
+STEP 1: DRAW THE THREE STATE BUBBLES
+======================================
+
+1. Draw three circles (bubbles) on your paper:
+   - Position them in a triangle formation
+   - Make each circle about 2-3 inches in diameter
+   - Leave plenty of space between them for arrows and labels
+
+2. Label each bubble:
+   
+   TOP LEFT BUBBLE:
+   - Write "INITIAL" at the top
+   - Write "00" below it (state encoding)
+   - Inside the bubble, write:
+     * rider_off = 1
+     * en_steer = 0  
+     * clr_tmr = 0
+
+   BOTTOM BUBBLE:
+   - Write "WAIT_BALANCE" at the top
+   - Write "01" below it
+   - Inside the bubble, write:
+     * rider_off = 0
+     * en_steer = 0
+     * clr_tmr = 1 (when diff_gt_1_4)
+
+   TOP RIGHT BUBBLE:
+   - Write "STEER_EN" at the top
+   - Write "10" below it
+   - Inside the bubble, write:
+     * rider_off = 0
+     * en_steer = 1
+     * clr_tmr = 0
+
+STEP 2: DRAW THE TRANSITION ARROWS
+==================================
+
+1. INITIAL → WAIT_BALANCE:
+   - Draw arrow from INITIAL bubble to WAIT_BALANCE bubble
+   - Label the arrow: "sum_gt_min"
+
+2. WAIT_BALANCE → INITIAL:
+   - Draw arrow from WAIT_BALANCE bubble back to INITIAL bubble
+   - Label the arrow: "sum_lt_min"
+
+3. WAIT_BALANCE → STEER_EN:
+   - Draw arrow from WAIT_BALANCE bubble to STEER_EN bubble
+   - Label the arrow: "tmr_full & !diff_gt_1_4"
+
+4. STEER_EN → INITIAL:
+   - Draw arrow from STEER_EN bubble to INITIAL bubble
+   - Label the arrow: "sum_lt_min" 
+   - Add note: "(highest priority)"
+
+5. STEER_EN → WAIT_BALANCE:
+   - Draw arrow from STEER_EN bubble to WAIT_BALANCE bubble
+   - Label the arrow: "diff_gt_15_16"
+
+STEP 3: ADD SPECIAL ANNOTATIONS
+===============================
+
+1. Add a "RESET" arrow:
+   - Draw an arrow pointing to the INITIAL bubble from outside
+   - Label it: "rst_n (reset)"
+
+2. Add timing information:
+   - Next to the timer: "1.3 sec timer"
+   - Note: "50MHz clock, 1.3 sec = 65M clock cycles"
+
+3. Add priority note:
+   - Near STEER_EN state, write: "sum_lt_min has priority over diff_gt_15_16"
+
+STEP 4: ADD TITLE AND LEGEND
+============================
+
+1. At the top of the page, write:
+   "STEERING ENABLE STATE MACHINE"
+
+2. Create a legend box showing:
+   - State encoding: 00, 01, 10
+   - Input signals: sum_gt_min, sum_lt_min, diff_gt_1_4, diff_gt_15_16, tmr_full
+   - Output signals: clr_tmr, en_steer, rider_off
+
+STEP 5: FINAL TOUCHES
+====================
+
+1. Make sure all arrows are clearly pointing in the right direction
+2. Use different line styles if helpful:
+   - Solid lines for normal transitions
+   - Dashed lines for high-priority transitions
+3. Add your name and date
+4. Circle or highlight the initial state (INITIAL)
+
+DRAWING TIPS:
+=============
+
+- Start with pencil, then trace over with pen
+- Keep bubbles evenly spaced
+- Use curved arrows to avoid overlapping
+- Write small but legibly
+- If space is tight, use abbreviations:
+  - "r_off" instead of "rider_off"
+  - "en_str" instead of "en_steer"
+  - "clr_t" instead of "clr_tmr"
+
+FINAL CHECK:
+============
+
+Your diagram should show:
+✓ Three clearly labeled states
+✓ All five transition arrows with conditions
+✓ Output signals for each state
+✓ Reset condition
+✓ Priority relationships
+✓ Clean, readable layout
+
+This diagram represents the complete state machine that controls when steering is enabled on the Segway based on rider presence and balance conditions!

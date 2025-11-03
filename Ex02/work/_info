@@ -1,0 +1,131 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+Z2 !s12c _opt1
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R0
+R1
+!s11f vlog 2024.3 2024.09, Sep 10 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 dC:/WINDOWS/system32
+T_opt
+!s110 1757346999
+V@J[EAfX7@KMTmn@54kLlY0
+Z4 04 8 4 work test_ex2 fast 0
+=1-4cd71794e509-68befcb4-1fe-1a64
+R1
+Z5 !s12f OEM100
+Z6 !s12b OEM100
+Z7 !s124 OEM10U2 
+Z8 !s135 nogc
+o-quiet -auto_acc_if_foreign -work work
+Z9 tCvgOpt 0
+n@_opt
+Z10 OL;O;2024.3;79
+T_opt1
+!s110 1757346138
+VViP1XIQ2kh7O]`gzSBWBL0
+R4
+=1-4cd71794e509-68bef958-250-25a8
+R1
+R5
+R6
+R7
+R8
+o-quiet -auto_acc_if_foreign -work work +acc
+R9
+n@_opt1
+R10
+R3
+vbasic_test_bench
+Z11 2I:/ECE551/Ex02/test_ex2.sv
+Z12 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1757346978
+!i10b 1
+!s100 HIcHVB=1OTaLIPE_7FzA_2
+IZN81P5;`H7Qg?m75BEbln0
+S1
+Z13 dI:/ECE551/Ex02
+w1757346911
+Z14 8I:/ECE551/Ex02/test_ex2.sv
+Z15 FI:/ECE551/Ex02/test_ex2.sv
+!i122 9
+L0 1 35
+Z16 VDg1SIo80bB@j0V0VzS_@n1
+Z17 OL;L;2024.3;79
+r1
+!s85 0
+31
+!s108 1757346978.000000
+Z18 !s107 I:/ECE551/Ex02/test_ex2.sv|
+Z19 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/Ex02/test_ex2.sv|
+!i113 0
+Z20 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R9
+vtest_ex2
+R11
+R12
+!s110 1757345412
+!i10b 1
+!s100 @TfS[dha_T0C=IzAP449H1
+I1<X6S<Qo@SCoCN<zI:_781
+S1
+R13
+w1757345403
+R14
+R15
+!i122 2
+L0 3 29
+R16
+R17
+r1
+!s85 0
+31
+!s108 1757345412.000000
+R18
+R19
+!i113 0
+R20
+R9
+vtop
+2I:/ECE551/Ex02/ex2.sv
+R12
+!s110 1757346121
+!i10b 1
+!s100 A2F1GKNJ5Y@j>QUDHihQ`1
+Ieg?fE;B97aNPDmk887g=S3
+S1
+R13
+w1757346114
+8I:/ECE551/Ex02/ex2.sv
+FI:/ECE551/Ex02/ex2.sv
+!i122 7
+L0 3 17
+R16
+R17
+r1
+!s85 0
+31
+!s108 1757346120.000000
+!s107 I:/ECE551/Ex02/ex2.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/Ex02/ex2.sv|
+!i113 0
+R20
+R9

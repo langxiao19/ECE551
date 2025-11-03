@@ -1,0 +1,85 @@
+# Synthesis script for balance_cntrl module
+# Exercise 18 - ECE 551
+# Author: [Your Name]
+# Date: October 29, 2025
+
+# Echo commands for debugging
+echo "Starting synthesis of balance_cntrl module..."
+
+# Remove any previous designs
+remove_design -all
+
+# Read in the SystemVerilog files (children first, then parent)
+echo "Reading SystemVerilog files..."
+read_file -format sverilog {PID.sv SegwayMath.sv balance_cntrl.sv}
+
+# Set the current design to the top level module
+echo "Setting current design and linking..."
+set current_design balance_cntrl
+
+# Link the design to resolve hierarchy
+link
+
+# Set up timing constraints
+echo "Setting up timing constraints..."
+
+# Create a 125MHz clock (period = 8ns)
+create_clock -name clk -period 8.0 [get_ports clk]
+
+# Set don't touch on clock network
+set_dont_touch_network [get_clocks clk]
+
+# Set input delays of 0.3ns on all inputs except clock
+echo "Setting input constraints..."
+set_input_delay 0.3 [remove_from_collection [all_inputs] [get_ports clk]]
+
+# Set drive strength equivalent to NAND2X2_RVT for all inputs except clk and rst_n
+set_driving_cell -lib_cell NAND2X2_RVT [remove_from_collection [all_inputs] [get_ports {clk rst_n}]]
+
+# Set output delay of 0.75ns on all outputs
+echo "Setting output constraints..."
+set_output_delay 0.75 [all_outputs]
+
+# Set 50fF load on all outputs (convert from fF to pF: 50fF = 0.05pF)
+set_load 0.05 [all_outputs]
+
+# Set max transition time of 0.15ns on all nodes
+echo "Setting design constraints..."
+set_max_transition 0.15 [current_design]
+
+# Set wire load model for 16000 sq microns block size
+# Use Synopsys 32nm wire load model
+echo "Setting wire load model..."
+set_wire_load_mode top
+set_wire_load_model "16000"
+
+# First compilation
+echo "Performing first compilation..."
+compile
+
+# Flatten the design to remove hierarchy
+echo "Flattening design..."
+ungroup -all -flatten
+
+# Second compilation after flattening
+echo "Performing second compilation..."
+compile
+
+# Generate reports
+echo "Generating timing and area reports..."
+report_timing -delay min > min_delay.txt
+report_timing -delay max > max_delay.txt
+report_area > area.txt
+
+# Write out the gate level verilog netlist
+echo "Writing gate-level netlist..."
+write -format verilog -hierarchy -output balance_cntrl.vg
+
+echo "Synthesis complete! Files generated:"
+echo "  - min_delay.txt (minimum delay report)"
+echo "  - max_delay.txt (maximum delay report)" 
+echo "  - area.txt (area report)"
+echo "  - balance_cntrl.vg (gate-level netlist)"
+
+# Exit dc_shell
+exit

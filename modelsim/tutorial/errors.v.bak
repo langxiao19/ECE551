@@ -1,0 +1,8 @@
+module mux(i0, i1, sel);
+  input i0, i1, sel;
+  output o;
+  
+  always@(i0, i1, sel) begin
+    o = sel ? i1 : i0;
+  end
+endmodule

@@ -1,0 +1,9 @@
+# vsim -c Auth_blk_simple_tb -do "run -all; quit" 
+# Start time: 17:43:12 on Nov 02,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: (vopt-11) Could not find work.Auth_blk_simple_tb.
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# End time: 17:43:14 on Nov 02,2025, Elapsed time: 0:00:02
+# Errors: 1, Warnings: 0

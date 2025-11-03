@@ -1,0 +1,10 @@
+Tue Sep 09 18:21:44 CDT 2025
+Trace back: bad window path name ".main_pane.wave.interior.cs.body.pw.wf.grid.tmpcolsep2"
+    while executing
+"place $grid.tmpcolsep$num -x $xpos -y 0"
+    (procedure "mtigrid_colsep_motion" line 27)
+    invoked from within
+"mtigrid_colsep_motion  .main_pane.wave.interior.cs.body.pw.wf.grid 3 .main_pane.wave.interior.cs.body.pw.wf.grid.colsep3 1 107"
+    (command bound to event)
+  <2:/cae/apps/data/mentor-2023/questasim/linux/tk8.6/bgerror.tcl:106: ::tkerror {bad window path name ".main_pane.wave.interior.cs.body.pw.wf.grid.tmpcolsep2"}
+  <1:eval:1: ::tk::dialog::error::bgerror {bad window path name ".main_pane.wave.interior.cs.body.pw.wf.grid.tmpcolsep2"}

@@ -1,0 +1,41 @@
+# vsim -c work.SPI_mnrch_tb -do "run -all; quit -f" 
+# Start time: 19:25:48 on Nov 02,2025
+# Loading sv_std.std
+# Loading work.SPI_mnrch_tb
+# Loading work.SPI_mnrch
+# Loading work.SPI_iNEMO1
+# run -all
+# ==============================================
+# Starting SPI Monarch Testbench
+# ==============================================
+# 
+# TEST 1: Reading WHO_AM_I register at 0x0F
+# Sending: 0x8Fxx (read from address 0x0F)
+# ✓ PASS: WHO_AM_I returned 0x6a (expected 0x6A)
+# 
+# TEST 2: Writing to INT config register at 0x0D
+# Sending: 0x0D02 (write 0x02 to address 0x0D)
+# ✓ PASS: NEMO_setup asserted after INT config write
+# 
+# TEST 3: Waiting for INT assertion...
+# INT asserted! Reading ptchL register at 0xA2
+# ✓ PASS: ptchL returned 0x63 (expected 0x63)
+# ✓ PASS: INT cleared after ptchL read
+# 
+# TEST 4: Reading ptchH register at 0xA3
+# ✓ PASS: ptchH returned 0x56 (expected 0x56)
+# 
+# TEST 5: Waiting for second INT assertion...
+# Second INT asserted! Reading ptchL register
+# ✓ PASS: Second ptchL returned 0x0d (expected 0x0d)
+# 
+# ==============================================
+# ALL TESTS PASSED!
+# ==============================================
+# ** Note: $stop    : SPI_mnrch_tb.sv(236)
+#    Time: 671790 ps  Iteration: 1  Instance: /SPI_mnrch_tb
+# Break in Module SPI_mnrch_tb at SPI_mnrch_tb.sv line 236
+# Stopped at SPI_mnrch_tb.sv line 236
+#  quit -f
+# End time: 19:25:49 on Nov 02,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

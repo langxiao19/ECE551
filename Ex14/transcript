@@ -1,0 +1,355 @@
+# vsim -c -do "run -all; quit" work.UART_tb 
+# Start time: 21:17:06 on Oct 13,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-31) Unable to unlink file "I:/ECE551/Ex14/work/@_opt/_lib.qdb".
+# ** Warning: (vopt-31) Unable to unlink file "I:/ECE551/Ex14/work/@_opt/_lib3_0.qdb".
+# The process cannot access the file because it is being used by another process. (GetLastError() = 32)
+# ** Warning: (vopt-31) Unable to unlink file "I:/ECE551/Ex14/work/@_opt/_lib3_0.qpg".
+# The process cannot access the file because it is being used by another process. (GetLastError() = 32)
+# ** Warning: (vopt-31) Unable to unlink file "I:/ECE551/Ex14/work/@_opt/_lib3_0.qtl".
+# The process cannot access the file because it is being used by another process. (GetLastError() = 32)
+# ** Warning: (vopt-133) Unable to remove directory "I:/ECE551/Ex14/work/@_opt".
+# init_auxdbinfo(): INTERNAL ERROR: Cannot open page file "I:/ECE551/Ex14/work/@_opt/_lib1_0.qpg" in read mode
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=5.
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2024.3 win64 Sep 10 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.UART_tb(fast)
+# run -all
+# Time: 0 | TX: 1 | rdy: 0 | rx_data: 0x00 | receiving: 0
+# === UART Receiver Testbench ===
+# Testing UART RX with loopback from UART TX
+# Baud rate: 9600, Clock: 50MHz
+# Expected bit time: 5208 clocks (104.16us)
+# 
+# Test 1: Single byte transmission (0x55)
+#   Transmitting byte: 0x55
+# Time: 330 | TX: 0 | rdy: 0 | rx_data: 0x00 | receiving: 0
+# Time: 370 | TX: 0 | rdy: 0 | rx_data: 0x00 | receiving: 1
+# Time: 104490 | TX: 1 | rdy: 0 | rx_data: 0x00 | receiving: 1
+# Time: 105570 | TX: 1 | rdy: 0 | rx_data: 0x01 | receiving: 1
+# Time: 208650 | TX: 0 | rdy: 0 | rx_data: 0x01 | receiving: 1
+# Time: 312810 | TX: 1 | rdy: 0 | rx_data: 0x01 | receiving: 1
+# Time: 315970 | TX: 1 | rdy: 0 | rx_data: 0x05 | receiving: 1
+# Time: 416970 | TX: 0 | rdy: 0 | rx_data: 0x05 | receiving: 1
+# Time: 521130 | TX: 1 | rdy: 0 | rx_data: 0x05 | receiving: 1
+# Time: 526370 | TX: 1 | rdy: 0 | rx_data: 0x15 | receiving: 1
+# Time: 625290 | TX: 0 | rdy: 0 | rx_data: 0x15 | receiving: 1
+# Time: 729450 | TX: 1 | rdy: 0 | rx_data: 0x15 | receiving: 1
+# Time: 736770 | TX: 1 | rdy: 0 | rx_data: 0x55 | receiving: 1
+# Time: 833610 | TX: 0 | rdy: 0 | rx_data: 0x55 | receiving: 1
+#   Transmission complete
+# Time: 937770 | TX: 1 | rdy: 0 | rx_data: 0x55 | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 1 - Expected: 0x55, Received: 0x55
+# Time: 947170 | TX: 1 | rdy: 1 | rx_data: 0x55 | receiving: 0
+# Time: 947210 | TX: 1 | rdy: 0 | rx_data: 0x55 | receiving: 0
+# Test 2: Multiple byte transmissions
+#   Transmitting byte: 0xaa
+# Time: 948270 | TX: 0 | rdy: 0 | rx_data: 0x55 | receiving: 0
+# Time: 948310 | TX: 0 | rdy: 0 | rx_data: 0x55 | receiving: 1
+# Time: 1053510 | TX: 0 | rdy: 0 | rx_data: 0x54 | receiving: 1
+# Time: 1156590 | TX: 1 | rdy: 0 | rx_data: 0x54 | receiving: 1
+# Time: 1158710 | TX: 1 | rdy: 0 | rx_data: 0x56 | receiving: 1
+# Time: 1260750 | TX: 0 | rdy: 0 | rx_data: 0x56 | receiving: 1
+# Time: 1263910 | TX: 0 | rdy: 0 | rx_data: 0x52 | receiving: 1
+# Time: 1364910 | TX: 1 | rdy: 0 | rx_data: 0x52 | receiving: 1
+# Time: 1369110 | TX: 1 | rdy: 0 | rx_data: 0x5a | receiving: 1
+# Time: 1469070 | TX: 0 | rdy: 0 | rx_data: 0x5a | receiving: 1
+# Time: 1474310 | TX: 0 | rdy: 0 | rx_data: 0x4a | receiving: 1
+# Time: 1573230 | TX: 1 | rdy: 0 | rx_data: 0x4a | receiving: 1
+# Time: 1579510 | TX: 1 | rdy: 0 | rx_data: 0x6a | receiving: 1
+# Time: 1677390 | TX: 0 | rdy: 0 | rx_data: 0x6a | receiving: 1
+# Time: 1684710 | TX: 0 | rdy: 0 | rx_data: 0x2a | receiving: 1
+# Time: 1781550 | TX: 1 | rdy: 0 | rx_data: 0x2a | receiving: 1
+# Time: 1789910 | TX: 1 | rdy: 0 | rx_data: 0xaa | receiving: 1
+#   Transmission complete
+#   Byte received, rdy asserted
+#   PASS: Test 2 - Expected: 0xaa, Received: 0xaa
+# Time: 1895110 | TX: 1 | rdy: 1 | rx_data: 0xaa | receiving: 0
+# Time: 1895150 | TX: 1 | rdy: 0 | rx_data: 0xaa | receiving: 0
+#   Transmitting byte: 0x00
+# Time: 1896210 | TX: 0 | rdy: 0 | rx_data: 0xaa | receiving: 0
+# Time: 1896250 | TX: 0 | rdy: 0 | rx_data: 0xaa | receiving: 1
+# Time: 2106650 | TX: 0 | rdy: 0 | rx_data: 0xa8 | receiving: 1
+# Time: 2317050 | TX: 0 | rdy: 0 | rx_data: 0xa0 | receiving: 1
+# Time: 2527450 | TX: 0 | rdy: 0 | rx_data: 0x80 | receiving: 1
+# Time: 2737850 | TX: 0 | rdy: 0 | rx_data: 0x00 | receiving: 1
+#   Transmission complete
+# Time: 2833650 | TX: 1 | rdy: 0 | rx_data: 0x00 | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 3 - Expected: 0x00, Received: 0x00
+# Time: 2843050 | TX: 1 | rdy: 1 | rx_data: 0x00 | receiving: 0
+# Time: 2843090 | TX: 1 | rdy: 0 | rx_data: 0x00 | receiving: 0
+#   Transmitting byte: 0xff
+# Time: 2844150 | TX: 0 | rdy: 0 | rx_data: 0x00 | receiving: 0
+# Time: 2844190 | TX: 0 | rdy: 0 | rx_data: 0x00 | receiving: 1
+# Time: 2948310 | TX: 1 | rdy: 0 | rx_data: 0x00 | receiving: 1
+# Time: 2949390 | TX: 1 | rdy: 0 | rx_data: 0x01 | receiving: 1
+# Time: 3054590 | TX: 1 | rdy: 0 | rx_data: 0x03 | receiving: 1
+# Time: 3159790 | TX: 1 | rdy: 0 | rx_data: 0x07 | receiving: 1
+# Time: 3264990 | TX: 1 | rdy: 0 | rx_data: 0x0f | receiving: 1
+# Time: 3370190 | TX: 1 | rdy: 0 | rx_data: 0x1f | receiving: 1
+# Time: 3475390 | TX: 1 | rdy: 0 | rx_data: 0x3f | receiving: 1
+# Time: 3580590 | TX: 1 | rdy: 0 | rx_data: 0x7f | receiving: 1
+# Time: 3685790 | TX: 1 | rdy: 0 | rx_data: 0xff | receiving: 1
+#   Transmission complete
+#   Byte received, rdy asserted
+#   PASS: Test 4 - Expected: 0xff, Received: 0xff
+# Time: 3790990 | TX: 1 | rdy: 1 | rx_data: 0xff | receiving: 0
+# Time: 3791030 | TX: 1 | rdy: 0 | rx_data: 0xff | receiving: 0
+#   Transmitting byte: 0x5a
+# Time: 3792090 | TX: 0 | rdy: 0 | rx_data: 0xff | receiving: 0
+# Time: 3792130 | TX: 0 | rdy: 0 | rx_data: 0xff | receiving: 1
+# Time: 3897330 | TX: 0 | rdy: 0 | rx_data: 0xfe | receiving: 1
+# Time: 4000410 | TX: 1 | rdy: 0 | rx_data: 0xfe | receiving: 1
+# Time: 4104570 | TX: 0 | rdy: 0 | rx_data: 0xfe | receiving: 1
+# Time: 4107730 | TX: 0 | rdy: 0 | rx_data: 0xfa | receiving: 1
+# Time: 4208730 | TX: 1 | rdy: 0 | rx_data: 0xfa | receiving: 1
+# Time: 4417050 | TX: 0 | rdy: 0 | rx_data: 0xfa | receiving: 1
+# Time: 4423330 | TX: 0 | rdy: 0 | rx_data: 0xda | receiving: 1
+# Time: 4521210 | TX: 1 | rdy: 0 | rx_data: 0xda | receiving: 1
+# Time: 4625370 | TX: 0 | rdy: 0 | rx_data: 0xda | receiving: 1
+# Time: 4633730 | TX: 0 | rdy: 0 | rx_data: 0x5a | receiving: 1
+#   Transmission complete
+# Time: 4729530 | TX: 1 | rdy: 0 | rx_data: 0x5a | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 5 - Expected: 0x5a, Received: 0x5a
+# Time: 4738930 | TX: 1 | rdy: 1 | rx_data: 0x5a | receiving: 0
+# Time: 4738970 | TX: 1 | rdy: 0 | rx_data: 0x5a | receiving: 0
+# Test 3: Testing clr_rdy functionality
+#   Transmitting byte: 0x3c
+# Time: 4740030 | TX: 0 | rdy: 0 | rx_data: 0x5a | receiving: 0
+# Time: 4740070 | TX: 0 | rdy: 0 | rx_data: 0x5a | receiving: 1
+# Time: 4950470 | TX: 0 | rdy: 0 | rx_data: 0x58 | receiving: 1
+# Time: 5052510 | TX: 1 | rdy: 0 | rx_data: 0x58 | receiving: 1
+# Time: 5055670 | TX: 1 | rdy: 0 | rx_data: 0x5c | receiving: 1
+# Time: 5371270 | TX: 1 | rdy: 0 | rx_data: 0x7c | receiving: 1
+# Time: 5469150 | TX: 0 | rdy: 0 | rx_data: 0x7c | receiving: 1
+# Time: 5476470 | TX: 0 | rdy: 0 | rx_data: 0x3c | receiving: 1
+#   Transmission complete
+# Time: 5677470 | TX: 1 | rdy: 0 | rx_data: 0x3c | receiving: 1
+#   Byte received, rdy asserted
+# PASS: Data correct before clr_rdy: 0x3c
+# Time: 5686870 | TX: 1 | rdy: 1 | rx_data: 0x3c | receiving: 0
+# Time: 5686910 | TX: 1 | rdy: 0 | rx_data: 0x3c | receiving: 0
+# PASS: clr_rdy successfully cleared rdy flag
+# Test 4: Back-to-back transmissions
+#   Transmitting byte: 0x12
+# Time: 5686970 | TX: 0 | rdy: 0 | rx_data: 0x3c | receiving: 0
+# Time: 5687010 | TX: 0 | rdy: 0 | rx_data: 0x3c | receiving: 1
+# Time: 5895290 | TX: 1 | rdy: 0 | rx_data: 0x3c | receiving: 1
+# Time: 5897410 | TX: 1 | rdy: 0 | rx_data: 0x3e | receiving: 1
+# Time: 5999450 | TX: 0 | rdy: 0 | rx_data: 0x3e | receiving: 1
+# Time: 6002610 | TX: 0 | rdy: 0 | rx_data: 0x3a | receiving: 1
+# Time: 6107810 | TX: 0 | rdy: 0 | rx_data: 0x32 | receiving: 1
+# Time: 6207770 | TX: 1 | rdy: 0 | rx_data: 0x32 | receiving: 1
+# Time: 6311930 | TX: 0 | rdy: 0 | rx_data: 0x32 | receiving: 1
+# Time: 6318210 | TX: 0 | rdy: 0 | rx_data: 0x12 | receiving: 1
+#   Transmission complete
+# Time: 6624410 | TX: 1 | rdy: 0 | rx_data: 0x12 | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 6 - Expected: 0x12, Received: 0x12
+# Time: 6633810 | TX: 1 | rdy: 1 | rx_data: 0x12 | receiving: 0
+# Time: 6633850 | TX: 1 | rdy: 0 | rx_data: 0x12 | receiving: 0
+#   Transmitting byte: 0x34
+# Time: 6634910 | TX: 0 | rdy: 0 | rx_data: 0x12 | receiving: 0
+# Time: 6634950 | TX: 0 | rdy: 0 | rx_data: 0x12 | receiving: 1
+# Time: 6845350 | TX: 0 | rdy: 0 | rx_data: 0x10 | receiving: 1
+# Time: 6947390 | TX: 1 | rdy: 0 | rx_data: 0x10 | receiving: 1
+# Time: 6950550 | TX: 1 | rdy: 0 | rx_data: 0x14 | receiving: 1
+# Time: 7051550 | TX: 0 | rdy: 0 | rx_data: 0x14 | receiving: 1
+# Time: 7155710 | TX: 1 | rdy: 0 | rx_data: 0x14 | receiving: 1
+# Time: 7266150 | TX: 1 | rdy: 0 | rx_data: 0x34 | receiving: 1
+# Time: 7364030 | TX: 0 | rdy: 0 | rx_data: 0x34 | receiving: 1
+#   Transmission complete
+# Time: 7572350 | TX: 1 | rdy: 0 | rx_data: 0x34 | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 7 - Expected: 0x34, Received: 0x34
+# Time: 7581750 | TX: 1 | rdy: 1 | rx_data: 0x34 | receiving: 0
+# Time: 7581790 | TX: 1 | rdy: 0 | rx_data: 0x34 | receiving: 0
+# Test 5: Random data patterns
+#   Transmitting byte: 0x24
+# Time: 7582850 | TX: 0 | rdy: 0 | rx_data: 0x34 | receiving: 0
+# Time: 7582890 | TX: 0 | rdy: 0 | rx_data: 0x34 | receiving: 1
+# Time: 7895330 | TX: 1 | rdy: 0 | rx_data: 0x34 | receiving: 1
+# Time: 7999490 | TX: 0 | rdy: 0 | rx_data: 0x34 | receiving: 1
+# Time: 8108890 | TX: 0 | rdy: 0 | rx_data: 0x24 | receiving: 1
+# Time: 8207810 | TX: 1 | rdy: 0 | rx_data: 0x24 | receiving: 1
+# Time: 8311970 | TX: 0 | rdy: 0 | rx_data: 0x24 | receiving: 1
+#   Transmission complete
+# Time: 8520290 | TX: 1 | rdy: 0 | rx_data: 0x24 | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 8 - Expected: 0x24, Received: 0x24
+# Time: 8529690 | TX: 1 | rdy: 1 | rx_data: 0x24 | receiving: 0
+# Time: 8529730 | TX: 1 | rdy: 0 | rx_data: 0x24 | receiving: 0
+#   Transmitting byte: 0x81
+# Time: 8530790 | TX: 0 | rdy: 0 | rx_data: 0x24 | receiving: 0
+# Time: 8530830 | TX: 0 | rdy: 0 | rx_data: 0x24 | receiving: 1
+# Time: 8634950 | TX: 1 | rdy: 0 | rx_data: 0x24 | receiving: 1
+# Time: 8636030 | TX: 1 | rdy: 0 | rx_data: 0x25 | receiving: 1
+# Time: 8739110 | TX: 0 | rdy: 0 | rx_data: 0x25 | receiving: 1
+# Time: 8846430 | TX: 0 | rdy: 0 | rx_data: 0x21 | receiving: 1
+# Time: 9162030 | TX: 0 | rdy: 0 | rx_data: 0x01 | receiving: 1
+# Time: 9364070 | TX: 1 | rdy: 0 | rx_data: 0x01 | receiving: 1
+# Time: 9372430 | TX: 1 | rdy: 0 | rx_data: 0x81 | receiving: 1
+#   Transmission complete
+#   Byte received, rdy asserted
+#   PASS: Test 9 - Expected: 0x81, Received: 0x81
+# Time: 9477630 | TX: 1 | rdy: 1 | rx_data: 0x81 | receiving: 0
+# Time: 9477670 | TX: 1 | rdy: 0 | rx_data: 0x81 | receiving: 0
+#   Transmitting byte: 0x09
+# Time: 9478730 | TX: 0 | rdy: 0 | rx_data: 0x81 | receiving: 0
+# Time: 9478770 | TX: 0 | rdy: 0 | rx_data: 0x81 | receiving: 1
+# Time: 9582890 | TX: 1 | rdy: 0 | rx_data: 0x81 | receiving: 1
+# Time: 9687050 | TX: 0 | rdy: 0 | rx_data: 0x81 | receiving: 1
+# Time: 9895370 | TX: 1 | rdy: 0 | rx_data: 0x81 | receiving: 1
+# Time: 9899570 | TX: 1 | rdy: 0 | rx_data: 0x89 | receiving: 1
+# Time: 9999530 | TX: 0 | rdy: 0 | rx_data: 0x89 | receiving: 1
+# Time: 10320370 | TX: 0 | rdy: 0 | rx_data: 0x09 | receiving: 1
+#   Transmission complete
+# Time: 10416170 | TX: 1 | rdy: 0 | rx_data: 0x09 | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 10 - Expected: 0x09, Received: 0x09
+# Time: 10425570 | TX: 1 | rdy: 1 | rx_data: 0x09 | receiving: 0
+# Time: 10425610 | TX: 1 | rdy: 0 | rx_data: 0x09 | receiving: 0
+#   Transmitting byte: 0x63
+# Time: 10426670 | TX: 0 | rdy: 0 | rx_data: 0x09 | receiving: 0
+# Time: 10426710 | TX: 0 | rdy: 0 | rx_data: 0x09 | receiving: 1
+# Time: 10530830 | TX: 1 | rdy: 0 | rx_data: 0x09 | receiving: 1
+# Time: 10637110 | TX: 1 | rdy: 0 | rx_data: 0x0b | receiving: 1
+# Time: 10739150 | TX: 0 | rdy: 0 | rx_data: 0x0b | receiving: 1
+# Time: 10847510 | TX: 0 | rdy: 0 | rx_data: 0x03 | receiving: 1
+# Time: 11051630 | TX: 1 | rdy: 0 | rx_data: 0x03 | receiving: 1
+# Time: 11057910 | TX: 1 | rdy: 0 | rx_data: 0x23 | receiving: 1
+# Time: 11163110 | TX: 1 | rdy: 0 | rx_data: 0x63 | receiving: 1
+# Time: 11259950 | TX: 0 | rdy: 0 | rx_data: 0x63 | receiving: 1
+#   Transmission complete
+# Time: 11364110 | TX: 1 | rdy: 0 | rx_data: 0x63 | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 11 - Expected: 0x63, Received: 0x63
+# Time: 11373510 | TX: 1 | rdy: 1 | rx_data: 0x63 | receiving: 0
+# Time: 11373550 | TX: 1 | rdy: 0 | rx_data: 0x63 | receiving: 0
+#   Transmitting byte: 0x0d
+# Time: 11374610 | TX: 0 | rdy: 0 | rx_data: 0x63 | receiving: 0
+# Time: 11374650 | TX: 0 | rdy: 0 | rx_data: 0x63 | receiving: 1
+# Time: 11478770 | TX: 1 | rdy: 0 | rx_data: 0x63 | receiving: 1
+# Time: 11582930 | TX: 0 | rdy: 0 | rx_data: 0x63 | receiving: 1
+# Time: 11585050 | TX: 0 | rdy: 0 | rx_data: 0x61 | receiving: 1
+# Time: 11687090 | TX: 1 | rdy: 0 | rx_data: 0x61 | receiving: 1
+# Time: 11690250 | TX: 1 | rdy: 0 | rx_data: 0x65 | receiving: 1
+# Time: 11795450 | TX: 1 | rdy: 0 | rx_data: 0x6d | receiving: 1
+# Time: 11895410 | TX: 0 | rdy: 0 | rx_data: 0x6d | receiving: 1
+# Time: 12005850 | TX: 0 | rdy: 0 | rx_data: 0x4d | receiving: 1
+# Time: 12111050 | TX: 0 | rdy: 0 | rx_data: 0x0d | receiving: 1
+#   Transmission complete
+# Time: 12312050 | TX: 1 | rdy: 0 | rx_data: 0x0d | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 12 - Expected: 0x0d, Received: 0x0d
+# Time: 12321450 | TX: 1 | rdy: 1 | rx_data: 0x0d | receiving: 0
+# Time: 12321490 | TX: 1 | rdy: 0 | rx_data: 0x0d | receiving: 0
+#   Transmitting byte: 0x8d
+# Time: 12322550 | TX: 0 | rdy: 0 | rx_data: 0x0d | receiving: 0
+# Time: 12322590 | TX: 0 | rdy: 0 | rx_data: 0x0d | receiving: 1
+# Time: 12426710 | TX: 1 | rdy: 0 | rx_data: 0x0d | receiving: 1
+# Time: 12530870 | TX: 0 | rdy: 0 | rx_data: 0x0d | receiving: 1
+# Time: 12635030 | TX: 1 | rdy: 0 | rx_data: 0x0d | receiving: 1
+# Time: 12843350 | TX: 0 | rdy: 0 | rx_data: 0x0d | receiving: 1
+# Time: 13155830 | TX: 1 | rdy: 0 | rx_data: 0x0d | receiving: 1
+# Time: 13164190 | TX: 1 | rdy: 0 | rx_data: 0x8d | receiving: 1
+#   Transmission complete
+#   Byte received, rdy asserted
+#   PASS: Test 13 - Expected: 0x8d, Received: 0x8d
+# Time: 13269390 | TX: 1 | rdy: 1 | rx_data: 0x8d | receiving: 0
+# Time: 13269430 | TX: 1 | rdy: 0 | rx_data: 0x8d | receiving: 0
+#   Transmitting byte: 0x65
+# Time: 13270490 | TX: 0 | rdy: 0 | rx_data: 0x8d | receiving: 0
+# Time: 13270530 | TX: 0 | rdy: 0 | rx_data: 0x8d | receiving: 1
+# Time: 13374650 | TX: 1 | rdy: 0 | rx_data: 0x8d | receiving: 1
+# Time: 13478810 | TX: 0 | rdy: 0 | rx_data: 0x8d | receiving: 1
+# Time: 13582970 | TX: 1 | rdy: 0 | rx_data: 0x8d | receiving: 1
+# Time: 13687130 | TX: 0 | rdy: 0 | rx_data: 0x8d | receiving: 1
+# Time: 13691330 | TX: 0 | rdy: 0 | rx_data: 0x85 | receiving: 1
+# Time: 13895450 | TX: 1 | rdy: 0 | rx_data: 0x85 | receiving: 1
+# Time: 13901730 | TX: 1 | rdy: 0 | rx_data: 0xa5 | receiving: 1
+# Time: 14006930 | TX: 1 | rdy: 0 | rx_data: 0xe5 | receiving: 1
+# Time: 14103770 | TX: 0 | rdy: 0 | rx_data: 0xe5 | receiving: 1
+# Time: 14112130 | TX: 0 | rdy: 0 | rx_data: 0x65 | receiving: 1
+#   Transmission complete
+# Time: 14207930 | TX: 1 | rdy: 0 | rx_data: 0x65 | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 14 - Expected: 0x65, Received: 0x65
+# Time: 14217330 | TX: 1 | rdy: 1 | rx_data: 0x65 | receiving: 0
+# Time: 14217370 | TX: 1 | rdy: 0 | rx_data: 0x65 | receiving: 0
+#   Transmitting byte: 0x12
+# Time: 14218430 | TX: 0 | rdy: 0 | rx_data: 0x65 | receiving: 0
+# Time: 14218470 | TX: 0 | rdy: 0 | rx_data: 0x65 | receiving: 1
+# Time: 14323670 | TX: 0 | rdy: 0 | rx_data: 0x64 | receiving: 1
+# Time: 14426750 | TX: 1 | rdy: 0 | rx_data: 0x64 | receiving: 1
+# Time: 14428870 | TX: 1 | rdy: 0 | rx_data: 0x66 | receiving: 1
+# Time: 14530910 | TX: 0 | rdy: 0 | rx_data: 0x66 | receiving: 1
+# Time: 14534070 | TX: 0 | rdy: 0 | rx_data: 0x62 | receiving: 1
+# Time: 14739230 | TX: 1 | rdy: 0 | rx_data: 0x62 | receiving: 1
+# Time: 14744470 | TX: 1 | rdy: 0 | rx_data: 0x72 | receiving: 1
+# Time: 14843390 | TX: 0 | rdy: 0 | rx_data: 0x72 | receiving: 1
+# Time: 14849670 | TX: 0 | rdy: 0 | rx_data: 0x52 | receiving: 1
+# Time: 14954870 | TX: 0 | rdy: 0 | rx_data: 0x12 | receiving: 1
+#   Transmission complete
+# Time: 15155870 | TX: 1 | rdy: 0 | rx_data: 0x12 | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 15 - Expected: 0x12, Received: 0x12
+# Time: 15165270 | TX: 1 | rdy: 1 | rx_data: 0x12 | receiving: 0
+# Time: 15165310 | TX: 1 | rdy: 0 | rx_data: 0x12 | receiving: 0
+#   Transmitting byte: 0x01
+# Time: 15166370 | TX: 0 | rdy: 0 | rx_data: 0x12 | receiving: 0
+# Time: 15166410 | TX: 0 | rdy: 0 | rx_data: 0x12 | receiving: 1
+# Time: 15270530 | TX: 1 | rdy: 0 | rx_data: 0x12 | receiving: 1
+# Time: 15271610 | TX: 1 | rdy: 0 | rx_data: 0x13 | receiving: 1
+# Time: 15374690 | TX: 0 | rdy: 0 | rx_data: 0x13 | receiving: 1
+# Time: 15376810 | TX: 0 | rdy: 0 | rx_data: 0x11 | receiving: 1
+# Time: 15692410 | TX: 0 | rdy: 0 | rx_data: 0x01 | receiving: 1
+#   Transmission complete
+# Time: 16103810 | TX: 1 | rdy: 0 | rx_data: 0x01 | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 16 - Expected: 0x01, Received: 0x01
+# Time: 16113210 | TX: 1 | rdy: 1 | rx_data: 0x01 | receiving: 0
+# Time: 16113250 | TX: 1 | rdy: 0 | rx_data: 0x01 | receiving: 0
+#   Transmitting byte: 0x0d
+# Time: 16114310 | TX: 0 | rdy: 0 | rx_data: 0x01 | receiving: 0
+# Time: 16114350 | TX: 0 | rdy: 0 | rx_data: 0x01 | receiving: 1
+# Time: 16218470 | TX: 1 | rdy: 0 | rx_data: 0x01 | receiving: 1
+# Time: 16322630 | TX: 0 | rdy: 0 | rx_data: 0x01 | receiving: 1
+# Time: 16426790 | TX: 1 | rdy: 0 | rx_data: 0x01 | receiving: 1
+# Time: 16429950 | TX: 1 | rdy: 0 | rx_data: 0x05 | receiving: 1
+# Time: 16535150 | TX: 1 | rdy: 0 | rx_data: 0x0d | receiving: 1
+# Time: 16635110 | TX: 0 | rdy: 0 | rx_data: 0x0d | receiving: 1
+#   Transmission complete
+# Time: 17051750 | TX: 1 | rdy: 0 | rx_data: 0x0d | receiving: 1
+#   Byte received, rdy asserted
+#   PASS: Test 17 - Expected: 0x0d, Received: 0x0d
+# Time: 17061150 | TX: 1 | rdy: 1 | rx_data: 0x0d | receiving: 0
+# Time: 17061190 | TX: 1 | rdy: 0 | rx_data: 0x0d | receiving: 0
+# 
+# === Test Summary ===
+# Total tests: 17
+# Errors: 0
+# ALL TESTS PASSED!
+# ** Note: $stop    : UART_tb.sv(144)
+#    Time: 17064210 ns  Iteration: 1  Instance: /UART_tb
+# Break at UART_tb.sv line 144
+# Stopped at UART_tb.sv line 144
+#  quit
+# End time: 21:17:12 on Oct 13,2025, Elapsed time: 0:00:06
+# Errors: 0, Warnings: 5

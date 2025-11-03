@@ -1,0 +1,3 @@
+BEGIN 1:SPI_iNEMO1:fast:work
+    shft_reg_rx :  1:SPI_mnrch_simple_tb:fast:work
+END 

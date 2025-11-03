@@ -1,0 +1,245 @@
+m255
+K4
+z2
+!s12c _opt2
+Z0 !s99 nomlopt
+!s12c _opt1
+R0
+Z1 !s12c _opt
+R0
+R1
+R0
+R1
+R0
+!s11f vlog 2024.3 2024.09, Sep 10 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dI:/ECE551/Ex11
+T_opt
+!s110 1760394400
+Vm4zJTNSO;9<CJ4G53aS7V1
+Z3 04 8 4 work PWM11_tb fast 0
+=1-4cd717936f90-68ed7c9e-191-46ec
+R0
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM10U2 
+Z7 !s135 nogc
+Z8 o-quiet -auto_acc_if_foreign -work work
+Z9 tCvgOpt 0
+n@_opt
+Z10 OL;O;2024.3;79
+R2
+T_opt1
+!s110 1760394693
+V8S14n<U@ZSoY6ISLllYjZ1
+04 13 4 work PWM11_test_tb fast 0
+=1-4cd717936f90-68ed7dc4-101-67d8
+R0
+R4
+R5
+!s124 OEM10U6 
+R7
+R8
+R9
+n@_opt1
+R10
+R2
+T_opt2
+!s110 1760394885
+VYNekZ=c3VaNn0^mdmOn^O2
+R3
+=1-4cd717936f90-68ed7e83-373-64b0
+R0
+R4
+R5
+R6
+R7
+o-quiet -auto_acc_if_foreign -work work +acc
+R9
+n@_opt2
+R10
+vPB_release
+Z11 2PWM11_test.sv|up_dwn_cnt4.sv|PB_release.sv|rst_synch.sv
+Z12 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z13 !s110 1760394494
+!i10b 1
+!s100 WeoLXhkh36?bNIolL6;NG3
+I8NPCSXVi:[1mdX8UhJO2m0
+S1
+R2
+w1759332564
+8PB_release.sv
+FPB_release.sv
+!i122 4
+L0 1 37
+Z14 VDg1SIo80bB@j0V0VzS_@n1
+Z15 OL;L;2024.3;79
+r1
+!s85 0
+31
+Z16 !s108 1760394494.000000
+Z17 !s107 rst_synch.sv|PB_release.sv|up_dwn_cnt4.sv|PWM11_test.sv|
+Z18 !s90 PWM11_test.sv|up_dwn_cnt4.sv|PB_release.sv|rst_synch.sv|
+!i113 0
+Z19 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R9
+n@p@b_release
+vPWM11
+2I:/ECE551/Ex11/PWM11.sv
+R12
+!s110 1760394859
+!i10b 1
+!s100 ]@N6Y1]dN>2Z9fHC2CBX=3
+INTA^bbgKaB6FHU1k1R2;V3
+S1
+R2
+w1760394350
+8I:/ECE551/Ex11/PWM11.sv
+FI:/ECE551/Ex11/PWM11.sv
+!i122 7
+L0 1 64
+R14
+R15
+r1
+!s85 0
+31
+!s108 1760394859.000000
+!s107 I:/ECE551/Ex11/PWM11.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/Ex11/PWM11.sv|
+!i113 0
+Z20 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R9
+n@p@w@m11
+vPWM11_tb
+2I:/ECE551/Ex11/PWM11_tb.sv
+R12
+!s110 1760394860
+!i10b 1
+!s100 ;9L_DFeBnSVGJIVmdoYa:2
+I8I2Zfka[lD]6WdN?m`Nb^0
+S1
+R2
+w1760394463
+8I:/ECE551/Ex11/PWM11_tb.sv
+FI:/ECE551/Ex11/PWM11_tb.sv
+!i122 8
+L0 1 49
+R14
+R15
+r1
+!s85 0
+31
+!s108 1760394860.000000
+!s107 I:/ECE551/Ex11/PWM11_tb.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/Ex11/PWM11_tb.sv|
+!i113 0
+R20
+R9
+n@p@w@m11_tb
+vPWM11_test
+R11
+R12
+R13
+!i10b 1
+!s100 aAMk^B^>DhdXE9A63NjJi1
+Ii`23AB;F?5L5P<>l5Nh2Q0
+S1
+R2
+w1759330957
+8PWM11_test.sv
+FPWM11_test.sv
+!i122 4
+L0 1 74
+R14
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R9
+n@p@w@m11_test
+vPWM11_test_tb
+2PWM11_test_tb.sv
+R12
+!s110 1760394682
+!i10b 1
+!s100 _:CYJH50FW@7@c[`3VCXo2
+ICCimN[LRk_:PUcOozH5o91
+S1
+R2
+w1760394631
+8PWM11_test_tb.sv
+FPWM11_test_tb.sv
+!i122 6
+L0 1 59
+R14
+R15
+r1
+!s85 0
+31
+!s108 1760394681.000000
+!s107 PWM11_test_tb.sv|
+!s90 PWM11_test_tb.sv|
+!i113 0
+R19
+R9
+n@p@w@m11_test_tb
+vrst_synch
+R11
+R12
+R13
+!i10b 1
+!s100 5mzf8m:;2?F[D8b?Od5Zo0
+I@_3]D7`HOSAISVLG5U>2`1
+S1
+R2
+w1759332565
+8rst_synch.sv
+Frst_synch.sv
+!i122 4
+L0 1 28
+R14
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R9
+vup_dwn_cnt4
+R11
+R12
+R13
+!i10b 1
+!s100 L017@8BRMC3CPHni=aJU?1
+IClck]D>QRF4C2f>`dh6;43
+S1
+R2
+w1760393686
+8up_dwn_cnt4.sv
+Fup_dwn_cnt4.sv
+!i122 4
+L0 1 27
+R14
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R9

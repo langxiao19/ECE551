@@ -1,0 +1,5 @@
+BEGIN 1:UART_tx:fast:work
+    transmitting :  1:UART_tx_detailed_tb:fast:work
+    bit_cnt :  1:UART_tx_detailed_tb:fast:work
+    baud_cnt :  1:UART_tx_detailed_tb:fast:work
+END 
