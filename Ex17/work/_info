@@ -1,6 +1,7 @@
 m255
 K4
 z2
+!s11f MIXED_VERSIONS
 Z0 !s12c _opt
 Z1 !s99 nomlopt
 R0
@@ -11,7 +12,6 @@ R1
 R1
 R0
 R1
-!s11f vlog 2024.3 2024.09, Sep 10 2024
 13
 !s112 1.1
 !i10d 8192
@@ -33,6 +33,7 @@ o-quiet -auto_acc_if_foreign -work work
 Z8 tCvgOpt 0
 n@_opt
 Z9 OL;O;2024.3;79
+R2
 T_opt1
 !s110 1761579965
 VNiCl8]95MFgW`_]ofL3X51
@@ -49,104 +50,104 @@ n@_opt1
 R9
 R2
 vbalance_cntrl
-2I:/ECE551/Ex17/balance_cntrl.sv
-Z10 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-!s110 1761579943
+Z10 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z11 !s110 1762134910
 !i10b 1
 !s100 ND9Kg4W]jEjDCQHR5FD@P2
-Il=ULLcXl@<cAh_nbb7V<j3
+Z12 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IC^GB[b9Wlm>Rz9<7o711i0
+Z13 VDg1SIo80bB@j0V0VzS_@n1
 S1
-R2
-w1760714973
-8I:/ECE551/Ex17/balance_cntrl.sv
-FI:/ECE551/Ex17/balance_cntrl.sv
-!i122 3
+Z14 dC:/Work/ECE551/Ex17
+Z15 w1762131840
+8C:/Work/ECE551/Ex17/balance_cntrl.sv
+FC:/Work/ECE551/Ex17/balance_cntrl.sv
+!i122 10
 L0 4 48
-Z11 VDg1SIo80bB@j0V0VzS_@n1
-Z12 OL;L;2024.3;79
+Z16 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1761579943.000000
-!s107 I:/ECE551/Ex17/balance_cntrl.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/Ex17/balance_cntrl.sv|
-!i113 0
-Z13 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z17 !s108 1762134910.000000
+!s107 C:/Work/ECE551/Ex17/balance_cntrl.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/Ex17/balance_cntrl.sv|
+!i113 1
+Z18 o-work work -sv
 R8
 vbalance_cntrl_chk_tb
-2balance_cntrl_chk_tb.sv
 R10
-!s110 1761580542
-!i10b 1
-!s100 UXzEWIoKhO]NnDRK`HbZS1
-IQhSVd>VD4NFZiSdd4m9Dn0
-S1
-R2
-w1761580526
-8balance_cntrl_chk_tb.sv
-Fbalance_cntrl_chk_tb.sv
-!i122 9
-L0 4 148
 R11
+!i10b 1
+!s100 Xc7C44ij^S22;LdFz36I?1
 R12
+IGcf2?>3:31^;Y27oKT2g]2
+R13
+S1
+R14
+R15
+8C:/Work/ECE551/Ex17/balance_cntrl_chk_tb.sv
+FC:/Work/ECE551/Ex17/balance_cntrl_chk_tb.sv
+!i122 11
+L0 4 146
+R16
 r1
 !s85 0
 31
-!s108 1761580542.000000
-!s107 balance_cntrl_chk_tb.sv|
-!s90 -work|work|balance_cntrl_chk_tb.sv|
-!i113 0
-o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R17
+!s107 C:/Work/ECE551/Ex17/balance_cntrl_chk_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/Ex17/balance_cntrl_chk_tb.sv|
+!i113 1
+R18
 R8
 vPID
-2I:/ECE551/Ex17/PID.sv
 R10
-!s110 1761579945
+R11
 !i10b 1
 !s100 S8D3SVH9ONNX_aMcV0QA]0
-I6GWfQ[bE;a;CWhAOQCE2o2
-S1
-R2
-w1761579258
-8I:/ECE551/Ex17/PID.sv
-FI:/ECE551/Ex17/PID.sv
-!i122 5
-L0 4 153
-R11
 R12
+IH<BWSF^]jk?]]55l[AHC93
+R13
+S1
+R14
+R15
+8C:/Work/ECE551/Ex17/PID.sv
+FC:/Work/ECE551/Ex17/PID.sv
+!i122 12
+L0 4 153
+R16
 r1
 !s85 0
 31
-!s108 1761579944.000000
-!s107 I:/ECE551/Ex17/PID.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/Ex17/PID.sv|
-!i113 0
-R13
+R17
+!s107 C:/Work/ECE551/Ex17/PID.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/Ex17/PID.sv|
+!i113 1
+R18
 R8
 n@p@i@d
 vSegwayMath
-2I:/ECE551/Ex17/SegwayMath.sv
 R10
-!s110 1761579946
+R11
 !i10b 1
 !s100 lLS`o7V2z9@LSl3@LOF372
-Iin93@kid6c0;77hRY:C0c3
-S1
-R2
-w1758728364
-8I:/ECE551/Ex17/SegwayMath.sv
-FI:/ECE551/Ex17/SegwayMath.sv
-!i122 6
-L0 1 109
-R11
 R12
+IaPkGB0OdcG[mPl:@jIL9N3
+R13
+S1
+R14
+R15
+8C:/Work/ECE551/Ex17/SegwayMath.sv
+FC:/Work/ECE551/Ex17/SegwayMath.sv
+!i122 13
+L0 1 109
+R16
 r1
 !s85 0
 31
-!s108 1761579945.000000
-!s107 I:/ECE551/Ex17/SegwayMath.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/Ex17/SegwayMath.sv|
-!i113 0
-R13
+R17
+!s107 C:/Work/ECE551/Ex17/SegwayMath.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/Ex17/SegwayMath.sv|
+!i113 1
+R18
 R8
 n@segway@math

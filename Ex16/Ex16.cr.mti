@@ -1,4 +1,32 @@
-I:/ECE551/Ex16/SPI_iNEMO1.sv {1 {vlog -work work -vopt -sv -stats=none I:/ECE551/Ex16/SPI_iNEMO1.sv
+C:/Work/ECE551/Ex16/SPI_mnrch_simple_tb.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex16/SPI_mnrch_simple_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SPI_mnrch_simple_tb
+
+Top level modules:
+	SPI_mnrch_simple_tb
+
+} {} {}} C:/Work/ECE551/Ex16/SPI_mnrch.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex16/SPI_mnrch.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SPI_mnrch
+
+Top level modules:
+	SPI_mnrch
+
+} {} {}} C:/Work/ECE551/Ex16/SPI_mnrch_tb.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex16/SPI_mnrch_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SPI_mnrch_tb
+
+Top level modules:
+	SPI_mnrch_tb
+
+} {} {}} C:/Work/ECE551/Ex16/SPI_iNEMO1.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex16/SPI_iNEMO1.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SPI_iNEMO1
+
+Top level modules:
+	SPI_iNEMO1
+
+} {} {}} I:/ECE551/Ex16/SPI_iNEMO1.sv {1 {vlog -work work -vopt -sv -stats=none I:/ECE551/Ex16/SPI_iNEMO1.sv
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
 -- Compiling module SPI_iNEMO1
 
