@@ -1,0 +1,45 @@
+Exercise 19: Gated Clocks - Synthesis Results
+Student: lxiao49
+Date: November 3, 2025
+
+========================================
+ORIGINAL DESIGN (Recirculating Flops)
+========================================
+Total Cell Area:        8367.000000
+Total Dynamic Power:    1.0798 mW
+
+Design uses 2:1 muxes for recirculation on:
+- prod_reg: 32-bit register (enabled by en)
+- accum: 64-bit register (enabled by en_stg2)
+
+========================================
+GATED CLOCK DESIGN
+========================================
+Total Cell Area:        7938.000000
+Total Dynamic Power:    1.0359 mW
+
+Design uses:
+- Enable-low latches to capture enable signals
+- AND gates for clock gating
+- Two gated clocks:
+  * clk_prod_gated for 32-bit prod_reg
+  * clk_accum_gated for 64-bit accum
+
+========================================
+COMPARISON
+========================================
+Area Reduction:     429 units (5.1% improvement)
+Power Reduction:    0.0439 mW (4.1% improvement)
+
+Both designs meet timing requirements.
+
+========================================
+CONCLUSION
+========================================
+Clock gating provides measurable area and power savings by:
+1. Eliminating 2:1 recirculation muxes (replaced with simpler AND gates)
+2. Preventing clock tree toggling when registers are disabled
+3. Reducing switching power in 96 total flip-flops when en=0
+
+The 4-5% savings demonstrate the effectiveness of clock gating
+for registers with low enable duty cycles.

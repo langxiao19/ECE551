@@ -1,0 +1,1235 @@
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+                 Version X-2025.06 for linux64 - May 27, 2025 
+
+                    Copyright (c) 1988 - 2025 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+Current time:       Mon Nov  3 10:51:58 2025
+Hostname:           tux-116
+CPU Model:          11th Gen Intel(R) Core(TM) i5-11600 @ 2.80GHz
+CPU Details:        Cores = 12 : Sockets = 1 : Cache Size = 12288 KB : Freq = 2.09 GHz
+OS:                 Linux 5.10.0-36-amd64
+RAM:                 31 GB (Free  24 GB)
+Swap:                 1 GB (Free   1 GB)
+Work Filesystem:    /filespace/l mounted to files.cae.wisc.edu:/l
+Tmp Filesystem:     / mounted to /dev/mapper/tux--116--vg-root
+Work Disk:           27 GB (Free  24 GB)
+Tmp Disk:           820 GB (Free 819 GB)
+
+CPU Load: 3%, Ram Free: 24 GB, Swap Free: 1 GB, Work Disk Free: 24 GB, Tmp Disk Free: 819 GB
+read_file -format sverilog mult_accum.sv  
+Loading db file '/cae/apps/data/synopsys-2025/syn/X-2025.06/libraries/syn/gtech.db'
+Loading db file '/cae/apps/data/synopsys-2025/syn/X-2025.06/libraries/syn/standard.sldb'
+  Loading link library 'gtech'
+Loading sverilog file '/filespace/l/lxiao49/ECE551/Ex19/mult_accum.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Warning: Can't read link_library file 'your_library.db'. (UID-3)
+Compiling source file /filespace/l/lxiao49/ECE551/Ex19/mult_accum.sv
+
+Inferred memory devices in process in routine 'mult_accum' in file
+	 /filespace/l/lxiao49/ECE551/Ex19/mult_accum.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|    prod_reg_reg     | Flip-flop |  32   |  Y  | N  | None  | None  | N  |  13  |
+|     en_stg2_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  |  20  |
+|      accum_reg      | Flip-flop |  64   |  Y  | N  | None  | None  | N  |  23  |
+==================================================================================
+Presto compilation completed successfully.
+Current design is now '/filespace/l/lxiao49/ECE551/Ex19/mult_accum.db:mult_accum'
+Loaded 1 design.
+Current design is 'mult_accum'.
+mult_accum
+# Set up library paths correctly
+set search_path "/cae/apps/data/synopsys-2025/syn/X-2025.06/libraries/syn"
+/cae/apps/data/synopsys-2025/syn/X-2025.06/libraries/syn
+set target_library "lsi_10k.db"
+lsi_10k.db
+set link_library "* lsi_10k.db"
+* lsi_10k.db
+###################################
+# Set Current Design to top level #
+###################################
+current_design mult_accum
+Current design is 'mult_accum'.
+{mult_accum}
+###########################################
+# Define clock and set don't mess with it #
+###########################################
+create_clock -name "clk" -period 5 -waveform { 0 2.3 }  { clk  }
+Loading db file '/cae/apps/data/synopsys-2025/syn/X-2025.06/libraries/syn/lsi_10k.db'
+1
+set_dont_touch_network [find port clk]
+1
+# setup pointer that contains all inputs except clock #
+set prim_inputs [remove_from_collection [all_input] [find port clk]]
+{clr en A[15] A[14] A[13] A[12] A[11] A[10] A[9] A[8] A[7] A[6] A[5] A[4] A[3] A[2] A[1] A[0] B[15] B[14] B[13] B[12] B[11] B[10] B[9] B[8] B[7] B[6] B[5] B[4] B[3] B[2] B[1] B[0]}
+#########################################
+# Set input delay & drive on all inputs #
+#########################################
+set_input_delay -clock clk 0.75 $prim_inputs 
+1
+set_driving_cell -lib_cell AN2 -library lsi_10k [copy_collection $prim_inputs]
+Warning: Design rule attributes from the driving cell will be set on the port 'clr'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'en'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[15]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[14]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[13]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[12]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[11]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[10]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[9]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[8]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[7]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[6]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[5]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[4]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'A[0]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[15]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[14]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[13]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[12]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[11]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[10]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[9]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[8]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[7]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[6]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[5]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[4]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B[0]'. (UID-401)
+1
+##########################################################
+# Setting activity factor of inputs for power estimation #
+##########################################################
+set_switching_activity -static_probability 0.5 -toggle_rate 0.25 -base_clock clk [copy_collection $prim_inputs]
+1
+set_switching_activity -static_probability 0.1 -toggle_rate 0.1 -base_clock clk [find port en]
+1
+############################################################
+# Set max transition time is important for Hot-E reasons #
+######################################################
+set_max_transition 0.10 [current_design]
+Current design is 'mult_accum'.
+1
+##########################################
+# Set output delay & load on all outputs #
+##########################################
+set_output_delay -clock clk 0.75 [all_outputs]
+1
+set_load 0.05 [all_outputs]
+1
+#############################################################
+# Wire load model allows it to estimate internal parasitics #
+#############################################################
+set_wire_load_model -name "10x10" -library lsi_10k
+1
+########################################
+# Now actually synthesize for 1st time #
+########################################
+compile -map_effort medium
+CPU Load: 3%, Ram Free: 24 GB, Swap Free: 1 GB, Work Disk Free: 24 GB, Tmp Disk Free: 819 GB
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | X-2025.06-DWBB_202506.0 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 109                                    |
+| Number of User Hierarchies                              | 0                                      |
+| Sequential Cell Count                                   | 97                                     |
+| Macro Count                                             | 0                                      |
+| Pad Count                                               | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 8                                      |
+| Number of Dont Touch Nets                               | 1                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with Target Library Subset (with clock_path)     | false  (false )                        |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+Information: There are 2 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'mult_accum'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+Module: DW01_add_width64, Ports: 194, Input: 129, Output: 65, Inout: 0
+Module: DW01_add_width64, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Processing 'mult_accum_DW01_add_0'
+Module: DW02_mult_A_width16_B_width16, Ports: 65, Input: 33, Output: 32, Inout: 0
+Module: DW02_mult_A_width16_B_width16, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Allocating blocks in 'DW02_mult_A_width16_B_width16'
+Module: DW01_MUX, Ports: 4, Input: 3, Output: 1, Inout: 0
+Module: DW01_MUX, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_MUX'
+  Processing 'DW01_MUX'
+Module: DW01_mmux_width2, Ports: 7, Input: 5, Output: 2, Inout: 0
+Module: DW01_mmux_width2, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_mmux_width2'
+  Processing 'DW01_mmux_width2'
+Module: DW01_mmux_width3, Ports: 10, Input: 7, Output: 3, Inout: 0
+Module: DW01_mmux_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_mmux_width3'
+  Processing 'DW01_mmux_width3'
+Module: DW01_mmux_width4, Ports: 13, Input: 9, Output: 4, Inout: 0
+Module: DW01_mmux_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_mmux_width4'
+  Processing 'DW01_mmux_width4'
+Module: DW01_mmux_width5, Ports: 16, Input: 11, Output: 5, Inout: 0
+Module: DW01_mmux_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_mmux_width5'
+  Processing 'DW01_mmux_width5'
+Module: DW01_add_width30, Ports: 92, Input: 61, Output: 31, Inout: 0
+Module: DW01_add_width30, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_NAND2, Ports: 3, Input: 2, Output: 1, Inout: 0
+Module: DW01_NAND2, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_NAND2'
+  Processing 'DW01_NAND2'
+  Building model 'DW01_add_width30' (cla)
+  Processing 'DW01_add_width30'
+Module: DW01_add_width30, Ports: 92, Input: 61, Output: 31, Inout: 0
+Module: DW01_add_width30, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_add_width30' (cla)
+  Processing 'DW01_add_width30'
+  Building model 'DW02_mult_A_width16_B_width16' (csa)
+  Processing 'DW02_mult_A_width16_B_width16'
+  Processing 'mult_accum_DW02_mult_0'
+  Processing 'mult_accum_DW01_add_1'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+Module: DW01_add_width64, Ports: 194, Input: 129, Output: 65, Inout: 0
+Module: DW01_add_width64, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width64, Ports: 194, Input: 129, Output: 65, Inout: 0
+Module: DW01_add_width64, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width30, Ports: 92, Input: 61, Output: 31, Inout: 0
+Module: DW01_add_width30, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Mapping Optimization (Phase 1)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:04    5633.0     36.48    1323.1    1135.1                          
+    0:00:04    5563.0     36.39    1349.8    1142.9                          
+    0:00:04    5563.0     36.39    1349.8    1142.9                          
+    0:00:04    5563.0     36.39    1349.8    1142.9                          
+    0:00:04    5563.0     36.39    1349.8    1142.9                          
+    0:00:04    5154.0     37.15    1339.8    1080.8                          
+    0:00:04    5154.0     37.15    1341.8    1078.3                          
+    0:00:04    5154.0     37.15    1341.8    1078.3                          
+    0:00:04    5154.0     37.15    1341.8    1078.3                          
+    0:00:04    5154.0     37.15    1341.8    1078.3                          
+    0:00:04    5154.0     37.15    1341.8    1078.3                          
+    0:00:05    5347.0     40.26    1415.0     949.3                          
+    0:00:05    5424.0     40.66    1505.8     884.9                          
+    0:00:06    5518.0     41.13    1564.9     824.2                          
+    0:00:06    5553.0     41.39    1605.8     774.5                          
+    0:00:07    5585.0     42.12    1622.3     732.0                          
+    0:00:08    5609.0     42.54    1637.4     707.6                          
+    0:00:08    5629.0     42.54    1644.3     692.7                          
+    0:00:09    5646.0     42.29    1655.7     684.8                          
+    0:00:10    5652.0     42.29    1664.1     679.7                          
+    0:00:10    5652.0     42.29    1664.1     679.7                          
+    0:00:10    5668.0     40.22    1641.3     717.3 prod_reg_reg[27]/D       
+    0:00:10    5685.0     38.92    1621.8     762.2 prod_reg_reg[27]/D       
+    0:00:10    5700.0     38.01    1609.9     795.1 prod_reg_reg[27]/D       
+    0:00:10    5701.0     37.52    1599.5     810.7 prod_reg_reg[29]/D       
+    0:00:10    5689.0     37.16    1596.2     815.0                          
+    0:00:10    5689.0     36.99    1593.7     811.5                          
+    0:00:10    5681.0     36.77    1591.9     807.2                          
+    0:00:10    5687.0     36.63    1590.1     809.7                          
+    0:00:10    5685.0     36.52    1588.5     815.8                          
+    0:00:10    5685.0     36.38    1583.9     820.4                          
+    0:00:10    5682.0     36.22    1581.6     827.2                          
+    0:00:10    5687.0     36.14    1579.4     833.8                          
+    0:00:10    5682.0     36.02    1578.2     839.5                          
+    0:00:10    5681.0     35.87    1576.3     845.3                          
+    0:00:10    5688.0     35.77    1574.9     849.2                          
+    0:00:10    5685.0     35.76    1570.0     850.8                          
+    0:00:10    5682.0     35.75    1569.2     850.0                          
+    0:00:10    5684.0     35.71    1568.7     849.3                          
+    0:00:10    5685.0     35.71    1568.1     852.6                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:10    5685.0     35.71    1568.1     852.6                          
+    0:00:10    5685.0     35.71    1568.1     852.6                          
+    0:00:10    5685.0     35.71    1568.1     852.6                          
+    0:00:10    5701.0     35.61    1566.9     860.2 prod_reg_reg[26]/D       
+    0:00:10    5703.0     35.58    1566.3     860.2 prod_reg_reg[26]/D       
+    0:00:10    5729.0     35.52    1565.8     866.7 prod_reg_reg[29]/D       
+    0:00:10    5741.0     35.46    1564.8     869.2 prod_reg_reg[29]/D       
+    0:00:10    5744.0     35.45    1564.1     873.6 prod_reg_reg[26]/D       
+    0:00:11    5746.0     35.44    1564.0     874.5 prod_reg_reg[26]/D       
+    0:00:11    5747.0     35.44    1564.0     874.4                          
+    0:00:11    5669.0     35.44    1556.2     926.9                          
+
+
+  Beginning Design Rule Fixing  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:11    5669.0     35.44    1556.2     926.9                          
+    0:00:11    5703.0     35.44    1556.2     924.8 mult_15/net5427          
+    0:00:11    5730.0     35.44    1550.2     918.1 mult_15/ab[10][5]        
+    0:00:11    5820.0     35.44    1549.0     906.5 mult_15/ab[2][4]         
+    0:00:11    5965.0     35.44    1549.2     890.9 add_27/net4634           
+    0:00:11    5970.0     35.44    1549.1     890.9 prod_reg_reg[29]/D       
+    0:00:11    5976.0     35.40    1548.9     893.2 prod_reg_reg[29]/D       
+    0:00:12    5977.0     35.40    1548.9     891.7 prod_reg_reg[26]/D       
+    0:00:12    5977.0     35.40    1548.9     890.9 prod_reg_reg[29]/D       
+    0:00:12    5980.0     35.40    1548.9     888.2 mult_15/ab[2][12]        
+    0:00:12    5988.0     35.40    1548.0     884.0 mult_15/net5433          
+    0:00:12    5968.0     35.40    1511.8     875.7 en                       
+    0:00:12    5970.0     35.42    1512.4     874.0 prod_reg_reg[29]/D       
+    0:00:12    5971.0     35.42    1512.4     873.6 prod_reg_reg[29]/D       
+    0:00:12    5970.0     35.42    1512.5     873.5 prod_reg_reg[29]/D       
+    0:00:12    5981.0     35.42    1512.5     869.4 mult_15/net5425          
+    0:00:12    5998.0     35.42    1511.1     861.8 mult_15/net5432          
+    0:00:12    6017.0     35.42    1511.1     853.8 mult_15/net5437          
+    0:00:12    6043.0     35.42    1511.1     843.5                          
+    0:00:12    6055.0     36.47    1532.1     836.5                          
+    0:00:12    6056.0     36.12    1528.5     834.7                          
+    0:00:12    6055.0     36.01    1526.6     832.2                          
+    0:00:12    6061.0     36.01    1526.9     828.4                          
+    0:00:12    6065.0     36.01    1527.4     827.3                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:12    6065.0     36.01    1527.4     827.3                          
+    0:00:12    6065.0     36.01    1527.4     827.3                          
+    0:00:12    5950.0     36.01    1527.1     781.5                          
+    0:00:12    5932.0     36.01    1527.1     779.3                          
+    0:00:12    5922.0     36.01    1527.1     778.7                          
+    0:00:12    5915.0     36.01    1527.1     778.4                          
+    0:00:12    5910.0     36.01    1526.9     778.2                          
+    0:00:12    5910.0     36.01    1526.9     778.2                          
+    0:00:12    5910.0     36.01    1526.9     778.2                          
+    0:00:12    5880.0     36.01    1525.8     773.4                          
+    0:00:12    5878.0     36.01    1525.8     772.2                          
+    0:00:12    5878.0     36.01    1525.8     772.2                          
+    0:00:12    5878.0     36.01    1525.8     772.2                          
+    0:00:12    5878.0     36.01    1525.8     772.2                          
+    0:00:12    5878.0     36.01    1525.8     772.2                          
+    0:00:12    5878.0     36.01    1525.8     772.2                          
+    0:00:12    5878.0     35.88    1523.5     772.1 prod_reg_reg[28]/D       
+    0:00:12    5877.0     35.74    1520.0     771.0 prod_reg_reg[28]/D       
+    0:00:12    5878.0     36.26    1526.2     770.0 prod_reg_reg[29]/D       
+    0:00:12    5877.0     36.26    1526.2     769.1                          
+    0:00:13    5846.0     35.87    1520.3     763.0                          
+    0:00:13    5846.0     35.77    1519.4     762.9                          
+    0:00:13    5852.0     35.67    1519.0     762.4 prod_reg_reg[28]/D       
+    0:00:13    5852.0     35.66    1519.0     762.4 prod_reg_reg[29]/D       
+    0:00:13    5854.0     35.64    1518.9     762.3                          
+Loading db file '/cae/apps/data/synopsys-2025/syn/X-2025.06/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+CPU Load: 4%, Ram Free: 24 GB, Swap Free: 1 GB, Work Disk Free: 24 GB, Tmp Disk Free: 819 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+check_design
+ 
+****************************************
+check_design summary:
+Version:     X-2025.06
+Date:        Mon Nov  3 10:52:11 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     68
+    Unconnected ports (LINT-28)                                    53
+    Feedthrough (LINT-29)                                          15
+
+Cells                                                              55
+    Connected to power or ground (LINT-32)                         51
+    Nets connected to multiple pins on same cell (LINT-33)          4
+--------------------------------------------------------------------------------
+
+Warning: In design 'mult_accum_DW02_mult_0', port 'TC' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[63]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[62]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[61]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[60]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[59]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[58]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[57]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[56]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[55]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[54]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[53]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[52]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[51]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[50]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[49]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[48]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[47]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[46]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[45]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[44]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[43]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[42]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[41]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[40]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[39]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[38]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[37]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[36]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[35]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[34]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[33]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'B[32]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_2', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'A[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[14]' is connected directly to output port 'SUM[14]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[13]' is connected directly to output port 'SUM[13]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[12]' is connected directly to output port 'SUM[12]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[11]' is connected directly to output port 'SUM[11]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[10]' is connected directly to output port 'SUM[10]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[9]' is connected directly to output port 'SUM[9]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[8]' is connected directly to output port 'SUM[8]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[7]' is connected directly to output port 'SUM[7]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[6]' is connected directly to output port 'SUM[6]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[5]' is connected directly to output port 'SUM[5]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[4]' is connected directly to output port 'SUM[4]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'mult_accum_DW01_add_3', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'mult_accum', a pin on submodule 'mult_15' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TC' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[63]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[62]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[61]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[60]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[59]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[58]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[57]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[56]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[55]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[54]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[53]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[52]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[51]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[50]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[49]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[48]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[47]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[46]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[45]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[44]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[43]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[42]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[41]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[40]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[39]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[38]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[37]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[36]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[35]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[34]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[33]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[32]' is connected to logic 0. 
+Warning: In design 'mult_accum', a pin on submodule 'add_27' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'A[29]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[14]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[13]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[12]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[11]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[10]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[9]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[8]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[7]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[6]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[5]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[4]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[3]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[2]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'mult_accum_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'mult_accum', the same net is connected to more than one pin on submodule 'add_27'. (LINT-33)
+   Net 'n1' is connected to pins 'B[63]', 'B[62]'', 'B[61]', 'B[60]', 'B[59]', 'B[58]', 'B[57]', 'B[56]', 'B[55]', 'B[54]', 'B[53]', 'B[52]', 'B[51]', 'B[50]', 'B[49]', 'B[48]', 'B[47]', 'B[46]', 'B[45]', 'B[44]', 'B[43]', 'B[42]', 'B[41]', 'B[40]', 'B[39]', 'B[38]', 'B[37]', 'B[36]', 'B[35]', 'B[34]', 'B[33]', 'B[32]', 'CI'.
+Warning: In design 'mult_accum_DW02_mult_0', the same net is connected to more than one pin on submodule 'FS_1'. (LINT-33)
+   Net 'n253' is connected to pins 'A[29]', 'B[14]''.
+Warning: In design 'mult_accum_DW02_mult_0', the same net is connected to more than one pin on submodule 'FS_1'. (LINT-33)
+   Net 'n254' is connected to pins 'B[13]', 'B[12]'', 'B[11]', 'B[10]', 'B[9]', 'B[8]', 'B[7]', 'B[6]', 'B[5]', 'B[4]', 'B[3]', 'B[2]', 'B[1]'.
+Warning: In design 'mult_accum_DW02_mult_0', the same net is connected to more than one pin on submodule 'FS_1'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'B[0]', 'CI''.
+1
+report_area
+ 
+****************************************
+Report : area
+Design : mult_accum
+Version: X-2025.06
+Date   : Mon Nov  3 10:52:11 2025
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /cae/apps/data/synopsys-2025/syn/X-2025.06/libraries/syn/lsi_10k.db)
+
+Number of ports:                          450
+Number of nets:                          2472
+Number of cells:                         1815
+Number of combinational cells:           1694
+Number of sequential cells:                97
+Number of macros/black boxes:               0
+Number of buf/inv:                        515
+Number of references:                      24
+
+Combinational area:               5082.000000
+Buf/Inv area:                     1052.000000
+Noncombinational area:             772.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  5854.000000
+Total area:                 undefined
+1
+report_timing -path full -delay max
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : mult_accum
+Version: X-2025.06
+Date   : Mon Nov  3 10:52:11 2025
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: A[1] (input port clocked by clk)
+  Endpoint: prod_reg_reg[26]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mult_accum         10x10                 lsi_10k
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.75       0.75 r
+  A[1] (in)                                               1.23       1.98 r
+  mult_15/A[1] (mult_accum_DW02_mult_0)                   0.00       1.98 r
+  mult_15/U552/Z (B4IP)                                   0.46       2.44 f
+  mult_15/U532/Z (NR2P)                                   0.92       3.36 r
+  mult_15/U13/Z2 (B2I)                                    0.68       4.04 r
+  mult_15/U499/Z (EOP)                                    1.15       5.20 f
+  mult_15/S2_2_10/CO (FA1A)                               1.14       6.34 f
+  mult_15/S2_3_10/S (FA1AP)                               2.12       8.46 f
+  mult_15/U293/Z (ND2)                                    0.85       9.31 r
+  mult_15/U290/Z (ND3P)                                   0.49       9.80 f
+  mult_15/S2_5_9/S (FA1AP)                                2.15      11.95 r
+  mult_15/S2_6_8/S (FA1AP)                                2.15      14.10 r
+  mult_15/S2_7_7/S (FA1AP)                                2.15      16.25 r
+  mult_15/S2_8_6/CO (FA1AP)                               2.29      18.54 r
+  mult_15/S2_9_6/S (FA1P)                                 2.34      20.88 r
+  mult_15/U10/Z (EO3P)                                    2.08      22.96 f
+  mult_15/S2_11_4/S (FA1AP)                               1.05      24.01 r
+  mult_15/S2_12_3/S (FA1AP)                               2.41      26.42 r
+  mult_15/U3/Z (EO3)                                      1.97      28.39 f
+  mult_15/S2_14_1/S (FA1AP)                               2.22      30.61 r
+  mult_15/S4_0/CO (FA1AP)                                 2.24      32.86 r
+  mult_15/U308/Z (AN2P)                                   0.82      33.67 r
+  mult_15/FS_1/B[15] (mult_accum_DW01_add_3)              0.00      33.67 r
+  mult_15/FS_1/U74/Z (ND2P)                               0.37      34.04 f
+  mult_15/FS_1/U39/Z2 (B3IP)                              0.61      34.65 f
+  mult_15/FS_1/U114/Z (NR2P)                              0.88      35.53 r
+  mult_15/FS_1/U85/Z (AO7P)                               0.39      35.92 f
+  mult_15/FS_1/U84/Z (ND2P)                               0.74      36.66 r
+  mult_15/FS_1/U33/Y (IVDAP)                              0.34      37.00 f
+  mult_15/FS_1/U95/Z (AO7)                                0.92      37.92 r
+  mult_15/FS_1/U146/Z (EOP)                               1.11      39.04 f
+  mult_15/FS_1/SUM[24] (mult_accum_DW01_add_3)            0.00      39.04 f
+  mult_15/PRODUCT[26] (mult_accum_DW02_mult_0)            0.00      39.04 f
+  prod_reg_reg[26]/D (FDS2LP)                             0.00      39.04 f
+  data arrival time                                                 39.04
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  prod_reg_reg[26]/CP (FDS2LP)                            0.00       5.00 r
+  library setup time                                     -1.60       3.40
+  data required time                                                 3.40
+  --------------------------------------------------------------------------
+  data required time                                                 3.40
+  data arrival time                                                -39.04
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                 -35.64
+
+
+1
+report_timing -path full -delay min
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 1
+Design : mult_accum
+Version: X-2025.06
+Date   : Mon Nov  3 10:52:11 2025
+****************************************
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+  Startpoint: prod_reg_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: prod_reg_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mult_accum         10x10                 lsi_10k
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  prod_reg_reg[0]/CP (FD1)                 0.00       0.00 r
+  prod_reg_reg[0]/QN (FD1)                 1.70       1.70 f
+  U418/Z (MUX21L)                          0.46       2.16 r
+  prod_reg_reg[0]/D (FD1)                  0.00       2.16 r
+  data arrival time                                   2.16
+
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  prod_reg_reg[0]/CP (FD1)                 0.00       0.00 r
+  library hold time                        0.40       0.40
+  data required time                                  0.40
+  -----------------------------------------------------------
+  data required time                                  0.40
+  data arrival time                                  -2.16
+  -----------------------------------------------------------
+  slack (MET)                                         1.76
+
+
+1
+## smash the hierarchy (design ware component)
+ungroup -all -flatten
+1
+set_fix_hold clk
+1
+compile -map_effort medium
+CPU Load: 4%, Ram Free: 24 GB, Swap Free: 1 GB, Work Disk Free: 24 GB, Tmp Disk Free: 819 GB
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 1791                                   |
+| Number of User Hierarchies                              | 0                                      |
+| Sequential Cell Count                                   | 97                                     |
+| Macro Count                                             | 0                                      |
+| Pad Count                                               | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 0                                      |
+| Number of Dont Touch Nets                               | 1                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with Target Library Subset (with clock_path)     | false  (false )                        |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+Information: There are 5 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'mult_accum'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 2)
+  Mapping Optimization (Phase 3)
+  Mapping Optimization (Phase 4)
+  Mapping Optimization (Phase 5)
+  Mapping Optimization (Phase 6)
+  Mapping Optimization (Phase 7)
+  Mapping Optimization (Phase 8)
+  Mapping Optimization (Phase 9)
+  Mapping Optimization (Phase 10)
+  Mapping Optimization (Phase 11)
+  Mapping Optimization (Phase 12)
+  Mapping Optimization (Phase 13)
+  Mapping Optimization (Phase 14)
+  Mapping Optimization (Phase 15)
+  Mapping Optimization (Phase 16)
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:10    7523.0     38.26    2011.5    2317.3                                0.00  
+    0:00:10    7509.0     38.76    2014.0    2344.3                                0.00  
+    0:00:10    7509.0     38.76    2014.0    2344.3                                0.00  
+    0:00:10    7509.0     38.76    2014.0    2344.3                                0.00  
+    0:00:10    7509.0     38.76    2014.0    2344.3                                0.00  
+    0:00:10    7321.0     38.36    1996.5    2298.0                                0.00  
+    0:00:10    7318.0     38.36    1995.8    2287.8                                0.00  
+    0:00:10    7320.0     38.36    1995.5    2287.4                                0.00  
+    0:00:10    7320.0     38.36    1995.5    2287.4                                0.00  
+    0:00:10    7320.0     38.36    1995.5    2287.4                                0.00  
+    0:00:10    7320.0     38.36    1995.5    2287.4                                0.00  
+    0:00:10    7320.0     38.36    1995.5    2287.4                                0.00  
+    0:00:12    7586.0     43.63    2087.0    2128.6                                0.00  
+    0:00:14    7646.0     44.00    2123.4    2079.2                                0.00  
+    0:00:16    7741.0     47.22    2214.9    2054.3                                0.00  
+    0:00:17    7759.0     48.15    2251.8    2044.2                                0.00  
+    0:00:17    7773.0     50.05    2298.5    2042.2                                0.00  
+    0:00:17    7779.0     51.09    2329.0    2047.0                                0.00  
+    0:00:17    7769.0     51.00    2326.7    2048.8                                0.00  
+    0:00:17    7766.0     51.65    2353.1    2053.5                                0.00  
+    0:00:17    7764.0     52.15    2369.4    2054.7                                0.00  
+    0:00:17    7764.0     52.15    2369.4    2054.7                                0.00  
+    0:00:18    7816.0     50.38    2348.3    2060.1 prod_reg_reg[29]/D             0.00  
+    0:00:18    7826.0     49.21    2329.7    2067.3 prod_reg_reg[29]/D             0.00  
+    0:00:18    7827.0     48.06    2312.3    2072.5 prod_reg_reg[29]/D             0.00  
+    0:00:18    7829.0     47.81    2307.7    2074.8 prod_reg_reg[29]/D             0.00  
+    0:00:18    7834.0     47.25    2299.8    2075.4 prod_reg_reg[28]/D             0.00  
+    0:00:18    7830.0     47.24    2294.5    2076.2 prod_reg_reg[21]/D             0.00  
+    0:00:18    7825.0     46.08    2260.9    2072.1 prod_reg_reg[28]/D             0.00  
+    0:00:18    7831.0     45.95    2257.8    2071.7 prod_reg_reg[29]/D             0.00  
+    0:00:18    7880.0     45.41    2254.4    2079.2 prod_reg_reg[29]/D             0.00  
+    0:00:18    7904.0     45.02    2245.9    2079.0 prod_reg_reg[29]/D             0.00  
+    0:00:19    7939.0     44.70    2238.1    2081.6 prod_reg_reg[29]/D             0.00  
+    0:00:19    7952.0     44.36    2234.8    2080.5 prod_reg_reg[29]/D             0.00  
+    0:00:19    7996.0     44.16    2231.0    2079.8 prod_reg_reg[26]/D             0.00  
+    0:00:19    8001.0     44.08    2229.3    2080.6 prod_reg_reg[29]/D             0.00  
+    0:00:19    8011.0     44.02    2227.4    2080.9 prod_reg_reg[29]/D             0.00  
+    0:00:19    8021.0     43.94    2228.2    2083.5 prod_reg_reg[30]/D             0.00  
+    0:00:19    8024.0     43.78    2225.9    2086.8 prod_reg_reg[30]/D             0.00  
+    0:00:19    8032.0     43.71    2224.9    2086.2 prod_reg_reg[30]/D             0.00  
+    0:00:19    8034.0     43.66    2224.3    2086.2 prod_reg_reg[26]/D             0.00  
+    0:00:19    8031.0     43.53    2222.9    2086.7 prod_reg_reg[30]/D             0.00  
+    0:00:19    8047.0     43.41    2220.3    2089.6 prod_reg_reg[26]/D             0.00  
+    0:00:19    8051.0     43.40    2219.7    2088.6 prod_reg_reg[26]/D             0.00  
+    0:00:19    8074.0     43.29    2214.7    2086.2 prod_reg_reg[26]/D             0.00  
+    0:00:19    8074.0     43.22    2214.0    2090.1 prod_reg_reg[26]/D             0.00  
+    0:00:19    8088.0     43.05    2210.7    2088.7 prod_reg_reg[26]/D             0.00  
+    0:00:19    8102.0     43.02    2210.4    2086.0 prod_reg_reg[26]/D             0.00  
+    0:00:19    8101.0     42.99    2209.6    2086.2 prod_reg_reg[26]/D             0.00  
+    0:00:19    8104.0     42.90    2207.3    2088.2 prod_reg_reg[23]/D             0.00  
+    0:00:19    8107.0     42.85    2205.7    2088.8 prod_reg_reg[29]/D             0.00  
+    0:00:20    8108.0     42.81    2205.2    2089.0 prod_reg_reg[26]/D             0.00  
+    0:00:20    8106.0     42.75    2204.5    2089.3 prod_reg_reg[26]/D             0.00  
+    0:00:20    8105.0     42.73    2204.1    2091.8 prod_reg_reg[26]/D             0.00  
+    0:00:20    8114.0     42.64    2203.6    2091.9 prod_reg_reg[30]/D             0.00  
+    0:00:20    8111.0     42.53    2202.0    2093.2 prod_reg_reg[28]/D             0.00  
+    0:00:20    8117.0     42.46    2200.8    2093.5                                0.00  
+    0:00:20    8127.0     42.44    2201.0    2094.7                                0.00  
+    0:00:20    8136.0     42.38    2199.7    2098.5                                0.00  
+    0:00:20    8148.0     42.37    2199.0    2100.2                                0.00  
+    0:00:20    8157.0     42.35    2198.5    2101.9                                0.00  
+    0:00:20    8156.0     42.34    2198.3    2101.5                                0.00  
+    0:00:20    8165.0     42.29    2197.4    2104.9                                0.00  
+    0:00:20    8177.0     42.24    2196.9    2106.5                                0.00  
+    0:00:20    8190.0     42.21    2197.0    2107.1                                0.00  
+    0:00:20    8194.0     42.19    2196.8    2105.9                                0.00  
+    0:00:20    8206.0     42.14    2195.7    2110.0                                0.00  
+    0:00:20    8218.0     42.10    2194.0    2111.2                                0.00  
+    0:00:20    8216.0     42.09    2193.7    2110.4                                0.00  
+    0:00:20    8218.0     42.06    2193.2    2112.4                                0.00  
+    0:00:20    8233.0     42.04    2191.7    2116.6                                0.00  
+    0:00:20    8246.0     42.01    2190.9    2115.7                                0.00  
+    0:00:20    8258.0     41.98    2189.9    2116.6                                0.00  
+    0:00:20    8260.0     41.96    2189.8    2116.0                                0.00  
+    0:00:20    8272.0     41.94    2189.7    2116.0                                0.00  
+    0:00:20    8273.0     41.92    2188.7    2117.7                                0.00  
+    0:00:20    8272.0     41.89    2187.9    2117.9                                0.00  
+    0:00:21    8271.0     41.86    2188.4    2121.5                                0.00  
+    0:00:21    8276.0     41.83    2188.2    2123.5                                0.00  
+    0:00:21    8286.0     41.82    2187.1    2122.3                                0.00  
+    0:00:21    8287.0     41.82    2184.7    2121.1                                0.00  
+    0:00:21    8288.0     41.81    2183.5    2123.0                                0.00  
+    0:00:21    8290.0     41.79    2183.2    2121.8                                0.00  
+    0:00:21    8295.0     41.71    2182.9    2121.0                                0.00  
+    0:00:21    8293.0     41.71    2182.6    2122.5                                0.00  
+    0:00:21    8298.0     41.68    2183.1    2124.5                                0.00  
+    0:00:21    8316.0     41.64    2182.1    2123.1                                0.00  
+    0:00:21    8319.0     41.63    2181.9    2123.2                                0.00  
+    0:00:21    8318.0     41.63    2181.8    2122.7                                0.00  
+    0:00:21    8316.0     41.63    2181.6    2123.8                                0.00  
+    0:00:21    8321.0     41.62    2179.4    2123.8                                0.00  
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:21    8321.0     41.62    2179.4    2123.8                                0.00  
+    0:00:21    8320.0     41.56    2179.3    2124.0 prod_reg_reg[30]/D             0.00  
+    0:00:21    8329.0     41.47    2178.5    2125.3 prod_reg_reg[30]/D             0.00  
+    0:00:21    8345.0     41.41    2177.4    2122.9 prod_reg_reg[28]/D             0.00  
+    0:00:21    8351.0     41.38    2176.9    2125.5 prod_reg_reg[28]/D             0.00  
+    0:00:21    8353.0     41.34    2176.6    2126.5 prod_reg_reg[30]/D             0.00  
+    0:00:21    8365.0     41.32    2176.2    2126.8 prod_reg_reg[28]/D             0.00  
+    0:00:21    8373.0     41.28    2175.4    2125.7 prod_reg_reg[29]/D             0.00  
+    0:00:21    8374.0     41.24    2174.3    2125.3 prod_reg_reg[24]/D             0.00  
+    0:00:21    8381.0     41.22    2173.3    2125.7 prod_reg_reg[24]/D             0.00  
+    0:00:21    8381.0     41.20    2173.2    2127.1 prod_reg_reg[28]/D             0.00  
+    0:00:21    8380.0     41.20    2173.6    2128.6 prod_reg_reg[28]/D             0.00  
+    0:00:21    8379.0     41.18    2173.2    2127.8 prod_reg_reg[26]/D             0.00  
+    0:00:21    8380.0     41.16    2172.9    2128.2 prod_reg_reg[30]/D             0.00  
+    0:00:21    8376.0     41.16    2172.8    2128.5 prod_reg_reg[24]/D             0.00  
+    0:00:21    8375.0     41.14    2171.6    2128.8 prod_reg_reg[28]/D             0.00  
+    0:00:21    8381.0     41.11    2170.7    2129.8 prod_reg_reg[28]/D             0.00  
+    0:00:21    8382.0     41.07    2170.1    2129.4 prod_reg_reg[29]/D             0.00  
+    0:00:21    8390.0     41.00    2168.7    2129.5 prod_reg_reg[26]/D             0.00  
+    0:00:21    8391.0     40.99    2168.3    2129.5 prod_reg_reg[26]/D             0.00  
+    0:00:21    8398.0     40.97    2168.1    2132.5 prod_reg_reg[30]/D             0.00  
+    0:00:21    8398.0     40.97    2167.9    2132.1 prod_reg_reg[26]/D             0.00  
+    0:00:22    8396.0     40.97    2167.9    2132.0 prod_reg_reg[28]/D             0.00  
+    0:00:22    8405.0     40.95    2167.6    2133.1 prod_reg_reg[28]/D             0.00  
+    0:00:22    8406.0     40.93    2166.7    2136.2 prod_reg_reg[28]/D             0.00  
+    0:00:22    8407.0     40.91    2166.4    2137.6 prod_reg_reg[30]/D             0.00  
+    0:00:22    8417.0     40.90    2165.5    2137.4 prod_reg_reg[28]/D             0.00  
+    0:00:22    8434.0     40.88    2165.0    2137.5 prod_reg_reg[28]/D             0.00  
+    0:00:22    8438.0     40.86    2164.8    2137.4 prod_reg_reg[28]/D             0.00  
+    0:00:22    8447.0     40.83    2165.1    2137.9 prod_reg_reg[30]/D             0.00  
+    0:00:22    8451.0     40.81    2164.9    2137.1 prod_reg_reg[28]/D             0.00  
+    0:00:22    8461.0     40.80    2164.3    2137.0 prod_reg_reg[29]/D             0.00  
+    0:00:22    8467.0     40.78    2164.1    2134.0 prod_reg_reg[29]/D             0.00  
+    0:00:22    8466.0     40.75    2163.5    2135.8 prod_reg_reg[28]/D             0.00  
+    0:00:22    8464.0     40.75    2163.2    2136.1 prod_reg_reg[28]/D             0.00  
+    0:00:22    8463.0     40.73    2163.3    2137.7 prod_reg_reg[25]/D             0.00  
+    0:00:22    8459.0     40.73    2163.3    2136.8 prod_reg_reg[28]/D             0.00  
+    0:00:23    8459.0     40.73    2163.3    2136.8                                0.00  
+    0:00:23    8361.0     40.73    2153.8    2190.1                                0.00  
+
+
+  Beginning Design Rule Fixing  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:23    8361.0     40.73    2153.8    2190.1                                0.00  
+    0:00:23    8385.0     40.73    2153.8    2188.4 B[1]                           0.00  
+    0:00:23    8421.0     40.78    2154.2    2187.2 en                             0.00  
+    0:00:23    8444.0     40.75    2153.6    2184.2 prod_reg_reg[21]/D             0.00  
+    0:00:23    8446.0     40.75    2153.6    2183.2 prod_reg_reg[28]/D             0.00  
+    0:00:23    8449.0     40.73    2153.5    2182.9 prod_reg_reg[28]/D             0.00  
+    0:00:23    8457.0     40.73    2153.4    2178.7 prod_reg_reg[29]/D             0.00  
+    0:00:24    8459.0     40.73    2153.4    2178.3 prod_reg_reg[29]/D             0.00  
+    0:00:24    8460.0     40.73    2153.5    2176.2 prod_reg_reg[29]/D             0.00  
+    0:00:24    8462.0     40.77    2153.9    2175.1 prod_reg_reg[29]/D             0.00  
+    0:00:24    8459.0     40.74    2153.6    2173.0 prod_reg_reg[30]/D             0.00  
+    0:00:24    8461.0     40.74    2153.5    2172.5 prod_reg_reg[26]/D             0.00  
+    0:00:24    8460.0     40.73    2153.4    2171.8 prod_reg_reg[26]/D             0.00  
+    0:00:24    8460.0     40.73    2153.4    2171.0 prod_reg_reg[28]/D             0.00  
+    0:00:24    8469.0     40.73    2154.1    2169.7 A[7]                           0.00  
+    0:00:24    8468.0     40.72    2154.2    2169.1 prod_reg_reg[28]/D             0.00  
+    0:00:24    8472.0     40.72    2154.3    2167.1 prod_reg_reg[30]/D             0.00  
+    0:00:24    8474.0     40.72    2154.2    2164.7 prod_reg_reg[26]/D             0.00  
+    0:00:24    8477.0     40.71    2154.1    2163.9                                0.00  
+    0:00:24    8486.0     41.19    2160.4    2162.0                                0.00  
+    0:00:24    8491.0     41.23    2161.2    2160.4                                0.00  
+    0:00:24    8492.0     41.21    2161.1    2160.3                                0.00  
+    0:00:24    8490.0     41.19    2160.9    2159.4                                0.00  
+    0:00:24    8488.0     40.85    2155.7    2158.5                                0.00  
+    0:00:24    8497.0     40.82    2155.4    2153.9                                0.00  
+    0:00:24    8498.0     40.82    2155.4    2152.8                                0.00  
+    0:00:24    8501.0     40.82    2155.2    2151.0                                0.00  
+    0:00:25    8505.0     40.82    2155.2    2148.2                                0.00  
+    0:00:25    8509.0     40.82    2155.2    2146.7                                0.00  
+    0:00:25    8512.0     40.82    2155.3    2144.6                                0.00  
+    0:00:25    8514.0     40.82    2155.2    2143.9                                0.00  
+    0:00:25    8518.0     40.82    2155.7    2139.6                                0.00  
+    0:00:25    8519.0     40.82    2155.7    2138.7                                0.00  
+    0:00:25    8525.0     40.82    2156.5    2136.1                                0.00  
+    0:00:25    8524.0     41.91    2179.3    2130.2                                0.00  
+    0:00:25    8537.0     42.35    2186.0    2129.6                                0.00  
+    0:00:25    8556.0     42.59    2193.7    2129.1                                0.00  
+    0:00:25    8573.0     43.06    2215.5    2127.1                                0.00  
+    0:00:25    8574.0     43.06    2207.2    2126.2                                0.00  
+    0:00:25    8582.0     43.06    2207.5    2122.8                                0.00  
+    0:00:25    8592.0     43.06    2208.2    2120.9                                0.00  
+    0:00:25    8606.0     43.06    2209.9    2118.9                                0.00  
+    0:00:25    8613.0     43.06    2209.9    2118.6                                0.00  
+    0:00:25    8606.0     43.06    2208.9    2117.2                                0.00  
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:25    8606.0     43.06    2208.9    2117.2                                0.00  
+    0:00:25    8606.0     43.06    2208.9    2117.2                                0.00  
+    0:00:25    8510.0     42.91    2188.1    2076.0                                0.00  
+    0:00:25    8491.0     42.91    2186.9    2069.1                                0.00  
+    0:00:25    8482.0     42.91    2185.9    2068.1                                0.00  
+    0:00:25    8475.0     42.91    2185.2    2067.2                                0.00  
+    0:00:25    8466.0     42.91    2184.7    2066.4                                0.00  
+    0:00:25    8466.0     42.91    2184.7    2066.4                                0.00  
+    0:00:25    8466.0     42.91    2184.7    2066.4                                0.00  
+    0:00:25    8441.0     42.91    2184.6    2064.1                                0.00  
+    0:00:25    8441.0     42.91    2184.6    2064.1                                0.00  
+    0:00:25    8441.0     42.91    2184.6    2064.1                                0.00  
+    0:00:25    8441.0     42.91    2184.6    2064.1                                0.00  
+    0:00:25    8441.0     42.91    2184.6    2064.1                                0.00  
+    0:00:25    8441.0     42.91    2184.6    2064.1                                0.00  
+    0:00:25    8442.0     42.90    2184.5    2063.6 prod_reg_reg[26]/D             0.00  
+    0:00:25    8447.0     42.89    2184.4    2063.5 prod_reg_reg[24]/D             0.00  
+    0:00:25    8447.0     42.89    2184.4    2062.9 prod_reg_reg[29]/D             0.00  
+    0:00:25    8447.0     42.78    2180.8    2062.4 prod_reg_reg[24]/D             0.00  
+    0:00:25    8446.0     42.78    2180.5    2061.6                                0.00  
+    0:00:25    8432.0     42.78    2181.5    2054.9                                0.00  
+    0:00:25    8383.0     42.78    2181.5    2046.0                                0.00  
+    0:00:25    8374.0     42.78    2181.5    2042.2                                0.00  
+    0:00:25    8342.0     42.78    2182.0    2036.6                                0.00  
+    0:00:26    8329.0     42.29    2168.5    2031.7                                0.00  
+    0:00:26    8329.0     41.97    2162.9    2031.7                                0.00  
+    0:00:26    8329.0     41.85    2161.6    2031.1                                0.00  
+    0:00:26    8329.0     41.85    2158.1    2031.1                                0.00  
+    0:00:26    8329.0     41.84    2156.5    2030.6                                0.00  
+    0:00:26    8328.0     41.79    2156.4    2030.4                                0.00  
+    0:00:26    8325.0     41.79    2155.6    2029.6                                0.00  
+    0:00:26    8325.0     41.79    2155.6    2029.2                                0.00  
+    0:00:26    8324.0     41.78    2156.1    2027.8                                0.00  
+    0:00:26    8324.0     41.78    2156.0    2027.6                                0.00  
+    0:00:26    8326.0     41.78    2156.0    2026.3                                0.00  
+    0:00:26    8323.0     41.78    2155.1    2025.4                                0.00  
+    0:00:26    8325.0     41.78    2155.1    2025.1 prod_reg_reg[24]/D             0.00  
+    0:00:26    8325.0     42.47    2167.5    2024.8 prod_reg_reg[24]/D             0.00  
+    0:00:26    8325.0     42.47    2167.6    2024.6 prod_reg_reg[28]/D             0.00  
+    0:00:26    8326.0     42.43    2167.5    2024.3 prod_reg_reg[28]/D             0.00  
+    0:00:26    8327.0     42.40    2166.6    2023.2 prod_reg_reg[28]/D             0.00  
+    0:00:26    8336.0     42.38    2169.6    2022.2 prod_reg_reg[28]/D             0.00  
+    0:00:26    8342.0     44.45    2229.6    2019.7 prod_reg_reg[28]/D             0.00  
+    0:00:26    8347.0     44.43    2229.6    2018.9 prod_reg_reg[28]/D             0.00  
+    0:00:26    8360.0     44.33    2228.1    2017.8 prod_reg_reg[28]/D             0.00  
+    0:00:26    8365.0     43.92    2212.8    2017.5 prod_reg_reg[28]/D             0.00  
+    0:00:26    8363.0     43.70    2201.9    2016.8 prod_reg_reg[28]/D             0.00  
+    0:00:26    8364.0     43.69    2202.0    2016.4 prod_reg_reg[28]/D             0.00  
+    0:00:26    8368.0     43.67    2202.1    2015.5 prod_reg_reg[21]/D             0.00  
+    0:00:26    8368.0     43.61    2201.2    2013.9 prod_reg_reg[21]/D             0.00  
+    0:00:26    8367.0     43.58    2200.5    2013.7                                0.00  
+Loading db file '/cae/apps/data/synopsys-2025/syn/X-2025.06/libraries/syn/lsi_10k.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+CPU Load: 6%, Ram Free: 24 GB, Swap Free: 1 GB, Work Disk Free: 24 GB, Tmp Disk Free: 819 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+check_design
+1
+report_area
+ 
+****************************************
+Report : area
+Design : mult_accum
+Version: X-2025.06
+Date   : Mon Nov  3 10:52:38 2025
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    lsi_10k (File: /cae/apps/data/synopsys-2025/syn/X-2025.06/libraries/syn/lsi_10k.db)
+
+Number of ports:                           99
+Number of nets:                          3662
+Number of cells:                         3402
+Number of combinational cells:           3305
+Number of sequential cells:                97
+Number of macros/black boxes:               0
+Number of buf/inv:                        924
+Number of references:                      64
+
+Combinational area:               7637.000000
+Buf/Inv area:                     1557.000000
+Noncombinational area:             730.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  8367.000000
+Total area:                 undefined
+1
+#########################
+# Report power analysis #
+#########################
+report_power
+Warning: Main library 'lsi_10k' does not specify the following unit required for power: 'Leakage Power'. (PWR-424)
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : mult_accum
+Version: X-2025.06
+Date   : Mon Nov  3 10:52:38 2025
+****************************************
+
+
+Library(s) Used:
+
+    lsi_10k (File: /cae/apps/data/synopsys-2025/syn/X-2025.06/libraries/syn/lsi_10k.db)
+
+Information: The cells in your design are not characterized for internal power. (PWR-229)
+
+Operating Conditions: nom_pvt   Library: lsi_10k
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+mult_accum             10x10             lsi_10k
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 0.100000ff
+    Time Units = 1ns
+    Dynamic Power Units = 100nW    (derived from V,C,T units)
+    Leakage Power Units = Unitless
+
+
+Attributes
+----------
+i - Including register clock pin internal power
+
+
+  Cell Internal Power  =   0.0000 nW    (0%)
+  Net Switching Power  =   1.0798 mW  (100%)
+                         ---------
+Total Dynamic Power    =   1.0798 mW  (100%)
+
+Cell Leakage Power     =   0.0000 
+
+Error: Either dynamic power or leakage power, in the library, is unitless. Unable to display complete power group summary. (PWR-799)
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000               NA   (     N/A)
+memory             0.0000            0.0000            0.0000               NA   (     N/A)
+black_box          0.0000            0.0000            0.0000               NA   (     N/A)
+clock_network      0.0000            0.0000            0.0000               NA   (     N/A)  i
+register           0.0000        3.3228e+03            0.0000               NA   (     N/A)
+sequential         0.0000            0.0000            0.0000               NA   (     N/A)
+combinational      0.0000        1.0765e+06            0.0000               NA   (     N/A)
+--------------------------------------------------------------------------------------------------
+Total              0.0000 nW     1.0798e+06 nW         0.0000               NA        
+1
+1
+Information: Term was not able to be set up using xterm-256color . Using "xterm" by default instead. (CLE-10)
+Warning: Cannot use command line editor for terminal type 'xterm-256color'.  (UI-74)
+dc_shell> 
