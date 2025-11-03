@@ -1,0 +1,32 @@
+{C:/Work/ECE551/Ex17 New/SegwayMath.sv} {1 {vlog -work work -sv -stats=none {C:/Work/ECE551/Ex17 New/SegwayMath.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SegwayMath
+
+Top level modules:
+	SegwayMath
+
+} {} {}} {C:/Work/ECE551/Ex17 New/balance_cntrl_chk_tb.sv} {1 {vlog -work work -sv -stats=none {C:/Work/ECE551/Ex17 New/balance_cntrl_chk_tb.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module balance_cntrl_chk_tb
+
+Top level modules:
+	balance_cntrl_chk_tb
+
+} {} {}} {C:/Work/ECE551/Ex17 New/balance_cntrl.sv} {1 {vlog -work work -sv -stats=none {C:/Work/ECE551/Ex17 New/balance_cntrl.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module balance_cntrl
+
+Top level modules:
+	balance_cntrl
+
+} {} {}} {C:/Work/ECE551/Ex17 New/PID.sv} {2 {vlog -work work -sv -stats=none {C:/Work/ECE551/Ex17 New/PID.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module PID
+** Warning: C:/Work/ECE551/Ex17 New/PID.sv(112): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+** Warning: C:/Work/ECE551/Ex17 New/PID.sv(115): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+** Warning: C:/Work/ECE551/Ex17 New/PID.sv(124): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+
+Top level modules:
+	PID
+
+} {} {}}

@@ -86,20 +86,35 @@ module SPI_mnrch(
       bit_cntr <= bit_cntr + 1;
   end
   
-  ///////////////////////////////////////////
-  // Done flag - set when transaction complete
-  // Implemented with preset flop
-  ///////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////
+  // Done flag generation
+  /////////////////////////////////////////////////////////////////
+  // Flop that holds completion status
   always_ff @(posedge clk, negedge rst_n) begin
     if (!rst_n)
       done_ff <= 1'b0;
-    else if (init)
-      done_ff <= 1'b0;
-    else if (set_done)
+    else if (set_done)  // Asserted in BACK_PORCH when transaction completes
       done_ff <= 1'b1;
+    else if (init)  // Cleared when new transaction initiated
+      done_ff <= 1'b0;
   end
   
-  assign done = done_ff;
+  // Transaction tracking latch - Set/Reset latch behavior
+  // Latch allows combinational response (no clock edge delay)
+  logic in_transaction, trans_set, trans_rst;
+  
+  assign trans_set = init;                    // Set when wrt detected in IDLE
+  assign trans_rst = set_done | ~rst_n;       // Clear when transaction done
+  
+  always_latch begin
+    if (trans_rst)
+      in_transaction = 1'b0;
+    else if (trans_set)
+      in_transaction = 1'b1;
+  end
+  
+  // Final done output: high only when done_ff set and no active transaction
+  assign done = done_ff & ~in_transaction;
   
   ///////////////////////////////////////////
   // SS_n signal - implemented with preset flop

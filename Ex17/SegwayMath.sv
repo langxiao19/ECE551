@@ -1,5 +1,5 @@
 module SegwayMath(
-    input signed [11:0] PID_cntrl,  // Signed 12-bit control from PID
+i    input signed [11:0] PID_cntrl,  // Signed 12-bit control from PID
     input [7:0] ss_tmr,             // Unsigned 8-bit soft-start timer
     input [11:0] steer_pot,         // 12-bit unsigned steering potentiometer
     input en_steer,                 // Steering enable signal
@@ -19,7 +19,8 @@ reg signed [19:0] product;          // 20-bit product from PID_cntrl * ss_tmr
 wire signed [11:0] PID_ss;          // PID scaled by soft-start timer
 reg [11:0] steer_pot_limited;       // Steering pot limited to 0x200-0xE00
 wire signed [11:0] steer_signed;    // Signed steering value
-wire signed [12:0] steer_contribution; // 3/16 of steering value
+wire signed [13:0] steer_influence; // 3/16 of steering offset
+wire signed [13:0] almost_torque;   // Differential torque from steering
 wire signed [12:0] PID_ss_extended; // Sign-extended PID_ss to 13 bits
 wire signed [12:0] lft_torque;      // Left torque before shaping
 wire signed [12:0] rght_torque;     // Right torque before shaping
@@ -49,19 +50,23 @@ always_comb begin
         steer_pot_limited = steer_pot;
 end
 
-// Convert to signed by subtracting 0x7FF
+// Convert to signed by subtracting 0x7FF (center point, 2047 in decimal)
 assign steer_signed = steer_pot_limited - 12'h7FF;
 
-// Calculate 3/16 of steering value (multiply by 3, then divide by 16)
-// 3/16 can be implemented as (steer_signed * 3) >> 4
-assign steer_contribution = (steer_signed * 3) >>> 4;
+// Calculate steering influence: 3/16 of steering offset
+assign steer_influence = (steer_signed * 3) >>> 4;
+
+// Create differential torque based on steering sign
+// This creates the base differential that will be applied
+assign almost_torque = steer_influence[13] ? ($signed({1'b0, PID_ss}) - steer_influence) : ($signed({1'b0, PID_ss}) + steer_influence);
 
 // Step 3: Sign extend PID_ss to 13 bits
 assign PID_ss_extended = {PID_ss[11], PID_ss};
 
-// Step 4: Add/subtract steering contribution based on en_steer
-assign lft_torque = en_steer ? (PID_ss_extended + steer_contribution) : PID_ss_extended;
-assign rght_torque = en_steer ? (PID_ss_extended - steer_contribution) : PID_ss_extended;
+// Step 4: Apply steering differential if enabled
+// Left gets PID + almost_torque, Right gets PID - almost_torque
+assign lft_torque = en_steer ? (PID_ss_extended + almost_torque[12:0]) : PID_ss_extended;
+assign rght_torque = en_steer ? (PID_ss_extended - almost_torque[12:0]) : PID_ss_extended;
 
 // Step 5: Deadzone compensation
 // Check if torque magnitude is within LOW_TORQUE_BAND
@@ -101,9 +106,8 @@ assign lft_spd = saturate_12bit(lft_shaped);
 assign rght_spd = saturate_12bit(rght_shaped);
 
 // Step 7: Over-speed detection
-// too_fast is asserted if either speed exceeds 1536 (13'd1536)
-// Compare 13-bit shaped values against 13-bit constant
-assign too_fast = (lft_shaped > $signed(13'd1536)) || (rght_shaped > $signed(13'd1536)) ||
-                  (lft_shaped < $signed(-13'd1536)) || (rght_shaped < $signed(-13'd1536));
+// too_fast is asserted if magnitude of either shaped value exceeds 1536
+assign too_fast = ((lft_shaped[12] ? -lft_shaped : lft_shaped) > $signed(13'd1536)) ||
+                  ((rght_shaped[12] ? -rght_shaped : rght_shaped) > $signed(13'd1536));
 
 endmodule

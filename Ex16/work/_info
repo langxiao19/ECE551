@@ -100,26 +100,176 @@ R9
 n@_opt2
 R10
 R3
-vSPI_iNEMO1
+vdebug2_tb
 Z12 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z13 !s110 1762134767
+!s110 1762141326
 !i10b 1
-!s100 J>LV[WfcNQQOPSHMJLeJM3
-Z14 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IRKgWN;c=FfF_UDTlIOeYM1
-Z15 VDg1SIo80bB@j0V0VzS_@n1
+!s100 MGJXEKW;I8kBFIC92T;ZY1
+Z13 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IShmh=EA2JX;g95dQEAzNF2
+Z14 VDg1SIo80bB@j0V0VzS_@n1
 S1
-Z16 dC:/Work/ECE551/Ex16
-Z17 w1762134356
-8C:/Work/ECE551/Ex16/SPI_iNEMO1.sv
-FC:/Work/ECE551/Ex16/SPI_iNEMO1.sv
-!i122 36
-L0 1 223
-Z18 OV;L;2020.1;71
+Z15 dC:/Work/ECE551/Ex16
+w1762141300
+8debug2_tb.sv
+Fdebug2_tb.sv
+!i122 50
+L0 2 50
+Z16 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z19 !s108 1762134767.000000
+!s108 1762141326.000000
+!s107 debug2_tb.sv|
+!s90 -work|work|debug2_tb.sv|
+!i113 1
+Z17 o-work work
+R9
+vdebug_tb
+R12
+!s110 1762140904
+!i10b 1
+!s100 D0]no4k@jI16Lzoz`[FgT3
+R13
+IA^daL9?:CK3Bj_OOU0>cS1
+R14
+S1
+R15
+w1762140892
+8debug_tb.sv
+Fdebug_tb.sv
+!i122 43
+L0 1 54
+R16
+r1
+!s85 0
+31
+!s108 1762140904.000000
+!s107 debug_tb.sv|
+!s90 -work|work|debug_tb.sv|
+!i113 1
+R17
+R9
+vfinal_debug_tb
+R12
+!s110 1762141965
+!i10b 1
+!s100 D:mJJPilZiocoSE]<G11D0
+R13
+Ii3Y4n<>=:m>S5XaYj]g=l3
+R14
+S1
+R15
+w1762141948
+8final_debug_tb.sv
+Ffinal_debug_tb.sv
+!i122 57
+L0 1 68
+R16
+r1
+!s85 0
+31
+!s108 1762141965.000000
+!s107 final_debug_tb.sv|
+!s90 -work|work|final_debug_tb.sv|
+!i113 1
+R17
+R9
+visolated_test
+R12
+!s110 1762142119
+!i10b 1
+!s100 ZKh]DPjoW9<]e7MSG?;Jh2
+R13
+ILHC`jT@44F6jFkDFQ47lk2
+R14
+S1
+R15
+w1762142110
+8isolated_test.sv
+Fisolated_test.sv
+!i122 61
+L0 2 114
+R16
+r1
+!s85 0
+31
+!s108 1762142119.000000
+!s107 isolated_test.sv|
+!s90 -work|work|isolated_test.sv|
+!i113 1
+R17
+R9
+vmicro_test
+R12
+!s110 1762143286
+!i10b 1
+!s100 a25eAz;PLkCnOGJAUAT6S1
+R13
+IimY_k4KD^M:ciWi4oWFaU1
+R14
+S1
+R15
+w1762142314
+8micro_test.sv
+Fmicro_test.sv
+!i122 72
+L0 2 92
+R16
+r1
+!s85 0
+31
+!s108 1762143286.000000
+!s107 micro_test.sv|
+!s90 -work|work|micro_test.sv|
+!i113 1
+R17
+R9
+vsimple_tb
+R12
+!s110 1762141234
+!i10b 1
+!s100 8Ec4Szk;e^<1zhJLZ;CAD3
+R13
+I^XhCW`kmLVB[;bMWzERnd3
+R14
+S1
+R15
+w1762141191
+8simple_tb.sv
+Fsimple_tb.sv
+!i122 47
+L0 2 67
+R16
+r1
+!s85 0
+31
+!s108 1762141234.000000
+!s107 simple_tb.sv|SPI_mnrch.sv|
+!s90 -work|work|SPI_mnrch.sv|simple_tb.sv|
+!i113 1
+R17
+R9
+vSPI_iNEMO1
+R12
+Z18 !s110 1762145735
+!i10b 1
+!s100 J>LV[WfcNQQOPSHMJLeJM3
+R13
+IRKgWN;c=FfF_UDTlIOeYM1
+R14
+S1
+R15
+w1762134356
+8C:/Work/ECE551/Ex16/SPI_iNEMO1.sv
+FC:/Work/ECE551/Ex16/SPI_iNEMO1.sv
+!i122 76
+L0 1 223
+R16
+r1
+!s85 0
+31
+Z19 !s108 1762145735.000000
 !s107 C:/Work/ECE551/Ex16/SPI_iNEMO1.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/Ex16/SPI_iNEMO1.sv|
 !i113 1
@@ -128,20 +278,20 @@ R9
 n@s@p@i_i@n@e@m@o1
 vSPI_mnrch
 R12
-R13
+R18
 !i10b 1
-!s100 nW2Y?mO2W0W51l0JK:BJz2
+!s100 haLU5lc^N_lec>7<e:PLF2
+R13
+I06?9lM1ffNdfGd8F9FTAf3
 R14
-Inz13j`4<ndfmA9EazOak@0
-R15
 S1
-R16
-R17
+R15
+w1762143676
 8C:/Work/ECE551/Ex16/SPI_mnrch.sv
 FC:/Work/ECE551/Ex16/SPI_mnrch.sv
-!i122 37
-L0 1 194
-R18
+!i122 77
+L0 1 209
+R16
 r1
 !s85 0
 31
@@ -154,24 +304,24 @@ R9
 n@s@p@i_mnrch
 vSPI_mnrch_simple_tb
 R12
-Z21 !s110 1762134768
+!s110 1762134768
 !i10b 1
 !s100 facmRc:HIc@e@L<=0hNZl3
-R14
+R13
 IO7o_z[;IlQ8fdNej=TTWh0
-R15
+R14
 S1
-R16
+R15
 w1762131840
 8C:/Work/ECE551/Ex16/SPI_mnrch_simple_tb.sv
 FC:/Work/ECE551/Ex16/SPI_mnrch_simple_tb.sv
 !i122 38
 L0 1 154
-R18
+R16
 r1
 !s85 0
 31
-R19
+!s108 1762134767.000000
 !s107 C:/Work/ECE551/Ex16/SPI_mnrch_simple_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/Ex16/SPI_mnrch_simple_tb.sv|
 !i113 1
@@ -180,27 +330,52 @@ R9
 n@s@p@i_mnrch_simple_tb
 vSPI_mnrch_tb
 R12
-R21
+R18
 !i10b 1
-!s100 kWClgUJONjHA27XASMZZF2
+!s100 HA[[5edYUA>1]goXZ93g82
+R13
+I`d7<TeEWJOM_;iebQSBI<2
 R14
-IBZCCX3mAoc6[bM_`?T20Y1
-R15
 S1
-R16
-R17
+R15
+w1762143493
 8C:/Work/ECE551/Ex16/SPI_mnrch_tb.sv
 FC:/Work/ECE551/Ex16/SPI_mnrch_tb.sv
-!i122 39
-L0 1 248
-R18
+!i122 78
+L0 1 242
+R16
 r1
 !s85 0
 31
-!s108 1762134768.000000
+R19
 !s107 C:/Work/ECE551/Ex16/SPI_mnrch_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/Ex16/SPI_mnrch_tb.sv|
 !i113 1
 R20
 R9
 n@s@p@i_mnrch_tb
+vtest_xx
+R12
+!s110 1762141055
+!i10b 1
+!s100 K5ac<oG_?@6Dbih9Rc3Vh3
+R13
+IYa8YFeB7NoT[<kLTAJT9;0
+R14
+S1
+R15
+w1762141046
+8test_xx.sv
+Ftest_xx.sv
+!i122 46
+L0 1 8
+R16
+r1
+!s85 0
+31
+!s108 1762141055.000000
+!s107 test_xx.sv|
+!s90 -work|work|test_xx.sv|
+!i113 1
+R17
+R9

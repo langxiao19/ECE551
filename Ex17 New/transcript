@@ -1,0 +1,40 @@
+# Compile of SPI_iNEMO1.sv was successful.
+# Compile of SPI_mnrch.sv was successful.
+# Compile of SPI_mnrch_tb.sv was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.SPI_mnrch_tb
+# vsim -gui work.SPI_mnrch_tb 
+# Start time: 22:56:04 on Nov 02,2025
+# Loading sv_std.std
+# Loading work.SPI_mnrch_tb
+# Loading work.SPI_mnrch
+# Loading work.SPI_iNEMO1
+run -all
+# ========================================
+# SPI Monarch Testbench - Started
+# ========================================
+# 
+# [Test 1] Reading WHO_AM_I (addr 0x0F)
+#   [PASS] WHO_AM_I = 0x6a
+# 
+# [Test 2] Configuring INT enable (write 0x02 to 0x0D)
+#   [PASS] Sensor configured for interrupts
+# 
+# [Test 3] Waiting for INT signal...
+#   INT detected! Reading pitch low byte (0xA2)
+#   [PASS] ptchL = 0x63
+#   [PASS] INT deasserted after read
+# 
+# [Test 4] Reading pitch high byte (0xA3)
+#   [PASS] ptchH = 0x56 (full pitch = 0x5663)
+# 
+# [Test 5] Waiting for next INT...
+#   Second INT received! Reading ptchL again
+#   [PASS] Second ptchL = 0x0d
+# 
+# ========================================
+# All Tests Completed Successfully!
+# ========================================
+# ** Note: $stop    : C:/Work/ECE551/Ex16/SPI_mnrch_tb.sv(230)
+#    Time: 671630 ps  Iteration: 1  Instance: /SPI_mnrch_tb
+# Break in Module SPI_mnrch_tb at C:/Work/ECE551/Ex16/SPI_mnrch_tb.sv line 230

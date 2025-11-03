@@ -60,154 +60,148 @@ module SPI_mnrch_tb();
     rst_n = 1;
     repeat(2) @(posedge clk);
     
-    $display("==============================================");
-    $display("Starting SPI Monarch Testbench");
-    $display("==============================================\n");
+    $display("========================================");
+    $display("SPI Monarch Testbench - Started");
+    $display("========================================\n");
     
-    ///////////////////////////////////////////
-    // TEST 1: Read WHO_AM_I register (0x0F)
-    // Expected response: 0x6A
-    ///////////////////////////////////////////
-    $display("TEST 1: Reading WHO_AM_I register at 0x0F");
-    $display("Sending: 0x8Fxx (read from address 0x0F)");
-    wt_data = 16'h8F00;
+    /////////////////////////////////////////////
+    // Test 1: Verify WHO_AM_I register read
+    // Read from address 0x0F, expect 0x6A back
+    /////////////////////////////////////////////
+    $display("[Test 1] Reading WHO_AM_I (addr 0x0F)");
+    wt_data = 16'h8F00;  // Read command: MSB=1, address=0x0F
     wrt = 1;
     @(posedge clk);
     wrt = 0;
     
-    // Wait for transaction to complete
+    // Wait for SPI transaction completion
     @(posedge done);
-    repeat(2) @(posedge clk);
+    @(posedge clk);
     
-    // Check result
+    // Verify WHO_AM_I value
     if (rd_data[7:0] == 8'h6A) begin
-      $display("✓ PASS: WHO_AM_I returned 0x%h (expected 0x6A)\n", rd_data[7:0]);
+      $display("  [PASS] WHO_AM_I = 0x%h\n", rd_data[7:0]);
     end else begin
-      $display("✗ FAIL: WHO_AM_I returned 0x%h (expected 0x6A)\n", rd_data[7:0]);
+      $display("  [FAIL] WHO_AM_I = 0x%h, expected 0x6A\n", rd_data[7:0]);
       $stop;
     end
     
-    repeat(10) @(posedge clk);
+    repeat(8) @(posedge clk);
     
-    ///////////////////////////////////////////
-    // TEST 2: Write to INT config register (0x0D)
-    // Write 0x02 to enable INT on data ready
-    ///////////////////////////////////////////
-    $display("TEST 2: Writing to INT config register at 0x0D");
-    $display("Sending: 0x0D02 (write 0x02 to address 0x0D)");
-    wt_data = 16'h0D02;
+    /////////////////////////////////////////////
+    // Test 2: Configure interrupt enable
+    // Write 0x02 to register 0x0D
+    /////////////////////////////////////////////
+    $display("[Test 2] Configuring INT enable (write 0x02 to 0x0D)");
+    wt_data = 16'h0D02;  // Write command: MSB=0, address=0x0D, data=0x02
     wrt = 1;
     @(posedge clk);
     wrt = 0;
     
-    // Wait for transaction to complete
+    // Wait for completion
     @(posedge done);
-    repeat(5) @(posedge clk);  // Wait a bit longer for SS_n to rise and register write
+    repeat(3) @(posedge clk);
     
-    // Check that NEMO_setup went high
+    // Verify sensor configuration completed
     if (iNEMO.NEMO_setup) begin
-      $display("✓ PASS: NEMO_setup asserted after INT config write\n");
+      $display("  [PASS] Sensor configured for interrupts\n");
     end else begin
-      $display("✗ FAIL: NEMO_setup not asserted\n");
-      $display("DEBUG: registers[0x0D] = 0x%h", iNEMO.registers[8'h0D]);
-      $display("DEBUG: NEMO shft_reg_rx = 0x%h", iNEMO.shft_reg_rx);
-      $display("DEBUG: write_reg = %b", iNEMO.write_reg);
+      $display("  [FAIL] Sensor configuration failed\n");
       $stop;
     end
     
-    repeat(10) @(posedge clk);
+    repeat(8) @(posedge clk);
     
-    ///////////////////////////////////////////
-    // TEST 3: Wait for INT and read ptchL register (0xA2)
-    // Expected: First byte from inert_data.hex
-    ///////////////////////////////////////////
-    $display("TEST 3: Waiting for INT assertion...");
+    /////////////////////////////////////////////
+    // Test 3: Wait for interrupt, then read pitch low byte
+    // First data entry in inert_data.hex has pitch=0x5663
+    /////////////////////////////////////////////
+    $display("[Test 3] Waiting for INT signal...");
     
-    // Wait for INT to assert
+    // Wait for INT with timeout protection
     fork
-      begin: timeout1
+      begin: int_wait_timeout
         repeat(100000) @(posedge clk);
-        $display("✗ FAIL: Timeout waiting for INT\n");
+        $display("  [FAIL] INT timeout\n");
         $stop;
       end
       begin
         @(posedge INT);
-        disable timeout1;
+        disable int_wait_timeout;
       end
     join
     
-    $display("INT asserted! Reading ptchL register at 0xA2");
-    repeat(5) @(posedge clk);
+    $display("  INT detected! Reading pitch low byte (0xA2)");
+    repeat(3) @(posedge clk);
     
-    wt_data = 16'hA200;
+    wt_data = 16'hA200;  // Read ptchL register
     wrt = 1;
     @(posedge clk);
     wrt = 0;
     
-    // Wait for transaction to complete
     @(posedge done);
-    repeat(2) @(posedge clk);
+    @(posedge clk);
     
-    // According to inert_data.hex, first entry (@00) pitch=5663, so ptchL=0x63
+    // First entry: pitch = 0x5663, so low byte = 0x63
     if (rd_data[7:0] == 8'h63) begin
-      $display("✓ PASS: ptchL returned 0x%h (expected 0x63)", rd_data[7:0]);
+      $display("  [PASS] ptchL = 0x%h", rd_data[7:0]);
     end else begin
-      $display("✗ FAIL: ptchL returned 0x%h (expected 0x63)", rd_data[7:0]);
+      $display("  [FAIL] ptchL = 0x%h, expected 0x63", rd_data[7:0]);
       $stop;
     end
     
-    // Check that INT was cleared
+    // Verify INT cleared after read
     if (!INT) begin
-      $display("✓ PASS: INT cleared after ptchL read\n");
+      $display("  [PASS] INT deasserted after read\n");
     end else begin
-      $display("✗ FAIL: INT not cleared after ptchL read\n");
+      $display("  [FAIL] INT still asserted\n");
       $stop;
     end
     
-    repeat(10) @(posedge clk);
+    repeat(8) @(posedge clk);
     
-    ///////////////////////////////////////////
-    // TEST 4: Read ptchH register (0xA3)
-    ///////////////////////////////////////////
-    $display("TEST 4: Reading ptchH register at 0xA3");
-    wt_data = 16'hA300;
+    /////////////////////////////////////////////
+    // Test 4: Read pitch high byte
+    /////////////////////////////////////////////
+    $display("[Test 4] Reading pitch high byte (0xA3)");
+    wt_data = 16'hA300;  // Read ptchH register
     wrt = 1;
     @(posedge clk);
     wrt = 0;
     
-    // Wait for transaction to complete
     @(posedge done);
-    repeat(2) @(posedge clk);
+    @(posedge clk);
     
-    // According to inert_data.hex, first entry (@00) pitch=5663, so ptchH=0x56
+    // First entry: pitch = 0x5663, so high byte = 0x56
     if (rd_data[7:0] == 8'h56) begin
-      $display("✓ PASS: ptchH returned 0x%h (expected 0x56)\n", rd_data[7:0]);
+      $display("  [PASS] ptchH = 0x%h (full pitch = 0x5663)\n", rd_data[7:0]);
     end else begin
-      $display("✗ FAIL: ptchH returned 0x%h (expected 0x56)\n", rd_data[7:0]);
+      $display("  [FAIL] ptchH = 0x%h, expected 0x56\n", rd_data[7:0]);
       $stop;
     end
     
-    repeat(10) @(posedge clk);
+    repeat(8) @(posedge clk);
     
-    ///////////////////////////////////////////
-    // TEST 5: Wait for second INT and read registers from second data entry
-    ///////////////////////////////////////////
-    $display("TEST 5: Waiting for second INT assertion...");
+    /////////////////////////////////////////////
+    // Test 5: Verify second interrupt and data
+    // Second entry has pitch=0xcd0d
+    /////////////////////////////////////////////
+    $display("[Test 5] Waiting for next INT...");
     
     fork
-      begin: timeout2
+      begin: int_wait_timeout2
         repeat(100000) @(posedge clk);
-        $display("✗ FAIL: Timeout waiting for second INT\n");
+        $display("  [FAIL] Second INT timeout\n");
         $stop;
       end
       begin
         @(posedge INT);
-        disable timeout2;
+        disable int_wait_timeout2;
       end
     join
     
-    $display("Second INT asserted! Reading ptchL register");
-    repeat(5) @(posedge clk);
+    $display("  Second INT received! Reading ptchL again");
+    repeat(3) @(posedge clk);
     
     wt_data = 16'hA200;
     wrt = 1;
@@ -215,24 +209,24 @@ module SPI_mnrch_tb();
     wrt = 0;
     
     @(posedge done);
-    repeat(2) @(posedge clk);
+    @(posedge clk);
     
-    // Second entry (@01) pitch=cd0d, so ptchL=0x0d
+    // Second entry: pitch = 0xcd0d, so low byte = 0x0d
     if (rd_data[7:0] == 8'h0d) begin
-      $display("✓ PASS: Second ptchL returned 0x%h (expected 0x0d)\n", rd_data[7:0]);
+      $display("  [PASS] Second ptchL = 0x%h\n", rd_data[7:0]);
     end else begin
-      $display("✗ FAIL: Second ptchL returned 0x%h (expected 0x0d)\n", rd_data[7:0]);
+      $display("  [FAIL] Second ptchL = 0x%h, expected 0x0d\n", rd_data[7:0]);
       $stop;
     end
     
-    repeat(20) @(posedge clk);
+    repeat(15) @(posedge clk);
     
-    ///////////////////////////////////////////
-    // All tests passed!
-    ///////////////////////////////////////////
-    $display("==============================================");
-    $display("ALL TESTS PASSED!");
-    $display("==============================================");
+    /////////////////////////////////////////////
+    // Test complete
+    /////////////////////////////////////////////
+    $display("========================================");
+    $display("All Tests Completed Successfully!");
+    $display("========================================");
     $stop;
   end
   
