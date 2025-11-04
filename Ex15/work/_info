@@ -1,13 +1,13 @@
 m255
 K4
 z2
+!s11f MIXED_VERSIONS
 Z0 !s12c _opt
 Z1 !s99 nomlopt
 R0
 R1
 R0
 R1
-!s11f vlog 2024.3 2024.09, Sep 10 2024
 13
 !s112 1.1
 !i10d 8192
@@ -50,61 +50,61 @@ r1
 !s85 0
 31
 Z9 !s108 1761579202.000000
-!s107 ..\\Ex08\\SegwayMath.sv|balance_cntrl.sv|PID.sv|
-Z10 !s90 -work|work|PID.sv|balance_cntrl.sv|..\Ex08\SegwayMath.sv|
+Z10 !s107 ..\\Ex08\\SegwayMath.sv|balance_cntrl.sv|PID.sv|
+Z11 !s90 -work|work|PID.sv|balance_cntrl.sv|..\Ex08\SegwayMath.sv|
 !i113 0
-Z11 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R3
 vPID
-R4
-R5
-R6
+Z13 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z14 !s110 1762220644
 !i10b 1
 !s100 S8D3SVH9ONNX_aMcV0QA]0
-Id3Y9>Qd^E_7CgS5Z0Ed=X3
+Z15 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IN0ImK2i1OEg2L<Ej6=Z7z2
+R7
 S1
-R2
-w1761579062
+Z16 dC:/Work/ECE551/Ex15
+Z17 w1762131840
 8PID.sv
 FPID.sv
-!i122 6
+!i122 7
 L0 4 153
-R7
-R8
+Z18 OV;L;2020.1;71
 r1
 !s85 0
 31
-R9
-Z12 !s107 ..\\Ex08\\SegwayMath.sv|balance_cntrl.sv|PID.sv|
-R10
-!i113 0
-R11
+Z19 !s108 1762220644.000000
+!s107 PID.sv|PID_fastsim_tb.sv|
+Z20 !s90 -work|work|-sv|PID_fastsim_tb.sv|PID.sv|
+!i113 1
+Z21 o-work work -sv
 R3
 n@p@i@d
 vPID_dbg_tb
-2PID_fastsim_tb.sv
-R5
-!s110 1761579166
+R13
+R14
 !i10b 1
 !s100 2fGN6^>GTOWg7JIi]EZGh0
-IA<Xh7Di=<@min2SJEU8D62
+R15
+IGn5N[X]2?0KTD:oX8NRDX0
+R7
 S1
-R2
-w1761578502
+R16
+R17
 8PID_fastsim_tb.sv
 FPID_fastsim_tb.sv
-!i122 4
+!i122 7
 L0 1 213
-R7
-R8
+R18
 r1
 !s85 0
 31
-!s108 1761579165.000000
-!s107 PID_fastsim_tb.sv|
-!s90 -work|work|PID_fastsim_tb.sv|
-!i113 0
-R11
+R19
+Z22 !s107 PID.sv|PID_fastsim_tb.sv|
+R20
+!i113 1
+R21
 R3
 n@p@i@d_dbg_tb
 vSegwayMath
@@ -127,9 +127,9 @@ r1
 !s85 0
 31
 R9
-R12
 R10
-!i113 0
 R11
+!i113 0
+R12
 R3
 n@segway@math

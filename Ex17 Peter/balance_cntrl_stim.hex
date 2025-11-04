@@ -1,0 +1,10 @@
+// Sample stimulus file - replace with actual data from Canvas
+// Format: 49-bit vectors (stim[48:0])
+// stim[48] = rst_n, stim[47] = vld, stim[46:31] = ptch, stim[30:15] = ptch_rt
+// stim[14] = pwr_up, stim[13] = rider_off, stim[12:1] = steer_pot, stim[0] = en_steer
+
+0000000000000  // Vector 0: rst_n=0, all others 0
+1800040008002  // Vector 1: rst_n=1, vld=1, pwr_up=1, ptch=0x0001, steer_pot=0x001, en_steer=0
+1800040008003  // Vector 2: rst_n=1, vld=1, pwr_up=1, ptch=0x0001, steer_pot=0x001, en_steer=1
+// ... (add more vectors - total should be 1500)
+// This is just a sample - replace with actual hex file content

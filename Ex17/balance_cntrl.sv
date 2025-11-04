@@ -1,51 +1,59 @@
-// balance_cntrl.sv - Balance control module combining PID and SegwayMath
-// This module integrates the PID controller with the Segway motor control math
+// balance_cntrl.sv - Top-level balance controller
+// Wires PID outputs into SegwayMath motor control
 
 module balance_cntrl #(
-  parameter fast_sim = 1  // Parameter to speed up simulation, defaulted to 1
+  parameter fast_sim = 1   // Passed down to PID for fast simulation
 )(
   input  logic                        clk,        // 50MHz system clock
-  input  logic                        rst_n,      // active low reset
-  input  logic                        vld,        // High when new inertial sensor reading is ready
-  input  logic signed [15:0]          ptch,       // Pitch of Segway from inertial_intf
-  input  logic signed [15:0]          ptch_rt,    // Pitch rate (degrees/sec) for D_term of PID
-  input  logic                        pwr_up,     // Asserted when Segway balance control is powered up
-  input  logic                        rider_off,  // Asserted when no rider detected
-  input  logic [11:0]                 steer_pot,  // From A2D_intf (converted from steering potentiometer)
-  input  logic                        en_steer,   // Enables steering control
-  
-  output logic signed [11:0]          lft_spd,    // 12-bit signed speed of left motor
-  output logic signed [11:0]          rght_spd,   // 12-bit signed speed of right motor
-  output logic                        too_fast    // Rider approaching point of minimal control margin
+  input  logic                        rst_n,      // active-low reset
+  input  logic                        vld,        // new inertial sensor reading
+  input  logic signed [15:0]          ptch,       // pitch from inertial_intf
+  input  logic signed [15:0]          ptch_rt,    // pitch rate (deg/sec) for D term
+  input  logic                        pwr_up,     // balance control powered up
+  input  logic                        rider_off,  // no rider detected
+  input  logic [11:0]                 steer_pot,  // steering pot from A2D_intf
+  input  logic                        en_steer,   // steering enable
+
+  output logic signed [11:0]          lft_spd,    // left motor speed
+  output logic signed [11:0]          rght_spd,   // right motor speed
+  output logic                        too_fast    // speed safety flag
 );
 
-  // Internal signals connecting PID to SegwayMath
-  logic signed [11:0] PID_cntrl;  // PID controller output
-  logic [7:0] ss_tmr;             // Soft start timer output
+  // Internal wires between PID and SegwayMath
+  logic signed [11:0] PID_cntrl;
+  logic        [7:0]  ss_tmr;
 
-  // Instantiate PID controller  
-  PID #(.fast_sim(fast_sim)) iPID (
-    .clk(clk),
-    .rst_n(rst_n),
-    .vld(vld),
-    .ptch(ptch),
-    .ptch_rt(ptch_rt),
-    .pwr_up(pwr_up),
+  // =========================
+  // PID controller instance
+  // =========================
+  PID #(
+    .fast_sim(fast_sim)
+  ) iPID (
+    .clk      (clk),
+    .rst_n    (rst_n),
+    .vld      (vld),
+    .ptch     (ptch),
+    .ptch_rt  (ptch_rt),
+    .pwr_up   (pwr_up),
     .rider_off(rider_off),
     .PID_cntrl(PID_cntrl),
-    .ss_tmr(ss_tmr)
+    .ss_tmr   (ss_tmr)
   );
 
-  // Instantiate SegwayMath module
+  // =========================
+  // Segway motor math
+  // =========================
   SegwayMath iSegwayMath (
     .PID_cntrl(PID_cntrl),
-    .ss_tmr(ss_tmr),
+    .ss_tmr   (ss_tmr),
     .steer_pot(steer_pot),
-    .en_steer(en_steer),
-    .pwr_up(pwr_up),
-    .lft_spd(lft_spd),
-    .rght_spd(rght_spd),
-    .too_fast(too_fast)
+    .en_steer (en_steer),
+    .pwr_up   (pwr_up),
+    .rider_off(rider_off),
+    .lft_spd  (lft_spd),
+    .rght_spd (rght_spd),
+    .too_fast (too_fast)
   );
 
 endmodule
+

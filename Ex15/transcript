@@ -1,22 +1,8 @@
-# vsim -c PID_dbg_tb -do "run -all; quit -f" 
-# Start time: 10:40:39 on Oct 27,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
-# //  Questa Intel Starter FPGA Edition-64
-# //  Version 2024.3 win64 Sep 10 2024
-# //
-# // Unpublished work. Copyright 2024 Siemens
-# //
-# // This material contains trade secrets or otherwise confidential information
-# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
-# // "SISW"), or its licensors. Access to and use of this information is strictly
-# // limited as set forth in the Customer's applicable agreements with SISW.
-# //
-# // This material may not be copied, distributed, or otherwise disclosed outside
-# // of the Customer's facilities without the express written permission of SISW,
-# // and may not be used in any way not expressly authorized by SISW.
-# //
+# vsim -c work.PID_dbg_tb -do "run -all; quit -f" 
+# Start time: 19:44:43 on Nov 03,2025
 # Loading sv_std.std
-# Loading work.PID_dbg_tb(fast)
+# Loading work.PID_dbg_tb
+# Loading work.PID
 # run -all
 # GOOD1: zero in should give zero out
 # GOOD2: PID_cntrl should be P_term only
@@ -34,9 +20,9 @@
 # YAHOO!! all tests passed!
 # 
 # ** Note: $stop    : PID_fastsim_tb.sv(185)
-#    Time: 42745 ns  Iteration: 1  Instance: /PID_dbg_tb
-# Break at PID_fastsim_tb.sv line 185
+#    Time: 42745 ps  Iteration: 1  Instance: /PID_dbg_tb
+# Break in Module PID_dbg_tb at PID_fastsim_tb.sv line 185
 # Stopped at PID_fastsim_tb.sv line 185
 #  quit -f
-# End time: 10:40:40 on Oct 27,2025, Elapsed time: 0:00:01
+# End time: 19:44:44 on Nov 03,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0

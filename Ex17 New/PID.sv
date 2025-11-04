@@ -1,143 +1,124 @@
-module PID(
-    input signed [15:0] ptch,        // This IS the P term (after saturation and multiplication)
-    input signed [15:0] ptch_rt,     // This IS the D term 
-    input clk, 
-    input rst_n,
-    input vld,
-    input pwr_up,
-    input rider_off,
-    output logic [7:0] ss_tmr,
-    output signed [11:0] PID_cntrl,
-    output signed [17:0] integrator  // Added integrator as output for debugging
+// PID.sv - Full PID controller (adapted interface for Ex17 New)
+// Based on provided PID from Ex17, adjusted to keep ports/param compatible
+
+module PID #(
+    parameter FAST_SIM = 0
+) (
+    input  logic                        clk,
+    input  logic                        rst_n,     // async active-low
+    input  logic                        vld,       // new sensor sample valid
+
+    input  logic signed [15:0]          ptch,      // pitch
+    input  logic signed [15:0]          ptch_rt,   // pitch rate
+    input  logic                        pwr_up,    // power-up enable
+    input  logic                        rider_off, // no rider detected
+
+    output logic signed [11:0]          PID_cntrl, // PID output
+    output logic [7:0]                  ss_tmr,    // soft-start timer
+    output logic signed [17:0]          integrator // expose integrator for debug
 );
 
-    parameter FAST_SIM = 1; // Set to 1 for fast simulation (increment timer by 1), 0 for normal operation (multiply by 256)
-    logic signed [14:0] p_term;
-    logic signed [14:0] i_term;
-    logic signed [12:0] d_term;
-    logic signed [15:0] PID_mid;
-    logic signed [9:0] ptch_err_sat;
-    logic signed [19:0] sum_for_integrator;  // Wider to prevent overflow
-    logic signed [17:0] integrator_reg;
-    logic rider_off_ff1, rider_off_ff2;
-    logic [26:0] soft_start_timer;
-    logic [26:0] additive;
-    logic signed [14:0] i_term_temp;
-     
-    localparam P_COEFF = 5'h09;
+    // Gain
+    localparam int P_COEFF = 9;
 
-//P TERM=============================================================
-    assign ptch_err_sat = ((ptch[15] == 1'b0 && |ptch[14:9])||(ptch[15] == 1'b1 && ~&ptch[14:9])) ? {ptch[15], {9{~ptch[15]}}} : ptch[9:0];
-    assign p_term = $signed(ptch_err_sat) * $signed(P_COEFF);
+    // State
+    logic signed [9:0]   ptch_err_sat;
+    logic signed [15:0]  ptch_err;
+    logic signed [15:0]  P_term;
+    logic signed [15:0]  I_term;
+    logic signed [15:0]  D_term;
+    logic signed [17:0]  PID_sum;
+    logic signed [17:0]  integrator_next;
+    logic signed [15:0]  prev_ptch_rt;
+    logic                prev_vld;
+    logic [26:0]         long_tmr, long_tmr_next;
 
-//I TERM=============================================================
-    always_ff @(posedge clk, negedge rst_n) begin
-        if (!rst_n)
-            integrator_reg <= 18'h00000;
-        else if (!pwr_up || rider_off)  
-            integrator_reg <= 18'h00000;
-        else if (vld) begin
+    // Saturate pitch error to 10-bit signed
+    function automatic logic signed [9:0] sat_err(input logic signed [15:0] e);
+        if (e > 16'sd511)        sat_err = 10'sd511;
+        else if (e < -16'sd512)  sat_err = -10'sd512;
+        else                     sat_err = e[9:0];
+    endfunction
 
-            sum_for_integrator = {{2{integrator_reg[17]}}, integrator_reg} + {{10{ptch_err_sat[9]}}, ptch_err_sat};
-            
-            if (sum_for_integrator > 20'sd131071)  begin
-                integrator_reg <= 18'sh1FFFF;   // +131071 (max positive for 18-bit signed)
-            end else if (sum_for_integrator < -20'sd131072) begin 
-                integrator_reg <= 18'sh20000;   // -131072 (max negative for 18-bit signed)
-            end else begin
-                integrator_reg <= sum_for_integrator[17:0];
-            end
-        end
-    end
-    always_ff @(posedge clk, negedge rst_n) begin
-        if (!rst_n) begin
-            rider_off_ff1 <= 1'b0;
-            rider_off_ff2 <= 1'b0;
-        end else begin
-            rider_off_ff1 <= rider_off;
-            rider_off_ff2 <= rider_off_ff1;
-        end
-    end
-    assign integrator = integrator_reg;
-    
-    // I term is bits [17:6] of integrator (divide by 64)
-    assign i_term = i_term_temp;
-    
-
-//D TERM=============================================================
-    assign d_term = ~{{3{ptch_rt[15]}}, ptch_rt[15:6]} + 1'b1; 
-    //move over by 6... 2^6 is 64... mind blown. (again)... also squiggly makes it negative!!
- 
-    assign PID_mid = {p_term[14], 
-                      p_term[14:0]} + {i_term[14], 
-                      i_term[14:0]} + {{3{d_term[12]}}, 
-                      d_term[12:0]};
-                      
-
-
-    // Saturate to 12-bit signed range: -2048 to +2047
-    logic signed [11:0] PID_saturated;
-    
+    // Core combinational math
     always_comb begin
-        if (PID_mid > $signed(16'd2047)) begin
-            PID_saturated = 12'sh7FF;    // +2047
-        end else if (PID_mid < $signed(-16'd2048)) begin 
-            PID_saturated = 12'sh800;    // -2048  
+        // Error and P
+        ptch_err     = ptch;
+        ptch_err_sat = sat_err(ptch_err);
+        P_term       = $signed(ptch_err_sat) * P_COEFF;
+
+        // D: simple discrete derivative of pitch rate
+        D_term = ($signed(prev_ptch_rt) - $signed(ptch_rt)) >>> 6;
+
+        // I update
+        if (rider_off) begin
+            integrator_next = 18'sd0;
+        end else if (vld) begin
+            logic signed [18:0] tmp;
+            tmp = {{1{integrator[17]}}, integrator} + {{9{ptch_err_sat[9]}}, ptch_err_sat};
+            if (tmp > 19'sd131071)       integrator_next = 18'sd131071;
+            else if (tmp < -19'sd131072) integrator_next = -18'sd131072;
+            else                         integrator_next = tmp[17:0];
         end else begin
-            PID_saturated = PID_mid[11:0];  // This should be the signed 12-bit value
+            integrator_next = integrator;
         end
+
+        // Soft-start timer advance
+        if (!pwr_up) begin
+            long_tmr_next = 27'd0;
+        end else if (&long_tmr[18:11]) begin
+            long_tmr_next = long_tmr; // freeze when ss_tmr hits 0xFF
+        end else begin
+            long_tmr_next = long_tmr + (FAST_SIM ? 27'd256 : 27'd1);
+        end
+
+        // Sum P + I + D (I_term is assigned in generate below)
+        PID_sum = {{2{P_term[15]}}, P_term}
+                        + {{2{I_term[15]}}, I_term}
+                        + {{2{D_term[15]}}, D_term};
     end
-    
-    assign PID_cntrl = PID_saturated;
 
-//SOFT START TIMER===================================================
-    // 27-bit timer for soft start - one shot timer that freezes when near full
-    logic [26:0] long_tmr;
-    logic tmr_full;
-    
-    // Check if timer is near full (bits [26:19] are all 1's)
-    // This creates the "freeze" condition when ss_tmr reaches 0xFF
-    assign tmr_full = &long_tmr[26:19];  // All upper 8 bits are 1
-
-    generate 
-        if(FAST_SIM) begin : gen_fast_sim
-            // Fast sim: Set additive to 256 for timer
-            assign additive = 27'd256;
-            
-            // Fast sim I_term: tap bits [15:1] with saturation
+    // I term shaping depends on FAST_SIM
+    generate
+        if (FAST_SIM) begin : G_FS
             always_comb begin
-                if (integrator_reg[17:15] == 3'b000 || integrator_reg[17:15] == 3'b111) begin
-                    // No saturation needed - use bits [15:1] (tap by 1) to form I_term in FAST_SIM
-                    // integrator_reg[15:1] is 15 bits and matches i_term_temp [14:0]
-                    i_term_temp = integrator_reg[15:1];
-                end else begin
-                    // Saturation needed - saturate based on sign
-                    i_term_temp = integrator_reg[17] ? 15'sh4000 : 15'sh3FFF;
-                end
+                // use [15:1] with saturation on extreme values
+                if (integrator[17:15] == 3'b000 || integrator[17:15] == 3'b111)
+                    I_term = {{1{integrator[15]}}, integrator[15:1]};
+                else if (integrator[17])
+                    I_term = 16'h8000;
+                else
+                    I_term = 16'h7FFF;
             end
-        end else begin : gen_normal
-            // Normal: Set additive to 1 for timer
-            assign additive = 27'd1;
-            
-            // Normal I_term: tap bits [17:6] (divide by 64)
-            always_comb begin
-                i_term_temp = {{3{integrator_reg[17]}}, integrator_reg[17:6]};
-            end
+        end else begin : G_NORM
+            // nominal: divide by 2
+            assign I_term = integrator >>> 1;
         end
     endgenerate
-    
+
+    // Output saturation to 12-bit signed
+    always_comb begin
+        if ($signed(PID_sum) > 18'sd2047)         PID_cntrl = 12'sh7FF;
+        else if ($signed(PID_sum) < -18'sd2048)   PID_cntrl = 12'sh800;
+        else                                      PID_cntrl = PID_sum[11:0];
+    end
+
+    // State registers
     always_ff @(posedge clk, negedge rst_n) begin
-        if (!rst_n)
-            long_tmr <= 27'h0000000;
-        else if (!pwr_up)
-            long_tmr <= 27'h0000000;  
-        else if (!tmr_full) 
-            long_tmr <= long_tmr + additive;
-        
+        if (!rst_n) begin
+            integrator   <= 18'sd0;
+            prev_ptch_rt <= 16'sd0;
+            long_tmr     <= 27'd0;
+            prev_vld     <= 1'b0;
+        end else begin
+            integrator   <= integrator_next;
+            if (vld && !prev_vld) prev_ptch_rt <= ptch_rt;
+            prev_vld     <= vld;
+            long_tmr     <= long_tmr_next;
         end
-    
-    
-    // Output upper 8 bits [26:19] of 27-bit timer
-    assign ss_tmr = long_tmr[26:19];
+    end
+
+    // Soft-start timer exposes middle bits for 0..255 ramp
+    assign ss_tmr = long_tmr[18:11];
 
 endmodule

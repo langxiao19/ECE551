@@ -1,8 +1,21 @@
-# vsim -c -do "run -all; quit -f" work.SPI_mnrch_tb 
-# Start time: 21:49:42 on Nov 02,2025
-# ** Error: (vsim-3170) Could not find 'SPI_mnrch_tb'.
-#         Searched libraries:
-#             C:/Work/ECE551/work
-# Error loading design
-# End time: 21:49:42 on Nov 02,2025, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
+# vsim -c work.balance_cntrl_chk_tb -do "run -all; quit -f" 
+# Start time: 18:20:03 on Nov 03,2025
+# Loading sv_std.std
+# Loading work.balance_cntrl_chk_tb
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# run -all
+# ** Warning: (vsim-7) Failed to open readmem file "balance_cntrl_stim.hex" in read mode.
+# No such file or directory. (errno = ENOENT)    : C:/Work/ECE551/Ex17/balance_cntrl_chk_tb.sv(57)
+#    Time: 0 ps  Iteration: 0  Instance: /balance_cntrl_chk_tb
+# ** Warning: (vsim-7) Failed to open readmem file "balance_cntrl_resp.hex" in read mode.
+# No such file or directory. (errno = ENOENT)    : C:/Work/ECE551/Ex17/balance_cntrl_chk_tb.sv(58)
+#    Time: 0 ps  Iteration: 0  Instance: /balance_cntrl_chk_tb
+# 
+# ✅ All 1500 vectors matched expected response.
+# 
+# ** Note: $finish    : C:/Work/ECE551/Ex17/balance_cntrl_chk_tb.sv(81)
+#    Time: 14996 ns  Iteration: 0  Instance: /balance_cntrl_chk_tb
+# End time: 18:20:03 on Nov 03,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2

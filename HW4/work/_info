@@ -1,6 +1,7 @@
 m255
 K4
 z2
+!s11f MIXED_VERSIONS
 Z0 !s12c _opt
 Z1 !s99 nomlopt
 !s12c _opt4
@@ -27,7 +28,6 @@ R3
 R1
 R0
 R1
-!s11f vlog 2024.3 2024.09, Sep 10 2024
 13
 !s112 1.1
 !i10d 8192
@@ -49,6 +49,7 @@ o-quiet -auto_acc_if_foreign -work work +acc
 Z10 tCvgOpt 0
 n@_opt
 Z11 OL;O;2024.3;79
+R4
 T_opt1
 !s110 1762127027
 V[YMF64gQFbjK]T>N_k=Wh0
@@ -110,125 +111,125 @@ n@_opt4
 R11
 R4
 vAuth_blk
-2I:/ECE551/HW4/Auth_blk.sv
-Z14 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-!s110 1762128829
+Z14 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z15 !s110 1762228296
 !i10b 1
 !s100 fcCjo5IAM7Abl[oLa7::^2
-I6]mE[SC0cc_aT[6Kc?^8?2
+Z16 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IHz>bEXE:djQKGE<OZS];81
+Z17 VDg1SIo80bB@j0V0VzS_@n1
 S1
-Z15 dI:/ECE551/HW4
-w1762128694
-8I:/ECE551/HW4/Auth_blk.sv
-FI:/ECE551/HW4/Auth_blk.sv
-!i122 16
+Z18 dC:/Work/ECE551/HW4
+Z19 w1762131840
+8C:/Work/ECE551/HW4/Auth_blk.sv
+FC:/Work/ECE551/HW4/Auth_blk.sv
+!i122 19
 L0 1 101
-Z16 VDg1SIo80bB@j0V0VzS_@n1
-Z17 OL;L;2024.3;79
+Z20 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1762128828.000000
-!s107 I:/ECE551/HW4/Auth_blk.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/HW4/Auth_blk.sv|
-!i113 0
-Z18 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z21 !s108 1762228296.000000
+!s107 C:/Work/ECE551/HW4/Auth_blk.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/HW4/Auth_blk.sv|
+!i113 1
+Z22 o-work work -sv
 R10
 n@auth_blk
 vAuth_blk_behavioral_tb
-Z19 2Auth_blk.sv|Auth_blk_behavioral_tb.sv|Auth_blk_simple_tb.sv|Auth_blk_tb.sv|Auth_blk_testable.sv|UART_rx.sv|UART_tx.sv
-R14
-Z20 !s110 1762127399
+Z23 2Auth_blk.sv|Auth_blk_behavioral_tb.sv|Auth_blk_simple_tb.sv|Auth_blk_tb.sv|Auth_blk_testable.sv|UART_rx.sv|UART_tx.sv
+Z24 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z25 !s110 1762127399
 !i10b 1
 !s100 zO9b`f]2]NgzL??M^5Reg3
 I>iC8o2R^`_O@=8C618z6d1
 S1
-R15
+Z26 dI:/ECE551/HW4
 w1762127220
 8Auth_blk_behavioral_tb.sv
 FAuth_blk_behavioral_tb.sv
 !i122 11
 L0 1 178
-R16
 R17
+Z27 OL;L;2024.3;79
 r1
 !s85 0
 31
-Z21 !s108 1762127399.000000
-Z22 !s107 UART_tx.sv|UART_rx.sv|Auth_blk_testable.sv|Auth_blk_tb.sv|Auth_blk_simple_tb.sv|Auth_blk_behavioral_tb.sv|Auth_blk.sv|
-Z23 !s90 Auth_blk.sv|Auth_blk_behavioral_tb.sv|Auth_blk_simple_tb.sv|Auth_blk_tb.sv|Auth_blk_testable.sv|UART_rx.sv|UART_tx.sv|
+Z28 !s108 1762127399.000000
+Z29 !s107 UART_tx.sv|UART_rx.sv|Auth_blk_testable.sv|Auth_blk_tb.sv|Auth_blk_simple_tb.sv|Auth_blk_behavioral_tb.sv|Auth_blk.sv|
+Z30 !s90 Auth_blk.sv|Auth_blk_behavioral_tb.sv|Auth_blk_simple_tb.sv|Auth_blk_tb.sv|Auth_blk_testable.sv|UART_rx.sv|UART_tx.sv|
 !i113 0
-Z24 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z31 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R10
 n@auth_blk_behavioral_tb
 vAuth_blk_final_tb
-2I:/ECE551/HW4/Auth_blk_tb.sv
 R14
-!s110 1762128830
+R15
 !i10b 1
 !s100 g1IRiWfPT]_LGFTn>Fmoj1
-IgAe_L?KXh^>R:]MF:;XWo3
-S1
-R15
-w1762128728
-8I:/ECE551/HW4/Auth_blk_tb.sv
-FI:/ECE551/HW4/Auth_blk_tb.sv
-!i122 17
-L0 1 190
 R16
+IVHi7Hc0I0Id1g6dC<m[?E3
 R17
+S1
+R18
+R19
+8C:/Work/ECE551/HW4/Auth_blk_tb.sv
+FC:/Work/ECE551/HW4/Auth_blk_tb.sv
+!i122 20
+L0 1 190
+R20
 r1
 !s85 0
 31
-!s108 1762128829.000000
-!s107 I:/ECE551/HW4/Auth_blk_tb.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/HW4/Auth_blk_tb.sv|
-!i113 0
-R18
+R21
+!s107 C:/Work/ECE551/HW4/Auth_blk_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/HW4/Auth_blk_tb.sv|
+!i113 1
+R22
 R10
 n@auth_blk_final_tb
 vAuth_blk_simple_tb
-R19
-R14
-R20
+R23
+R24
+R25
 !i10b 1
 !s100 hk:Ya_iB0cE5_aXK_Z]J23
 IRPfAfGGj30ADMYo6KJGZ11
 S1
-R15
+R26
 w1762127152
 8Auth_blk_simple_tb.sv
 FAuth_blk_simple_tb.sv
 !i122 11
 L0 1 171
-R16
 R17
+R27
 r1
 !s85 0
 31
-R21
-R22
-R23
+R28
+R29
+R30
 !i113 0
-R24
+R31
 R10
 n@auth_blk_simple_tb
 vAuth_blk_tb
 2Auth_blk.sv|UART_rx.sv|UART_tx.sv|Auth_blk_tb.sv
-R14
+R24
 !s110 1762127962
 !i10b 1
 !s100 nCz4L6;`TdzM49:z7XOOS3
 I<NXSb=ebzhU6HK=`C=A=k1
 S1
-R15
+R26
 w1762127829
 8Auth_blk_tb.sv
 FAuth_blk_tb.sv
 !i122 14
 L0 1 150
-R16
 R17
+R27
 r1
 !s85 0
 31
@@ -236,84 +237,84 @@ r1
 !s107 Auth_blk_tb.sv|UART_tx.sv|UART_rx.sv|Auth_blk.sv|
 !s90 Auth_blk.sv|UART_rx.sv|UART_tx.sv|Auth_blk_tb.sv|
 !i113 0
-R24
+R31
 R10
 n@auth_blk_tb
 vAuth_blk_testable
-R19
-R14
-R20
+R23
+R24
+R25
 !i10b 1
 !s100 J7S6;8C1SbU9e2l6NR]Od0
 Ib^;3[Be^:QTkK>X48R0V;3
 S1
-R15
+R26
 w1762127130
 8Auth_blk_testable.sv
 FAuth_blk_testable.sv
 !i122 11
 L0 1 112
-R16
 R17
+R27
+r1
+!s85 0
+31
+R28
+R29
+R30
+!i113 0
+R31
+R10
+n@auth_blk_testable
+vUART_rx
+R14
+R15
+!i10b 1
+!s100 PkF2C]KBEME920znOS_VB2
+R16
+In0:X]7PY:SMX_<c=<Sikm1
+R17
+S1
+R18
+R19
+8C:/Work/ECE551/HW4/UART_rx.sv
+FC:/Work/ECE551/HW4/UART_rx.sv
+!i122 21
+L0 1 122
+R20
 r1
 !s85 0
 31
 R21
+!s107 C:/Work/ECE551/HW4/UART_rx.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/HW4/UART_rx.sv|
+!i113 1
 R22
-R23
-!i113 0
-R24
-R10
-n@auth_blk_testable
-vUART_rx
-2I:/ECE551/HW4/UART_rx.sv
-R14
-!s110 1762128831
-!i10b 1
-!s100 PkF2C]KBEME920znOS_VB2
-I9kkkgfT_zN237633ZU?<Q0
-S1
-R15
-w1762127740
-8I:/ECE551/HW4/UART_rx.sv
-FI:/ECE551/HW4/UART_rx.sv
-!i122 18
-L0 1 122
-R16
-R17
-r1
-!s85 0
-31
-!s108 1762128830.000000
-!s107 I:/ECE551/HW4/UART_rx.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ECE551/HW4/UART_rx.sv|
-!i113 0
-R18
 R10
 n@u@a@r@t_rx
 vUART_tx
-2Auth_blk.sv|UART_rx.sv|UART_tx.sv|Auth_blk_final_tb.sv
 R14
-!s110 1762128742
+R15
 !i10b 1
 !s100 ]@R2L15nK4SFV=bnkRFC90
-IC5>JBk3]5S8:ZoaO[2fF42
-S1
-R15
-w1760395907
-8UART_tx.sv
-FUART_tx.sv
-!i122 15
-L0 1 72
 R16
+IKm>7N8>ZbXKCn@7]QcKjN2
 R17
+S1
+R18
+R19
+8C:/Work/ECE551/HW4/UART_tx.sv
+FC:/Work/ECE551/HW4/UART_tx.sv
+!i122 22
+L0 1 72
+R20
 r1
 !s85 0
 31
-!s108 1762128741.000000
-!s107 Auth_blk_final_tb.sv|UART_tx.sv|UART_rx.sv|Auth_blk.sv|
-!s90 Auth_blk.sv|UART_rx.sv|UART_tx.sv|Auth_blk_final_tb.sv|
-!i113 0
-R24
+R21
+!s107 C:/Work/ECE551/HW4/UART_tx.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/HW4/UART_tx.sv|
+!i113 1
+R22
 R10
 n@u@a@r@t_tx

@@ -8,106 +8,106 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-dC:/intelFPGA/20.1
+Z0 dC:/Work/ECE551/Ex17 New
 vbalance_cntrl
-Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1762138283
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1762228441
 !i10b 1
-!s100 a0HO=Yj0?^MkMU5jXbRhN2
-Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IigVj05ka;kZ7B5`;1i:7U3
-Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s100 7R5jWRG1gIIWPGB0nj5T93
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IN]0Pa4MemefjW6:5T>zQn0
+Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
-Z4 dC:/Work/ECE551/Ex17 New
-Z5 w1762138159
-8C:/Work/ECE551/Ex17 New/balance_cntrl.sv
-FC:/Work/ECE551/Ex17 New/balance_cntrl.sv
-!i122 0
-L0 1 59
-Z6 OV;L;2020.1;71
+R0
+w1762227847
+8balance_cntrl.sv
+Fbalance_cntrl.sv
+!i122 8
+L0 3 57
+Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1762138282.000000
-!s107 C:/Work/ECE551/Ex17 New/balance_cntrl.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/Ex17 New/balance_cntrl.sv|
+Z6 !s108 1762228441.000000
+!s107 SegwayMath.sv|PID.sv|balance_cntrl_chk_tb.sv|balance_cntrl.sv|
+Z7 !s90 -sv|+acc|balance_cntrl.sv|balance_cntrl_chk_tb.sv|PID.sv|SegwayMath.sv|
 !i113 1
-Z7 o-work work -sv
-Z8 tCvgOpt 0
+Z8 o-sv +acc
+Z9 tCvgOpt 0
 vbalance_cntrl_chk_tb
-R0
 R1
-!i10b 1
-!s100 B?6_RlCB2Mgh6Xl>7;jHF2
 R2
-I93JJWWLi[Q;KlYazZ827m3
+!i10b 1
+!s100 Cb7GhM`0^jgbCm=IIQV@H2
 R3
-S1
+IESb6QQHG>>EHkh:>G]RnG1
 R4
+S1
+R0
+w1762227846
+8balance_cntrl_chk_tb.sv
+Fbalance_cntrl_chk_tb.sv
+!i122 8
+L0 8 260
 R5
-8C:/Work/ECE551/Ex17 New/balance_cntrl_chk_tb.sv
-FC:/Work/ECE551/Ex17 New/balance_cntrl_chk_tb.sv
-!i122 1
-L0 8 315
-R6
 r1
 !s85 0
 31
-Z9 !s108 1762138283.000000
-!s107 C:/Work/ECE551/Ex17 New/balance_cntrl_chk_tb.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/Ex17 New/balance_cntrl_chk_tb.sv|
-!i113 1
+R6
+Z10 !s107 SegwayMath.sv|PID.sv|balance_cntrl_chk_tb.sv|balance_cntrl.sv|
 R7
+!i113 1
 R8
-vPID
-R0
-R1
-!i10b 1
-!s100 FjUdInY9V591Y@N=>CSGj1
-R2
-I?eD8NPQ9a_GXVjadSl^UU0
-R3
-S1
-R4
-R5
-8C:/Work/ECE551/Ex17 New/PID.sv
-FC:/Work/ECE551/Ex17 New/PID.sv
-!i122 2
-L0 1 143
-R6
-r1
-!s85 0
-31
 R9
-!s107 C:/Work/ECE551/Ex17 New/PID.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/Ex17 New/PID.sv|
-!i113 1
+vPID
+R1
+R2
+!i10b 1
+!s100 BXLdZDL8kNn]zEJ6TgK310
+R3
+In4bXP><8]MCJefjODIh7?2
+R4
+S1
+R0
+w1762228354
+8PID.sv
+FPID.sv
+!i122 8
+L0 4 121
+R5
+r1
+!s85 0
+31
+R6
+R10
 R7
+!i113 1
 R8
+R9
 n@p@i@d
 vSegwayMath
-R0
 R1
+R2
 !i10b 1
 !s100 z5VMH:<>5njXX9WnLoN3k0
-R2
-I_2V9HHNH_zO^<S2bJZ88D0
 R3
-S1
+IfT1HY[74E05QQcHL7]NFU3
 R4
-R5
-8C:/Work/ECE551/Ex17 New/SegwayMath.sv
-FC:/Work/ECE551/Ex17 New/SegwayMath.sv
-!i122 3
+S1
+R0
+w1762227477
+8SegwayMath.sv
+FSegwayMath.sv
+!i122 8
 L0 1 97
-R6
+R5
 r1
 !s85 0
 31
-R9
-!s107 C:/Work/ECE551/Ex17 New/SegwayMath.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Work/ECE551/Ex17 New/SegwayMath.sv|
-!i113 1
+R6
+R10
 R7
+!i113 1
 R8
+R9
 n@segway@math

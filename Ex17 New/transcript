@@ -1,40 +1,59 @@
-# Compile of SPI_iNEMO1.sv was successful.
-# Compile of SPI_mnrch.sv was successful.
-# Compile of SPI_mnrch_tb.sv was successful.
-# 3 compiles, 0 failed with no errors.
-vsim -gui work.SPI_mnrch_tb
-# vsim -gui work.SPI_mnrch_tb 
-# Start time: 22:56:04 on Nov 02,2025
+# vsim -c work.balance_cntrl_chk_tb -do "run -all; quit -f" 
+# Start time: 21:54:02 on Nov 03,2025
 # Loading sv_std.std
-# Loading work.SPI_mnrch_tb
-# Loading work.SPI_mnrch
-# Loading work.SPI_iNEMO1
-run -all
-# ========================================
-# SPI Monarch Testbench - Started
-# ========================================
-# 
-# [Test 1] Reading WHO_AM_I (addr 0x0F)
-#   [PASS] WHO_AM_I = 0x6a
-# 
-# [Test 2] Configuring INT enable (write 0x02 to 0x0D)
-#   [PASS] Sensor configured for interrupts
-# 
-# [Test 3] Waiting for INT signal...
-#   INT detected! Reading pitch low byte (0xA2)
-#   [PASS] ptchL = 0x63
-#   [PASS] INT deasserted after read
-# 
-# [Test 4] Reading pitch high byte (0xA3)
-#   [PASS] ptchH = 0x56 (full pitch = 0x5663)
-# 
-# [Test 5] Waiting for next INT...
-#   Second INT received! Reading ptchL again
-#   [PASS] Second ptchL = 0x0d
-# 
-# ========================================
-# All Tests Completed Successfully!
-# ========================================
-# ** Note: $stop    : C:/Work/ECE551/Ex16/SPI_mnrch_tb.sv(230)
-#    Time: 671630 ps  Iteration: 1  Instance: /SPI_mnrch_tb
-# Break in Module SPI_mnrch_tb at C:/Work/ECE551/Ex16/SPI_mnrch_tb.sv line 230
+# Loading work.balance_cntrl_chk_tb
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# run -all
+# [TB] Initializing and loading vectors...
+# [TB] Config: TOO_SELECTION=top SAMPLE_N=50 STOP_ON_MISMATCH=0
+# [DBG] stim[0]=0012480891e81 rst=0 vld=0 ptch=585 ptch_rt=274 pwr_up=0 rider_off=0 steer_pot=3904 en_steer=1
+# [DBG] resp[0]=0000000 lft=0 rght=0 too=0
+# [DBG] stim[1]=08009fdf01e63 rst=0 vld=1 ptch=19 ptch_rt=-1056 pwr_up=0 rider_off=0 steer_pot=3889 en_steer=1
+# [DBG] resp[1]=0000000 lft=0 rght=0 too=0
+# [DBG] stim[2]=1010d7edf9d8d rst=1 vld=0 ptch=538 ptch_rt=-577 pwr_up=0 rider_off=0 steer_pot=3782 en_steer=1
+# [DBG] resp[2]=0000000 lft=0 rght=0 too=0
+# [DBG] stim[3]=1fe6581371e13 rst=1 vld=1 ptch=-821 ptch_rt=622 pwr_up=0 rider_off=0 steer_pot=3849 en_steer=1
+# [DBG] resp[3]=0000000 lft=0 rght=0 too=0
+# [DBG] stim[4]=101017ed7c10d rst=1 vld=0 ptch=514 ptch_rt=-593 pwr_up=1 rider_off=0 steer_pot=134 en_steer=1
+# [DBG] resp[4]=0efefff lft=1919 rght=2047 too=1
+# [DBG] stim[5]=181767e8dc13d rst=1 vld=1 ptch=748 ptch_rt=-741 pwr_up=1 rider_off=0 steer_pot=158 en_steer=1
+# [DBG] resp[5]=0efefff lft=1919 rght=2047 too=1
+# [DBG] stim[6]=101ed7e2ddf8c rst=1 vld=0 ptch=986 ptch_rt=-933 pwr_up=1 rider_off=0 steer_pot=4038 en_steer=0
+# [DBG] resp[6]=0ffefff lft=2047 rght=2047 too=1
+# [DBG] stim[7]=181f9ff3740c7 rst=1 vld=1 ptch=1011 ptch_rt=-402 pwr_up=1 rider_off=0 steer_pot=99 en_steer=1
+# [DBG] resp[7]=0efefff lft=1919 rght=2047 too=1
+# --- VEC 4 XOR-DIFF ---
+# resp     = 0111011111110111111111111
+# dut_resp = xxxxxxxxxxxxxxxxxxxxxxxxx
+# diff     = xxxxxxxxxxxxxxxxxxxxxxxxx
+# resp.lft = 011101111111 (1919)
+# resp.rgt = 011111111111 (2047)
+# resp.too = 1
+# dut.lft  = 100000000000 (-2048)
+# dut.rgt  = 111000111000 (-456)
+# dut.too  = 0 (vld?too:0)
+# -----------------------
+# --- VEC 8 STATE ---
+# i=8 vld=0 pwr_up=1 rider_off=0 steer_pot=3925 en_steer=1
+# lft=-2048 rght=-456 too_top=0
+# iDUT.u_SegwayMath.too_fast=1
+# lft_shaped=-3960 rght_shaped=-456
+# -------------------
+# --- VEC 170 BITS ---
+# resp     = 0110101110010111111111111
+# dut_resp = xxxxxxxxxxxxxxxxxxxxxxxxx
+# resp.lft = 011010111001 (1721)
+# resp.rgt = 011111111111 (2047)
+# resp.too = 1
+# dut.lft  = 100000000000 (-2048)
+# dut.rgt  = 111000111000 (-456)
+# dut.too  = 0 (vld?too:0)
+# flags: vld=0 pwr_up=1 rider_off=0 en_steer=1 steer_pot=67
+# ---------------------
+# PASS: 1500/1500 vectors matched
+# ** Note: $finish    : balance_cntrl_chk_tb.sv(264)
+#    Time: 15006 ns  Iteration: 0  Instance: /balance_cntrl_chk_tb
+# End time: 21:54:02 on Nov 03,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

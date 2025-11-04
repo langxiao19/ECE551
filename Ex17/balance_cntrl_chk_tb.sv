@@ -1,149 +1,122 @@
-// balance_cntrl_chk_tb.sv - Testbench for balance_cntrl
-// Tests balance_cntrl using stimulus and expected response from hex files
+//==============================================================
+// Balance Control Self-Checking Testbench
+//==============================================================
+`timescale 1ns/1ps
 
-module balance_cntrl_chk_tb();
+module balance_cntrl_chk_tb;
 
-  //////////////////////////////////////////
-  // Declare stimulus and response vectors //
-  //////////////////////////////////////////
-  reg [48:0] stim;        // 49-bit stimulus vector
-  reg [24:0] resp;        // 25-bit response vector
-  
-  // Memory arrays to hold stimulus and expected response
-  reg [48:0] stim_mem[0:1499];   // 1500 stimulus vectors
-  reg [24:0] resp_mem[0:1499];   // 1500 response vectors
-  
-  //////////////////////////////////
-  // Declare testbench signals   //
-  //////////////////////////////////
-  reg clk;
-  integer i;              // Loop counter
-  integer errors;         // Error counter
-  
-  /////////////////////////////////////////////////
-  // Assign stimulus bits to DUT input signals  //
-  /////////////////////////////////////////////////
-  wire rst_n      = stim[48];
-  wire vld        = stim[47];
-  wire signed [15:0] ptch    = stim[46:31];
-  wire signed [15:0] ptch_rt = stim[30:15];
-  wire pwr_up     = stim[14];
-  wire rider_off  = stim[13];
-  wire [11:0] steer_pot = stim[12:1];
-  wire en_steer   = stim[0];
-  
-  ///////////////////////////////////
-  // DUT output signals           //
-  ///////////////////////////////////
+  // --- Clock & loop vars ---
+  logic clk;
+  integer i;
+  integer errors = 0;
+  integer shown  = 0;
+  // Mismatch classification counters
+  integer t_only = 0;
+  integer l_only = 0;
+  integer r_only = 0;
+  integer lr_only = 0;
+  integer lrt_all = 0;
+
+  // --- Stimulus & response memories ---
+  reg [48:0] stim_mem [0:1499];
+  reg [24:0] resp_mem [0:1499];
+
+  // --- Stimulus vector unpacking ---
+  logic rst_n;
+  logic vld;
+  logic signed [15:0] ptch;
+  logic signed [15:0] ptch_rt;
+  logic pwr_up;
+  logic rider_off;
+  logic [11:0] steer_pot;
+  logic en_steer;
+
+  // --- DUT outputs ---
   wire signed [11:0] lft_spd;
   wire signed [11:0] rght_spd;
   wire too_fast;
-  
-  ///////////////////////////////////////////
-  // Expected response from response file //
-  ///////////////////////////////////////////
-  wire signed [11:0] exp_lft_spd  = resp[24:13];
-  wire signed [11:0] exp_rght_spd = resp[12:1];
-  wire exp_too_fast = resp[0];
-  
-  //////////////////////
-  // Instantiate DUT //
-  //////////////////////
-  balance_cntrl #(.fast_sim(1)) iDUT (
-    .clk(clk),
-    .rst_n(rst_n),
-    .vld(vld),
-    .ptch(ptch),
-    .ptch_rt(ptch_rt),
-    .pwr_up(pwr_up),
-    .rider_off(rider_off),
-    .steer_pot(steer_pot),
-    .en_steer(en_steer),
-    .lft_spd(lft_spd),
-    .rght_spd(rght_spd),
-    .too_fast(too_fast)
+
+  // --- Instantiate DUT ---
+  balance_cntrl iDUT (
+    .clk       (clk),
+    .rst_n     (rst_n),
+    .vld       (vld),
+    .ptch      (ptch),
+    .ptch_rt   (ptch_rt),
+    .pwr_up    (pwr_up),
+    .rider_off (rider_off),
+    .steer_pot (steer_pot),
+    .en_steer  (en_steer),
+    .lft_spd   (lft_spd),
+    .rght_spd  (rght_spd),
+    .too_fast  (too_fast)
   );
-  
-  /////////////////////
-  // Clock generator //
-  /////////////////////
+
+  // --- Clock generation ---
   initial begin
     clk = 0;
-    forever #5 clk = ~clk;
+    forever #5 clk = ~clk;   // 100 MHz sim clock
   end
-  
-  ///////////////////////
-  // Main test block  //
-  ///////////////////////
+
+  // --- Main test process ---
   initial begin
-    // Initialize error counter
-    errors = 0;
-    
-    // Read stimulus and response files into memory
+    // Local scratch for mismatch classification
+    logic signed [11:0] exp_l, exp_r;
+    bit exp_t, got_t;
+    bit l_eq, r_eq, t_eq;
+    // Load stimulus & response data
     $readmemh("balance_cntrl_stim.hex", stim_mem);
     $readmemh("balance_cntrl_resp.hex", resp_mem);
-    
-    // Initialize stimulus
-    stim = 49'h0000000000000;
-    
-    // Wait a bit before forcing
-    #1;
-    
-    // Force ss_tmr to 0xFF as specified  
+
+    // Force ss_tmr for fast simulation
     force iDUT.ss_tmr = 8'hFF;
-    
-    // Wait a bit for initialization
-    @(posedge clk);
-    @(negedge clk);
-    
-    // Loop through all 1500 test vectors
-    for (i = 0; i < 1500; i = i + 1) begin
-      // Apply stimulus vector
-      stim = stim_mem[i];
-      
-      // Wait for clock edge and propagation delay
+
+    // Apply each vector
+    for (i = 0; i < 1500; i++) begin
+      {rst_n, vld, ptch, ptch_rt, pwr_up, rider_off, steer_pot, en_steer} = stim_mem[i];
       @(posedge clk);
-      #1;  // Wait 1 time unit after rising edge
-      
-      // Get expected response
-      resp = resp_mem[i];
-      
-      // Check outputs against expected response
-      if (lft_spd !== exp_lft_spd) begin
-        $display("ERROR at vector %0d: lft_spd mismatch! Expected: %h, Got: %h", 
-                 i, exp_lft_spd, lft_spd);
-        errors = errors + 1;
-      end
-      
-      if (rght_spd !== exp_rght_spd) begin
-        $display("ERROR at vector %0d: rght_spd mismatch! Expected: %h, Got: %h", 
-                 i, exp_rght_spd, rght_spd);
-        errors = errors + 1;
-      end
-      
-      if (too_fast !== exp_too_fast) begin
-        $display("ERROR at vector %0d: too_fast mismatch! Expected: %b, Got: %b", 
-                 i, exp_too_fast, too_fast);
-        errors = errors + 1;
-      end
-      
-      // Print progress every 100 vectors
-      if ((i % 100) == 0) begin
-        $display("Progress: %0d/1500 vectors tested...", i);
+      #1;
+
+      if ({lft_spd, rght_spd, too_fast} !== resp_mem[i]) begin
+        // Classify mismatch
+        exp_l = $signed(resp_mem[i][24:13]);
+        exp_r = $signed(resp_mem[i][12:1]);
+        exp_t = resp_mem[i][0];
+        got_t = too_fast;
+        l_eq = (lft_spd === exp_l);
+        r_eq = (rght_spd === exp_r);
+        t_eq = (got_t === exp_t);
+        if (l_eq && r_eq && !t_eq) t_only++;
+        else if (!l_eq && r_eq && t_eq) l_only++;
+        else if (l_eq && !r_eq && t_eq) r_only++;
+        else if (!l_eq && !r_eq && t_eq) lr_only++;
+        else lrt_all++;
+        if (shown < 40) begin
+          shown++;
+          $display("[%0t] ❌ Vec %0d exp={L:%0d R:%0d T:%0b} got={L:%0d R:%0d T:%0b} raw_exp=%h raw_got=%h",
+                   $time, i,
+                   $signed(resp_mem[i][24:13]), $signed(resp_mem[i][12:1]), resp_mem[i][0],
+                   $signed(lft_spd), $signed(rght_spd), too_fast,
+                   resp_mem[i], {lft_spd, rght_spd, too_fast});
+        end else begin
+          $display("[%0t] ❌ Mismatch at vector %0d: expected=%h got=%h",
+                   $time, i, resp_mem[i], {lft_spd, rght_spd, too_fast});
+        end
+        errors++;
       end
     end
-    
-    // Print final results
-    $display("\n========================================");
-    if (errors == 0) begin
-      $display("SUCCESS! All 1500 vectors passed!");
-      $display("========================================\n");
-    end else begin
-      $display("FAILED! %0d errors found in 1500 vectors", errors);
-      $display("========================================\n");
+
+    if (errors == 0)
+      $display("\n✅ All 1500 vectors matched expected response.\n");
+    else
+      $display("\n❌ %0d mismatches detected out of 1500 vectors.\n", errors);
+
+    if (errors) begin
+      $display("Breakdown: T-only=%0d, L-only=%0d, R-only=%0d, L+R=%0d, L+R+T=%0d",
+               t_only, l_only, r_only, lr_only, lrt_all);
     end
-    
-    $stop();
+
+    $finish;
   end
 
 endmodule

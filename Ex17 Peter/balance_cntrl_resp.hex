@@ -1,0 +1,9 @@
+// Sample response file - replace with actual data from Canvas
+// Format: 25-bit vectors (resp[24:0])
+// resp[24:13] = lft_spd, resp[12:1] = rght_spd, resp[0] = too_fast
+
+0000000  // Vector 0: All outputs 0
+0010002  // Vector 1: lft_spd=0x001, rght_spd=0x001, too_fast=0
+0010002  // Vector 2: lft_spd=0x001, rght_spd=0x001, too_fast=0
+// ... (add more vectors - total should be 1500)
+// This is just a sample - replace with actual hex file content

@@ -2,6 +2,7 @@ m255
 K4
 z2
 !s11f vlog 2020.1 2020.02, Feb 28 2020
+13
 !s112 1.1
 !i10d 8192
 !i10e 25
@@ -10,7 +11,7 @@ cModel Technology
 Z0 dC:/Work/ECE551/Ex17
 vbalance_cntrl
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1762139004
+Z2 !s110 1762226793
 !i10b 1
 !s100 ND9Kg4W]jEjDCQHR5FD@P2
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -18,46 +19,46 @@ II79b<?K;^ncAn0gM;l@;M3
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1762138030
+Z5 w1762226543
 8balance_cntrl.sv
 Fbalance_cntrl.sv
-!i122 24
+!i122 9
 L0 4 48
-Z5 OV;L;2020.1;71
+Z6 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1762139004.000000
+Z7 !s108 1762226793.000000
 !s107 balance_cntrl_chk_tb.sv|balance_cntrl.sv|SegwayMath.sv|PID.sv|
-Z7 !s90 -sv|PID.sv|SegwayMath.sv|balance_cntrl.sv|balance_cntrl_chk_tb.sv|
+Z8 !s90 -sv|PID.sv|SegwayMath.sv|balance_cntrl.sv|balance_cntrl_chk_tb.sv|
 !i113 1
 o-sv
-Z8 tCvgOpt 0
+Z9 tCvgOpt 0
 vbalance_cntrl_chk_tb
 R1
 R2
 !i10b 1
-!s100 Xc7C44ij^S22;LdFz36I?1
+!s100 1nShDgSdcbZ:P>20^U6YP1
 R3
-I2o5Ga_XmoQ]@?;QcJFfm00
+ITDHlliEIS:c11Yo=RObYG0
 R4
 S1
 R0
-w1762137957
+w1762226784
 8balance_cntrl_chk_tb.sv
 Fbalance_cntrl_chk_tb.sv
-!i122 24
-L0 4 146
-R5
+!i122 9
+L0 6 88
+R6
 r1
 !s85 0
 31
-R6
-Z9 !s107 balance_cntrl_chk_tb.sv|balance_cntrl.sv|SegwayMath.sv|PID.sv|
 R7
+Z10 !s107 balance_cntrl_chk_tb.sv|balance_cntrl.sv|SegwayMath.sv|PID.sv|
+R8
 !i113 1
 o-sv
-R8
+R9
 vPID
 R1
 R2
@@ -68,45 +69,45 @@ I`SQ@o]l[>BHh[ZJ0cUFoT1
 R4
 S1
 R0
-w1762136262
+R5
 8PID.sv
 FPID.sv
-!i122 24
+!i122 9
 L0 4 153
-R5
+R6
 r1
 !s85 0
 31
-R6
-R9
 R7
+R10
+R8
 !i113 1
 o-sv
-R8
+R9
 n@p@i@d
 vSegwayMath
 R1
 R2
 !i10b 1
-!s100 P]YP1g[SE]QPLjVZVA0K13
+!s100 lLS`o7V2z9@LSl3@LOF372
 R3
-IP@aAl6S2NSjl6`IG7jTbC3
+I;Vj?QZPmCRkiA2VdDCb[;3
 R4
 S1
 R0
-w1762138993
+w1762223077
 8SegwayMath.sv
 FSegwayMath.sv
-!i122 24
-L0 1 115
-R5
+!i122 9
+L0 1 109
+R6
 r1
 !s85 0
 31
-R6
-R9
 R7
+R10
+R8
 !i113 1
 o-sv
-R8
+R9
 n@segway@math

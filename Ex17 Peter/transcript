@@ -1,0 +1,26 @@
+# Compile of balance_cntrl.sv was successful.
+# Compile of balance_cntrl_chk_tb.sv was successful.
+# Compile of balance_cntrl_tb.sv was successful.
+# Compile of PID.sv was successful.
+# Compile of PID_fastsim_tb.sv was successful.
+# Compile of SegwayMath.sv was successful.
+# 6 compiles, 0 failed with no errors.
+vsim -gui work.balance_cntrl_chk_tb
+# vsim -gui work.balance_cntrl_chk_tb 
+# Start time: 18:39:24 on Nov 03,2025
+# Loading sv_std.std
+# Loading work.balance_cntrl_chk_tb
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/balance_cntrl_chk_tb/iDUT/*
+run -all
+# 
+# =========================================
+# SUCCESS! All 1500 vectors passed!
+# =========================================
+# 
+# ** Note: $stop    : C:/Users/peter/ece551/ex15/balance_cntrl_chk_tb.sv(131)
+#    Time: 15026 ps  Iteration: 0  Instance: /balance_cntrl_chk_tb
+# Break in Module balance_cntrl_chk_tb at C:/Users/peter/ece551/ex15/balance_cntrl_chk_tb.sv line 131
