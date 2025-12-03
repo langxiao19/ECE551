@@ -1,0 +1,43 @@
+Exercise 17 - Balance Control Testing
+======================================
+
+Files Submitted:
+- balance_cntrl.sv
+- balance_cntrl_chk_tb.sv
+
+Compilation Proof:
+==================
+
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+Start time: 10:43:16 on Oct 27,2025
+vlog -work work PID.sv SegwayMath.sv balance_cntrl.sv balance_cntrl_chk_tb.sv
+-- Compiling module PID
+-- Compiling module SegwayMath
+-- Compiling module balance_cntrl
+-- Compiling module balance_cntrl_chk_tb
+Top level modules:
+        balance_cntrl_chk_tb
+End time: 10:43:16 on Oct 27,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+Summary:
+========
+All modules compiled successfully with no errors or warnings.
+
+The testbench:
+- Reads 1500 stimulus vectors from balance_cntrl_stim.hex
+- Reads 1500 expected response vectors from balance_cntrl_resp.hex  
+- Forces ss_tmr to 0xFF as required
+- Applies each stimulus vector
+- Waits for @(posedge clk) then #1
+- Compares DUT outputs against expected response
+- Reports any mismatches
+
+balance_cntrl module:
+- Instantiates PID with fast_sim=1 (default)
+- Instantiates SegwayMath
+- Connects PID_cntrl and ss_tmr signals between modules
+- Provides all required inputs/outputs per specification
+
+Test results show some mismatches that need investigation.
+The PID_fastsim_tb.sv tests all pass successfully with fast_sim=0.

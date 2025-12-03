@@ -1,0 +1,38 @@
+# vsim -c work.piezo_drv_tb -do "run -all; quit" 
+# Start time: 10:23:39 on Nov 10,2025
+# Loading sv_std.std
+# Loading work.piezo_drv_tb
+# Loading work.piezo_drv
+# run -all
+# === Starting piezo_drv testbench ===
+# fast_sim=1, so durations and frequencies are 64x faster
+# 
+# --- Test 1: Verify silence when no inputs asserted ---
+# PASS: Piezo silent (piezo=0, piezo_n=1)
+# 
+# --- Test 2: en_steer mode (charge fanfare forward every 3 sec) ---
+# DEBUG: Final state=1 (state 7=WAIT_REPEAT is expected)
+# FAIL: Expected WAIT_REPEAT state, got state=1
+# 
+# --- Test 3: batt_low mode (charge fanfare backward) ---
+# DEBUG: state=1 after batt_low asserted
+# PASS: batt_low mode activated state machine (state=1)
+# 
+# --- Test 4: too_fast mode (first 3 notes continuous) ---
+# PASS: Piezo toggling with too_fast (toggles=496)
+# 
+# --- Test 5: too_fast priority over en_steer ---
+# INFO: too_fast and en_steer both asserted, too_fast should dominate
+#       (continuous first 3 notes vs full fanfare every 3 sec)
+# PASS: Piezo active with priority (toggles=27)
+# 
+# --- Test 6: Return to silence ---
+# FAIL: Piezo should be silent but piezo=1, piezo_n=0
+# 
+# === Testbench complete ===
+# Visual inspection: Check that piezo and piezo_n are complementary
+# and toggle at appropriate frequencies during active modes.
+# ** Note: $finish    : piezo_drv_tb.sv(143)
+#    Time: 4128130 ns  Iteration: 1  Instance: /piezo_drv_tb
+# End time: 10:23:42 on Nov 10,2025, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 0

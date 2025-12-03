@@ -1,0 +1,27 @@
+C:/Work/ECE551/Ex20/piezo_drv.sv {0 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex20/piezo_drv.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module piezo_drv
+** Error: C:/Work/ECE551/Ex20/piezo_drv.sv(79): (vlog-2730) Undefined variable: 'rpt_tmr_done'.
+** Error: C:/Work/ECE551/Ex20/piezo_drv.sv(86): (vlog-2730) Undefined variable: 'dur_tmr_done'.
+** Error: C:/Work/ECE551/Ex20/piezo_drv.sv(94): (vlog-2730) Undefined variable: 'dur_tmr_done'.
+** Error: C:/Work/ECE551/Ex20/piezo_drv.sv(102): (vlog-2730) Undefined variable: 'dur_tmr_done'.
+** Error: C:/Work/ECE551/Ex20/piezo_drv.sv(112): (vlog-2730) Undefined variable: 'dur_tmr_done'.
+** Error: C:/Work/ECE551/Ex20/piezo_drv.sv(120): (vlog-2730) Undefined variable: 'dur_tmr_done'.
+** Error: C:/Work/ECE551/Ex20/piezo_drv.sv(128): (vlog-2730) Undefined variable: 'dur_tmr_done'.
+** Error: C:/Work/ECE551/Ex20/piezo_drv.sv(189): (vlog-2730) Undefined variable: 'next_state'.
+
+} {4.0 12.0} {}} C:/Work/ECE551/Ex20/piezoTest.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex20/piezoTest.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module piezoTest
+
+Top level modules:
+	piezoTest
+
+} {} {}} C:/Work/ECE551/Ex20/rst_synch.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex20/rst_synch.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module rst_synch
+
+Top level modules:
+	rst_synch
+
+} {} {}}

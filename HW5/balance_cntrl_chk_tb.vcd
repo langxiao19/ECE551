@@ -1,0 +1,1239 @@
+$date
+	Sun Nov 02 20:58:10 2025
+$end
+$version
+	ModelSim Version 2020.1
+$end
+$timescale
+	1ps
+$end
+
+$scope module balance_cntrl_chk_tb $end
+$var parameter 32 ! STOP_ON_MISMATCH $end
+$var parameter 24 " TOO_SELECTION $end
+$var parameter 32 # SAMPLE_N $end
+$var reg 1 $ clk $end
+$var reg 1 % rst_n $end
+$var reg 1 & vld $end
+$var reg 16 ' ptch [15:0] $end
+$var reg 16 ( ptch_rt [15:0] $end
+$var reg 1 ) pwr_up $end
+$var reg 1 * rider_off $end
+$var reg 12 + steer_pot [11:0] $end
+$var reg 1 , en_steer $end
+$var wire 1 - lft_spd [11] $end
+$var wire 1 . lft_spd [10] $end
+$var wire 1 / lft_spd [9] $end
+$var wire 1 0 lft_spd [8] $end
+$var wire 1 1 lft_spd [7] $end
+$var wire 1 2 lft_spd [6] $end
+$var wire 1 3 lft_spd [5] $end
+$var wire 1 4 lft_spd [4] $end
+$var wire 1 5 lft_spd [3] $end
+$var wire 1 6 lft_spd [2] $end
+$var wire 1 7 lft_spd [1] $end
+$var wire 1 8 lft_spd [0] $end
+$var wire 1 9 rght_spd [11] $end
+$var wire 1 : rght_spd [10] $end
+$var wire 1 ; rght_spd [9] $end
+$var wire 1 < rght_spd [8] $end
+$var wire 1 = rght_spd [7] $end
+$var wire 1 > rght_spd [6] $end
+$var wire 1 ? rght_spd [5] $end
+$var wire 1 @ rght_spd [4] $end
+$var wire 1 A rght_spd [3] $end
+$var wire 1 B rght_spd [2] $end
+$var wire 1 C rght_spd [1] $end
+$var wire 1 D rght_spd [0] $end
+$var wire 1 E too_fast $end
+$var reg 49 F stim [48:0] $end
+$var reg 25 G resp [24:0] $end
+$var integer 32 H i $end
+$var integer 32 I mismatches $end
+$var integer 32 J j $end
+$var integer 32 K mismatches_lft $end
+$var integer 32 L mismatches_rght $end
+$var integer 32 M mismatches_too $end
+$var reg 25 N dut_resp [24:0] $end
+
+$scope module iDUT $end
+$var parameter 32 O FAST_SIM $end
+$var wire 1 P clk $end
+$var wire 1 Q rst_n $end
+$var wire 1 R vld $end
+$var wire 1 S ptch [15] $end
+$var wire 1 T ptch [14] $end
+$var wire 1 U ptch [13] $end
+$var wire 1 V ptch [12] $end
+$var wire 1 W ptch [11] $end
+$var wire 1 X ptch [10] $end
+$var wire 1 Y ptch [9] $end
+$var wire 1 Z ptch [8] $end
+$var wire 1 [ ptch [7] $end
+$var wire 1 \ ptch [6] $end
+$var wire 1 ] ptch [5] $end
+$var wire 1 ^ ptch [4] $end
+$var wire 1 _ ptch [3] $end
+$var wire 1 ` ptch [2] $end
+$var wire 1 a ptch [1] $end
+$var wire 1 b ptch [0] $end
+$var wire 1 c ptch_rt [15] $end
+$var wire 1 d ptch_rt [14] $end
+$var wire 1 e ptch_rt [13] $end
+$var wire 1 f ptch_rt [12] $end
+$var wire 1 g ptch_rt [11] $end
+$var wire 1 h ptch_rt [10] $end
+$var wire 1 i ptch_rt [9] $end
+$var wire 1 j ptch_rt [8] $end
+$var wire 1 k ptch_rt [7] $end
+$var wire 1 l ptch_rt [6] $end
+$var wire 1 m ptch_rt [5] $end
+$var wire 1 n ptch_rt [4] $end
+$var wire 1 o ptch_rt [3] $end
+$var wire 1 p ptch_rt [2] $end
+$var wire 1 q ptch_rt [1] $end
+$var wire 1 r ptch_rt [0] $end
+$var wire 1 s pwr_up $end
+$var wire 1 t rider_off $end
+$var wire 1 u steer_pot [11] $end
+$var wire 1 v steer_pot [10] $end
+$var wire 1 w steer_pot [9] $end
+$var wire 1 x steer_pot [8] $end
+$var wire 1 y steer_pot [7] $end
+$var wire 1 z steer_pot [6] $end
+$var wire 1 { steer_pot [5] $end
+$var wire 1 | steer_pot [4] $end
+$var wire 1 } steer_pot [3] $end
+$var wire 1 ~ steer_pot [2] $end
+$var wire 1 !! steer_pot [1] $end
+$var wire 1 "! steer_pot [0] $end
+$var wire 1 #! en_steer $end
+$var wire 1 - lft_spd [11] $end
+$var wire 1 . lft_spd [10] $end
+$var wire 1 / lft_spd [9] $end
+$var wire 1 0 lft_spd [8] $end
+$var wire 1 1 lft_spd [7] $end
+$var wire 1 2 lft_spd [6] $end
+$var wire 1 3 lft_spd [5] $end
+$var wire 1 4 lft_spd [4] $end
+$var wire 1 5 lft_spd [3] $end
+$var wire 1 6 lft_spd [2] $end
+$var wire 1 7 lft_spd [1] $end
+$var wire 1 8 lft_spd [0] $end
+$var wire 1 9 rght_spd [11] $end
+$var wire 1 : rght_spd [10] $end
+$var wire 1 ; rght_spd [9] $end
+$var wire 1 < rght_spd [8] $end
+$var wire 1 = rght_spd [7] $end
+$var wire 1 > rght_spd [6] $end
+$var wire 1 ? rght_spd [5] $end
+$var wire 1 @ rght_spd [4] $end
+$var wire 1 A rght_spd [3] $end
+$var wire 1 B rght_spd [2] $end
+$var wire 1 C rght_spd [1] $end
+$var wire 1 D rght_spd [0] $end
+$var wire 1 E too_fast $end
+$var wire 1 $! ss_tmr [7] $end
+$var wire 1 %! ss_tmr [6] $end
+$var wire 1 &! ss_tmr [5] $end
+$var wire 1 '! ss_tmr [4] $end
+$var wire 1 (! ss_tmr [3] $end
+$var wire 1 )! ss_tmr [2] $end
+$var wire 1 *! ss_tmr [1] $end
+$var wire 1 +! ss_tmr [0] $end
+$var wire 1 ,! PID_cntrl [11] $end
+$var wire 1 -! PID_cntrl [10] $end
+$var wire 1 .! PID_cntrl [9] $end
+$var wire 1 /! PID_cntrl [8] $end
+$var wire 1 0! PID_cntrl [7] $end
+$var wire 1 1! PID_cntrl [6] $end
+$var wire 1 2! PID_cntrl [5] $end
+$var wire 1 3! PID_cntrl [4] $end
+$var wire 1 4! PID_cntrl [3] $end
+$var wire 1 5! PID_cntrl [2] $end
+$var wire 1 6! PID_cntrl [1] $end
+$var wire 1 7! PID_cntrl [0] $end
+$var wire 1 8! integrator [17] $end
+$var wire 1 9! integrator [16] $end
+$var wire 1 :! integrator [15] $end
+$var wire 1 ;! integrator [14] $end
+$var wire 1 <! integrator [13] $end
+$var wire 1 =! integrator [12] $end
+$var wire 1 >! integrator [11] $end
+$var wire 1 ?! integrator [10] $end
+$var wire 1 @! integrator [9] $end
+$var wire 1 A! integrator [8] $end
+$var wire 1 B! integrator [7] $end
+$var wire 1 C! integrator [6] $end
+$var wire 1 D! integrator [5] $end
+$var wire 1 E! integrator [4] $end
+$var wire 1 F! integrator [3] $end
+$var wire 1 G! integrator [2] $end
+$var wire 1 H! integrator [1] $end
+$var wire 1 I! integrator [0] $end
+$var wire 1 J! raw_too_fast $end
+
+$scope module u_PID $end
+$var parameter 32 K! FAST_SIM $end
+$var parameter 5 L! P_COEFF $end
+$var wire 1 S ptch [15] $end
+$var wire 1 T ptch [14] $end
+$var wire 1 U ptch [13] $end
+$var wire 1 V ptch [12] $end
+$var wire 1 W ptch [11] $end
+$var wire 1 X ptch [10] $end
+$var wire 1 Y ptch [9] $end
+$var wire 1 Z ptch [8] $end
+$var wire 1 [ ptch [7] $end
+$var wire 1 \ ptch [6] $end
+$var wire 1 ] ptch [5] $end
+$var wire 1 ^ ptch [4] $end
+$var wire 1 _ ptch [3] $end
+$var wire 1 ` ptch [2] $end
+$var wire 1 a ptch [1] $end
+$var wire 1 b ptch [0] $end
+$var wire 1 c ptch_rt [15] $end
+$var wire 1 d ptch_rt [14] $end
+$var wire 1 e ptch_rt [13] $end
+$var wire 1 f ptch_rt [12] $end
+$var wire 1 g ptch_rt [11] $end
+$var wire 1 h ptch_rt [10] $end
+$var wire 1 i ptch_rt [9] $end
+$var wire 1 j ptch_rt [8] $end
+$var wire 1 k ptch_rt [7] $end
+$var wire 1 l ptch_rt [6] $end
+$var wire 1 m ptch_rt [5] $end
+$var wire 1 n ptch_rt [4] $end
+$var wire 1 o ptch_rt [3] $end
+$var wire 1 p ptch_rt [2] $end
+$var wire 1 q ptch_rt [1] $end
+$var wire 1 r ptch_rt [0] $end
+$var wire 1 P clk $end
+$var wire 1 Q rst_n $end
+$var wire 1 R vld $end
+$var wire 1 s pwr_up $end
+$var wire 1 t rider_off $end
+$var reg 8 M! ss_tmr [7:0] $end
+$var wire 1 ,! PID_cntrl [11] $end
+$var wire 1 -! PID_cntrl [10] $end
+$var wire 1 .! PID_cntrl [9] $end
+$var wire 1 /! PID_cntrl [8] $end
+$var wire 1 0! PID_cntrl [7] $end
+$var wire 1 1! PID_cntrl [6] $end
+$var wire 1 2! PID_cntrl [5] $end
+$var wire 1 3! PID_cntrl [4] $end
+$var wire 1 4! PID_cntrl [3] $end
+$var wire 1 5! PID_cntrl [2] $end
+$var wire 1 6! PID_cntrl [1] $end
+$var wire 1 7! PID_cntrl [0] $end
+$var wire 1 8! integrator [17] $end
+$var wire 1 9! integrator [16] $end
+$var wire 1 :! integrator [15] $end
+$var wire 1 ;! integrator [14] $end
+$var wire 1 <! integrator [13] $end
+$var wire 1 =! integrator [12] $end
+$var wire 1 >! integrator [11] $end
+$var wire 1 ?! integrator [10] $end
+$var wire 1 @! integrator [9] $end
+$var wire 1 A! integrator [8] $end
+$var wire 1 B! integrator [7] $end
+$var wire 1 C! integrator [6] $end
+$var wire 1 D! integrator [5] $end
+$var wire 1 E! integrator [4] $end
+$var wire 1 F! integrator [3] $end
+$var wire 1 G! integrator [2] $end
+$var wire 1 H! integrator [1] $end
+$var wire 1 I! integrator [0] $end
+$var reg 15 N! p_term [14:0] $end
+$var reg 15 O! i_term [14:0] $end
+$var reg 13 P! d_term [12:0] $end
+$var reg 16 Q! PID_mid [15:0] $end
+$var reg 10 R! ptch_err_sat [9:0] $end
+$var reg 20 S! sum_for_integrator [19:0] $end
+$var reg 18 T! integrator_reg [17:0] $end
+$var reg 1 U! rider_off_ff1 $end
+$var reg 1 V! rider_off_ff2 $end
+$var reg 27 W! soft_start_timer [26:0] $end
+$var reg 27 X! additive [26:0] $end
+$var reg 15 Y! i_term_temp [14:0] $end
+$var reg 12 Z! PID_saturated [11:0] $end
+$var reg 27 [! long_tmr [26:0] $end
+$var reg 1 \! tmr_full $end
+
+$scope begin gen_fast_sim $end
+$upscope $end
+$upscope $end
+
+$scope module u_SegwayMath $end
+$var parameter 13 ]! MIN_DUTY $end
+$var parameter 13 ^! LOW_TORQUE_BAND $end
+$var parameter 13 _! GAIN_MULT $end
+$var wire 1 ,! PID_cntrl [11] $end
+$var wire 1 -! PID_cntrl [10] $end
+$var wire 1 .! PID_cntrl [9] $end
+$var wire 1 /! PID_cntrl [8] $end
+$var wire 1 0! PID_cntrl [7] $end
+$var wire 1 1! PID_cntrl [6] $end
+$var wire 1 2! PID_cntrl [5] $end
+$var wire 1 3! PID_cntrl [4] $end
+$var wire 1 4! PID_cntrl [3] $end
+$var wire 1 5! PID_cntrl [2] $end
+$var wire 1 6! PID_cntrl [1] $end
+$var wire 1 7! PID_cntrl [0] $end
+$var wire 1 $! ss_tmr [7] $end
+$var wire 1 %! ss_tmr [6] $end
+$var wire 1 &! ss_tmr [5] $end
+$var wire 1 '! ss_tmr [4] $end
+$var wire 1 (! ss_tmr [3] $end
+$var wire 1 )! ss_tmr [2] $end
+$var wire 1 *! ss_tmr [1] $end
+$var wire 1 +! ss_tmr [0] $end
+$var wire 1 u steer_pot [11] $end
+$var wire 1 v steer_pot [10] $end
+$var wire 1 w steer_pot [9] $end
+$var wire 1 x steer_pot [8] $end
+$var wire 1 y steer_pot [7] $end
+$var wire 1 z steer_pot [6] $end
+$var wire 1 { steer_pot [5] $end
+$var wire 1 | steer_pot [4] $end
+$var wire 1 } steer_pot [3] $end
+$var wire 1 ~ steer_pot [2] $end
+$var wire 1 !! steer_pot [1] $end
+$var wire 1 "! steer_pot [0] $end
+$var wire 1 #! en_steer $end
+$var wire 1 s pwr_up $end
+$var wire 1 - lft_spd [11] $end
+$var wire 1 . lft_spd [10] $end
+$var wire 1 / lft_spd [9] $end
+$var wire 1 0 lft_spd [8] $end
+$var wire 1 1 lft_spd [7] $end
+$var wire 1 2 lft_spd [6] $end
+$var wire 1 3 lft_spd [5] $end
+$var wire 1 4 lft_spd [4] $end
+$var wire 1 5 lft_spd [3] $end
+$var wire 1 6 lft_spd [2] $end
+$var wire 1 7 lft_spd [1] $end
+$var wire 1 8 lft_spd [0] $end
+$var wire 1 9 rght_spd [11] $end
+$var wire 1 : rght_spd [10] $end
+$var wire 1 ; rght_spd [9] $end
+$var wire 1 < rght_spd [8] $end
+$var wire 1 = rght_spd [7] $end
+$var wire 1 > rght_spd [6] $end
+$var wire 1 ? rght_spd [5] $end
+$var wire 1 @ rght_spd [4] $end
+$var wire 1 A rght_spd [3] $end
+$var wire 1 B rght_spd [2] $end
+$var wire 1 C rght_spd [1] $end
+$var wire 1 D rght_spd [0] $end
+$var wire 1 J! too_fast $end
+$var wire 1 `! PID_ss [11] $end
+$var wire 1 a! PID_ss [10] $end
+$var wire 1 b! PID_ss [9] $end
+$var wire 1 c! PID_ss [8] $end
+$var wire 1 d! PID_ss [7] $end
+$var wire 1 e! PID_ss [6] $end
+$var wire 1 f! PID_ss [5] $end
+$var wire 1 g! PID_ss [4] $end
+$var wire 1 h! PID_ss [3] $end
+$var wire 1 i! PID_ss [2] $end
+$var wire 1 j! PID_ss [1] $end
+$var wire 1 k! PID_ss [0] $end
+$var wire 1 l! lft_torque [12] $end
+$var wire 1 m! lft_torque [11] $end
+$var wire 1 n! lft_torque [10] $end
+$var wire 1 o! lft_torque [9] $end
+$var wire 1 p! lft_torque [8] $end
+$var wire 1 q! lft_torque [7] $end
+$var wire 1 r! lft_torque [6] $end
+$var wire 1 s! lft_torque [5] $end
+$var wire 1 t! lft_torque [4] $end
+$var wire 1 u! lft_torque [3] $end
+$var wire 1 v! lft_torque [2] $end
+$var wire 1 w! lft_torque [1] $end
+$var wire 1 x! lft_torque [0] $end
+$var wire 1 y! rght_torque [12] $end
+$var wire 1 z! rght_torque [11] $end
+$var wire 1 {! rght_torque [10] $end
+$var wire 1 |! rght_torque [9] $end
+$var wire 1 }! rght_torque [8] $end
+$var wire 1 ~! rght_torque [7] $end
+$var wire 1 !" rght_torque [6] $end
+$var wire 1 "" rght_torque [5] $end
+$var wire 1 #" rght_torque [4] $end
+$var wire 1 $" rght_torque [3] $end
+$var wire 1 %" rght_torque [2] $end
+$var wire 1 &" rght_torque [1] $end
+$var wire 1 '" rght_torque [0] $end
+$var wire 1 (" lft_torque_comp [12] $end
+$var wire 1 )" lft_torque_comp [11] $end
+$var wire 1 *" lft_torque_comp [10] $end
+$var wire 1 +" lft_torque_comp [9] $end
+$var wire 1 ," lft_torque_comp [8] $end
+$var wire 1 -" lft_torque_comp [7] $end
+$var wire 1 ." lft_torque_comp [6] $end
+$var wire 1 /" lft_torque_comp [5] $end
+$var wire 1 0" lft_torque_comp [4] $end
+$var wire 1 1" lft_torque_comp [3] $end
+$var wire 1 2" lft_torque_comp [2] $end
+$var wire 1 3" lft_torque_comp [1] $end
+$var wire 1 4" lft_torque_comp [0] $end
+$var wire 1 5" mult_resultl [12] $end
+$var wire 1 6" mult_resultl [11] $end
+$var wire 1 7" mult_resultl [10] $end
+$var wire 1 8" mult_resultl [9] $end
+$var wire 1 9" mult_resultl [8] $end
+$var wire 1 :" mult_resultl [7] $end
+$var wire 1 ;" mult_resultl [6] $end
+$var wire 1 <" mult_resultl [5] $end
+$var wire 1 =" mult_resultl [4] $end
+$var wire 1 >" mult_resultl [3] $end
+$var wire 1 ?" mult_resultl [2] $end
+$var wire 1 @" mult_resultl [1] $end
+$var wire 1 A" mult_resultl [0] $end
+$var wire 1 B" lft_shaped [12] $end
+$var wire 1 C" lft_shaped [11] $end
+$var wire 1 D" lft_shaped [10] $end
+$var wire 1 E" lft_shaped [9] $end
+$var wire 1 F" lft_shaped [8] $end
+$var wire 1 G" lft_shaped [7] $end
+$var wire 1 H" lft_shaped [6] $end
+$var wire 1 I" lft_shaped [5] $end
+$var wire 1 J" lft_shaped [4] $end
+$var wire 1 K" lft_shaped [3] $end
+$var wire 1 L" lft_shaped [2] $end
+$var wire 1 M" lft_shaped [1] $end
+$var wire 1 N" lft_shaped [0] $end
+$var wire 1 O" rght_torque_comp [12] $end
+$var wire 1 P" rght_torque_comp [11] $end
+$var wire 1 Q" rght_torque_comp [10] $end
+$var wire 1 R" rght_torque_comp [9] $end
+$var wire 1 S" rght_torque_comp [8] $end
+$var wire 1 T" rght_torque_comp [7] $end
+$var wire 1 U" rght_torque_comp [6] $end
+$var wire 1 V" rght_torque_comp [5] $end
+$var wire 1 W" rght_torque_comp [4] $end
+$var wire 1 X" rght_torque_comp [3] $end
+$var wire 1 Y" rght_torque_comp [2] $end
+$var wire 1 Z" rght_torque_comp [1] $end
+$var wire 1 [" rght_torque_comp [0] $end
+$var wire 1 \" mult_resultr [12] $end
+$var wire 1 ]" mult_resultr [11] $end
+$var wire 1 ^" mult_resultr [10] $end
+$var wire 1 _" mult_resultr [9] $end
+$var wire 1 `" mult_resultr [8] $end
+$var wire 1 a" mult_resultr [7] $end
+$var wire 1 b" mult_resultr [6] $end
+$var wire 1 c" mult_resultr [5] $end
+$var wire 1 d" mult_resultr [4] $end
+$var wire 1 e" mult_resultr [3] $end
+$var wire 1 f" mult_resultr [2] $end
+$var wire 1 g" mult_resultr [1] $end
+$var wire 1 h" mult_resultr [0] $end
+$var wire 1 i" rght_shaped [12] $end
+$var wire 1 j" rght_shaped [11] $end
+$var wire 1 k" rght_shaped [10] $end
+$var wire 1 l" rght_shaped [9] $end
+$var wire 1 m" rght_shaped [8] $end
+$var wire 1 n" rght_shaped [7] $end
+$var wire 1 o" rght_shaped [6] $end
+$var wire 1 p" rght_shaped [5] $end
+$var wire 1 q" rght_shaped [4] $end
+$var wire 1 r" rght_shaped [3] $end
+$var wire 1 s" rght_shaped [2] $end
+$var wire 1 t" rght_shaped [1] $end
+$var wire 1 u" rght_shaped [0] $end
+$var wire 1 v" signineer [13] $end
+$var wire 1 w" signineer [12] $end
+$var wire 1 x" signineer [11] $end
+$var wire 1 y" signineer [10] $end
+$var wire 1 z" signineer [9] $end
+$var wire 1 {" signineer [8] $end
+$var wire 1 |" signineer [7] $end
+$var wire 1 }" signineer [6] $end
+$var wire 1 ~" signineer [5] $end
+$var wire 1 !# signineer [4] $end
+$var wire 1 "# signineer [3] $end
+$var wire 1 ## signineer [2] $end
+$var wire 1 $# signineer [1] $end
+$var wire 1 %# signineer [0] $end
+$var wire 1 &# almost_torque [13] $end
+$var wire 1 '# almost_torque [12] $end
+$var wire 1 (# almost_torque [11] $end
+$var wire 1 )# almost_torque [10] $end
+$var wire 1 *# almost_torque [9] $end
+$var wire 1 +# almost_torque [8] $end
+$var wire 1 ,# almost_torque [7] $end
+$var wire 1 -# almost_torque [6] $end
+$var wire 1 .# almost_torque [5] $end
+$var wire 1 /# almost_torque [4] $end
+$var wire 1 0# almost_torque [3] $end
+$var wire 1 1# almost_torque [2] $end
+$var wire 1 2# almost_torque [1] $end
+$var wire 1 3# almost_torque [0] $end
+$var wire 1 4# steer_pot_sat [11] $end
+$var wire 1 5# steer_pot_sat [10] $end
+$var wire 1 6# steer_pot_sat [9] $end
+$var wire 1 7# steer_pot_sat [8] $end
+$var wire 1 8# steer_pot_sat [7] $end
+$var wire 1 9# steer_pot_sat [6] $end
+$var wire 1 :# steer_pot_sat [5] $end
+$var wire 1 ;# steer_pot_sat [4] $end
+$var wire 1 <# steer_pot_sat [3] $end
+$var wire 1 =# steer_pot_sat [2] $end
+$var wire 1 ># steer_pot_sat [1] $end
+$var wire 1 ?# steer_pot_sat [0] $end
+$var wire 1 @# steer_offset [12] $end
+$var wire 1 A# steer_offset [11] $end
+$var wire 1 B# steer_offset [10] $end
+$var wire 1 C# steer_offset [9] $end
+$var wire 1 D# steer_offset [8] $end
+$var wire 1 E# steer_offset [7] $end
+$var wire 1 F# steer_offset [6] $end
+$var wire 1 G# steer_offset [5] $end
+$var wire 1 H# steer_offset [4] $end
+$var wire 1 I# steer_offset [3] $end
+$var wire 1 J# steer_offset [2] $end
+$var wire 1 K# steer_offset [1] $end
+$var wire 1 L# steer_offset [0] $end
+$var wire 1 M# temp_mult [19] $end
+$var wire 1 N# temp_mult [18] $end
+$var wire 1 O# temp_mult [17] $end
+$var wire 1 P# temp_mult [16] $end
+$var wire 1 Q# temp_mult [15] $end
+$var wire 1 R# temp_mult [14] $end
+$var wire 1 S# temp_mult [13] $end
+$var wire 1 T# temp_mult [12] $end
+$var wire 1 U# temp_mult [11] $end
+$var wire 1 V# temp_mult [10] $end
+$var wire 1 W# temp_mult [9] $end
+$var wire 1 X# temp_mult [8] $end
+$var wire 1 Y# temp_mult [7] $end
+$var wire 1 Z# temp_mult [6] $end
+$var wire 1 [# temp_mult [5] $end
+$var wire 1 \# temp_mult [4] $end
+$var wire 1 ]# temp_mult [3] $end
+$var wire 1 ^# temp_mult [2] $end
+$var wire 1 _# temp_mult [1] $end
+$var wire 1 `# temp_mult [0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0$
+1%
+0&
+b0 '
+b0 (
+0)
+0*
+b0 +
+0,
+b11111111 M!
+b0 N!
+bx O!
+b0 P!
+bx Q!
+b0 R!
+bx S!
+bx T!
+xU!
+xV!
+bx W!
+b100000000 X!
+bx Y!
+bx Z!
+bx [!
+x\!
+bx F
+bx G
+bx N
+b0 !
+b110010 #
+b1 O
+b1 K!
+b1001 L!
+b10101000 ]!
+b101010 ^!
+b100 _!
+b11101000110111101110000 "
+bx H
+b0 I
+b1000 J
+b0 K
+b0 L
+b0 M
+08
+07
+06
+05
+04
+03
+02
+01
+00
+0/
+0.
+0-
+0D
+0C
+0B
+0A
+0@
+0?
+0>
+0=
+0<
+0;
+0:
+09
+0E
+1+!
+1*!
+1)!
+1(!
+1'!
+1&!
+1%!
+1$!
+x7!
+x6!
+x5!
+x4!
+x3!
+x2!
+x1!
+x0!
+x/!
+x.!
+x-!
+x,!
+xI!
+xH!
+xG!
+xF!
+xE!
+xD!
+xC!
+xB!
+xA!
+x@!
+x?!
+x>!
+x=!
+x<!
+x;!
+x:!
+x9!
+x8!
+0J!
+xk!
+xj!
+xi!
+xh!
+xg!
+xf!
+xe!
+xd!
+xc!
+xb!
+xa!
+x`!
+xx!
+xw!
+xv!
+xu!
+xt!
+xs!
+xr!
+xq!
+xp!
+xo!
+xn!
+xm!
+xl!
+x'"
+x&"
+x%"
+x$"
+x#"
+x""
+x!"
+x~!
+x}!
+x|!
+x{!
+xz!
+xy!
+x4"
+x3"
+x2"
+x1"
+x0"
+x/"
+x."
+x-"
+x,"
+x+"
+x*"
+x)"
+x("
+xA"
+x@"
+x?"
+x>"
+x="
+x<"
+x;"
+x:"
+x9"
+x8"
+x7"
+x6"
+x5"
+0N"
+0M"
+0L"
+0K"
+0J"
+0I"
+0H"
+0G"
+0F"
+0E"
+0D"
+0C"
+0B"
+x["
+xZ"
+xY"
+xX"
+xW"
+xV"
+xU"
+xT"
+xS"
+xR"
+xQ"
+xP"
+xO"
+xh"
+xg"
+xf"
+xe"
+xd"
+xc"
+xb"
+xa"
+x`"
+x_"
+x^"
+x]"
+x\"
+0u"
+0t"
+0s"
+0r"
+0q"
+0p"
+0o"
+0n"
+0m"
+0l"
+0k"
+0j"
+0i"
+0%#
+0$#
+0##
+0"#
+0!#
+1~"
+1}"
+1|"
+0{"
+1z"
+1y"
+1x"
+1w"
+1v"
+x3#
+x2#
+x1#
+x0#
+x/#
+x.#
+x-#
+x,#
+x+#
+x*#
+x)#
+x(#
+x'#
+x&#
+0?#
+0>#
+0=#
+0<#
+0;#
+0:#
+09#
+08#
+07#
+16#
+05#
+04#
+1L#
+0K#
+0J#
+0I#
+0H#
+0G#
+0F#
+0E#
+0D#
+1C#
+0B#
+1A#
+1@#
+x`#
+x_#
+x^#
+x]#
+x\#
+x[#
+xZ#
+xY#
+xX#
+xW#
+xV#
+xU#
+xT#
+xS#
+xR#
+xQ#
+xP#
+xO#
+xN#
+xM#
+0P
+1Q
+0R
+0b
+0a
+0`
+0_
+0^
+0]
+0\
+0[
+0Z
+0Y
+0X
+0W
+0V
+0U
+0T
+0S
+0r
+0q
+0p
+0o
+0n
+0m
+0l
+0k
+0j
+0i
+0h
+0g
+0f
+0e
+0d
+0c
+0s
+0t
+0"!
+0!!
+0~
+0}
+0|
+0{
+0z
+0y
+0x
+0w
+0v
+0u
+0#!
+$end
+#5000
+1$
+1P
+b0 T!
+0U!
+b0 [!
+0\!
+0I!
+0H!
+0G!
+0F!
+0E!
+0D!
+0C!
+0B!
+0A!
+0@!
+0?!
+0>!
+0=!
+0<!
+0;!
+0:!
+09!
+08!
+b0 Y!
+b0 O!
+b0 Q!
+b0 Z!
+07!
+06!
+05!
+04!
+03!
+02!
+01!
+00!
+0/!
+0.!
+0-!
+0,!
+0`#
+0_#
+0^#
+0]#
+0\#
+0[#
+0Z#
+0Y#
+0X#
+0W#
+0V#
+0U#
+0T#
+0S#
+0R#
+0Q#
+0P#
+0O#
+0N#
+0M#
+0k!
+0j!
+0i!
+0h!
+0g!
+0f!
+0e!
+0d!
+0c!
+0b!
+0a!
+0`!
+03#
+02#
+01#
+00#
+0/#
+1.#
+0-#
+0,#
+1+#
+0*#
+0)#
+0(#
+0'#
+0&#
+0x!
+0w!
+0v!
+0u!
+0t!
+0s!
+0r!
+0q!
+0p!
+0o!
+0n!
+0m!
+0l!
+0'"
+0&"
+0%"
+0$"
+0#"
+0""
+0!"
+0~!
+0}!
+0|!
+0{!
+0z!
+0y!
+0["
+0Z"
+0Y"
+1X"
+0W"
+1V"
+0U"
+1T"
+0S"
+0R"
+0Q"
+0P"
+0O"
+0h"
+0g"
+0f"
+0e"
+0d"
+0c"
+0b"
+0a"
+0`"
+0_"
+0^"
+0]"
+0\"
+04"
+03"
+02"
+11"
+00"
+1/"
+0."
+1-"
+0,"
+0+"
+0*"
+0)"
+0("
+0A"
+0@"
+0?"
+0>"
+0="
+0<"
+0;"
+0:"
+09"
+08"
+07"
+06"
+05"
+#10000
+b0 H
+b10010010010000000100010010001111010000001 F
+0%
+b1001001001 '
+b100010010 (
+b111101000000 +
+1,
+0$
+1z
+1x
+1w
+1v
+1u
+1q
+1n
+1j
+1b
+1_
+1\
+1Y
+1#!
+b111111111 R!
+b1111111111100 P!
+1s!
+1p!
+1""
+1!"
+1~!
+1|!
+1{!
+1z!
+1y!
+15#
+14#
+b1111111111111100 Q!
+b1000111110111 N!
+1B#
+0A#
+0@#
+1W"
+0T"
+1R"
+1Q"
+1P"
+1O"
+1e"
+1c"
+1a"
+0/"
+1."
+1,"
+1>"
+1<"
+1:"
+b1000111110011 Q!
+0<"
+1;"
+19"
+1d"
+0a"
+1_"
+1^"
+1]"
+1\"
+0}"
+0|"
+1{"
+0z"
+0y"
+0x"
+0w"
+0v"
+0Q
+0P
+b11111111111 Z!
+17!
+16!
+15!
+14!
+13!
+12!
+11!
+10!
+1/!
+1.!
+1-!
+1`#
+1X#
+1W#
+1V#
+1T#
+1S#
+1R#
+1Q#
+1P#
+1O#
+1N#
+1k!
+1j!
+1i!
+1g!
+1f!
+1e!
+1d!
+1c!
+1b!
+1a!
+13#
+12#
+11#
+1/#
+0.#
+1(#
+1x!
+1w!
+1v!
+1t!
+0s!
+1m!
+1'"
+1&"
+1%"
+1#"
+0""
+0z!
+0y!
+1["
+1Z"
+1Y"
+1U"
+1S"
+0P"
+0O"
+14"
+13"
+12"
+10"
+1/"
+0."
+1)"
+0x!
+1u!
+0t!
+0m!
+1l!
+0'"
+0&"
+0%"
+0#"
+1""
+1z!
+1y!
+0["
+0Z"
+0Y"
+0U"
+0S"
+1P"
+1O"
+04"
+01"
+00"
+1."
+0-"
+0,"
+0)"
+1("
+1A"
+1@"
+1?"
+1="
+1<"
+0;"
+16"
+1h"
+1g"
+1f"
+1b"
+1`"
+0]"
+0\"
+0A"
+0>"
+0="
+1;"
+0:"
+09"
+06"
+15"
+0h"
+0g"
+0f"
+0b"
+0`"
+1]"
+1\"
+0V!
+#15000
+1$
+1P
+#16000
+b0 G

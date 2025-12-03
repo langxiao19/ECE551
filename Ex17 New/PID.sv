@@ -1,6 +1,3 @@
-// PID.sv - Full PID controller (adapted interface for Ex17 New)
-// Based on provided PID from Ex17, adjusted to keep ports/param compatible
-
 module PID #(
     parameter FAST_SIM = 0
 ) (

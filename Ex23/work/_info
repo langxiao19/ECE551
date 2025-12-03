@@ -1,0 +1,558 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/20.1
+vA2D_intf
+Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z1 !s110 1764779082
+!i10b 1
+!s100 :c5RBj?CTzWVNZR@F<AJl0
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IKGOTSA4Q@Jnf_@W78EQ<72
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+S1
+Z4 dC:/Work/ECE551/Ex23
+w1764007364
+8C:/Work/ECE551/Ex23/A2D_intf.sv
+FC:/Work/ECE551/Ex23/A2D_intf.sv
+!i122 332
+L0 1 182
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1764779082.000000
+!s107 C:/Work/ECE551/Ex23/A2D_intf.sv|
+!s90 -reportprogress|300|-work|work|-sv|-cover|sbcet3|-stats=none|C:/Work/ECE551/Ex23/A2D_intf.sv|
+!i113 1
+Z7 !s102 -cover sbcet3
+Z8 o-work work -sv -cover sbcet3
+Z9 tCvgOpt 0
+n@a2@d_intf
+vADC128S_FC
+R0
+R1
+!i10b 1
+!s100 n1UPndo6Ol_azTTf4hd=N2
+R2
+IQDo7d5`lDiD5<=To=YzGK1
+R3
+S1
+R4
+Z10 w1764001255
+8C:/Work/ECE551/Ex23/ADC128S_FC.sv
+FC:/Work/ECE551/Ex23/ADC128S_FC.sv
+!i122 333
+L0 1 114
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Work/ECE551/Ex23/ADC128S_FC.sv|
+!s90 -reportprogress|300|-work|work|-sv|-cover|sbcet3|-stats=none|C:/Work/ECE551/Ex23/ADC128S_FC.sv|
+!i113 1
+R7
+R8
+R9
+n@a@d@c128@s_@f@c
+vAuth_blk
+R0
+Z11 !s110 1764007242
+!i10b 1
+!s100 fcCjo5IAM7Abl[oLa7::^2
+R2
+I3>GzQj8e>gm6bzfO2lice2
+R3
+S1
+R4
+Z12 w1762131840
+8../HW4/Auth_blk.sv
+F../HW4/Auth_blk.sv
+!i122 306
+Z13 L0 1 101
+R5
+r1
+!s85 0
+31
+Z14 !s108 1764007242.000000
+!s107 ../HW4/Auth_blk.sv|
+!s90 -sv|../HW4/Auth_blk.sv|
+!i113 1
+o-sv
+R9
+n@auth_blk
+vbalance_cntrl
+R0
+Z15 !s110 1764007244
+!i10b 1
+!s100 ND9Kg4W]jEjDCQHR5FD@P2
+R2
+I9]T[`]SF:n^WF:B?O<6i]1
+R3
+S1
+R4
+R12
+8../Ex18/balance_cntrl.sv
+F../Ex18/balance_cntrl.sv
+!i122 316
+L0 4 48
+R5
+r1
+!s85 0
+31
+Z16 !s108 1764007244.000000
+!s107 ../Ex18/balance_cntrl.sv|
+!s90 -sv|../Ex18/balance_cntrl.sv|
+!i113 1
+o-sv
+R9
+vinert_intf
+R0
+R1
+!i10b 1
+!s100 WGn7U<kFaCU_bD:UTM^bY2
+R2
+I0LiHHYC3R7;[cY`nWDS[i2
+R3
+S1
+R4
+R10
+8C:/Work/ECE551/Ex23/inert_intf.sv
+FC:/Work/ECE551/Ex23/inert_intf.sv
+!i122 334
+L0 1 215
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Work/ECE551/Ex23/inert_intf.sv|
+!s90 -reportprogress|300|-work|work|-sv|-cover|sbcet3|-stats=none|C:/Work/ECE551/Ex23/inert_intf.sv|
+!i113 1
+R7
+R8
+R9
+vinertial_integrator
+R0
+R11
+!i10b 1
+!s100 I4e2XE?N<LiOkWdI7gm]=0
+R2
+IZgD@EOzB[kbG<h;YhD6cn0
+R3
+S1
+R4
+w1762792633
+8../Ex21/inertial_integrator.sv
+F../Ex21/inertial_integrator.sv
+!i122 308
+L0 9 64
+R5
+r1
+!s85 0
+31
+R14
+!s107 ../Ex21/inertial_integrator.sv|
+!s90 -sv|../Ex21/inertial_integrator.sv|
+!i113 1
+o-sv
+R9
+vmtr_drv
+R0
+Z17 !s110 1764007243
+!i10b 1
+!s100 7GEG`fk;9kc9eb3XiY6oz0
+R2
+ITCLLVJNZ<;0?1z@aQl;]80
+R3
+S1
+R4
+w1763567131
+8../Ex22/mtr_drv.sv
+F../Ex22/mtr_drv.sv
+!i122 313
+L0 1 138
+R5
+r1
+!s85 0
+31
+Z18 !s108 1764007243.000000
+!s107 ../Ex22/mtr_drv.sv|
+!s90 -sv|../Ex22/mtr_drv.sv|
+!i113 1
+o-sv
+R9
+vPID
+R0
+R15
+!i10b 1
+!s100 S8D3SVH9ONNX_aMcV0QA]0
+R2
+IM?dficYMgkYJ@]LT9ke:A3
+R3
+S1
+R4
+R12
+8../Ex18/PID.sv
+F../Ex18/PID.sv
+!i122 314
+L0 4 153
+R5
+r1
+!s85 0
+31
+R16
+!s107 ../Ex18/PID.sv|
+!s90 -sv|../Ex18/PID.sv|
+!i113 1
+o-sv
+R9
+n@p@i@d
+vpiezo_drv
+R0
+!s110 1764007245
+!i10b 1
+!s100 [CnZQ;UceR`45nj4@_VSU1
+R2
+IThbB1fJ?=aJ@J^MeGPC2;0
+R3
+S1
+R4
+w1762791970
+8../Ex20/piezo_drv.sv
+F../Ex20/piezo_drv.sv
+!i122 319
+L0 8 301
+R5
+r1
+!s85 0
+31
+R16
+!s107 ../Ex20/piezo_drv.sv|
+!s90 -sv|../Ex20/piezo_drv.sv|
+!i113 1
+o-sv
+R9
+vPWM11
+R0
+R17
+!i10b 1
+!s100 ]@N6Y1]dN>2Z9fHC2CBX=3
+R2
+In`>hee2SUUhe[7BXCmZRJ1
+R3
+S1
+R4
+Z19 w1762131839
+8../Ex22/PWM11.sv
+F../Ex22/PWM11.sv
+!i122 312
+L0 1 64
+R5
+r1
+!s85 0
+31
+R18
+!s107 ../Ex22/PWM11.sv|
+!s90 -sv|../Ex22/PWM11.sv|
+!i113 1
+o-sv
+R9
+n@p@w@m11
+vrst_synch
+R0
+Z20 !s110 1764007241
+!i10b 1
+!s100 5mzf8m:;2?F[D8b?Od5Zo0
+R2
+IXdM`MOC6FWR2h3jZ]TDAb0
+R3
+S1
+R4
+R19
+8../Ex20/rst_synch.sv
+F../Ex20/rst_synch.sv
+!i122 303
+L0 1 28
+R5
+r1
+!s85 0
+31
+Z21 !s108 1764007241.000000
+!s107 ../Ex20/rst_synch.sv|
+!s90 -sv|../Ex20/rst_synch.sv|
+!i113 1
+o-sv
+R9
+vSegway
+R0
+R1
+!i10b 1
+!s100 cO6AcSQ4Yc:`K=mD:e@?P1
+R2
+IBVm@Bz@:eb;48BBJ3Vih13
+R3
+S1
+R4
+w1764002697
+8C:/Work/ECE551/Ex23/Segway.sv
+FC:/Work/ECE551/Ex23/Segway.sv
+!i122 335
+L0 1 102
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Work/ECE551/Ex23/Segway.sv|
+!s90 -reportprogress|300|-work|work|-sv|-cover|sbcet3|-stats=none|C:/Work/ECE551/Ex23/Segway.sv|
+!i113 1
+R7
+R8
+R9
+n@segway
+vSegway_tb
+R0
+R1
+!i10b 1
+!s100 ^cL11InXiAQm^KXoC>Dbj0
+R2
+IEFLA4H`EAHjEXK<R473Hi2
+R3
+S1
+R4
+w1764007366
+8C:/Work/ECE551/Ex23/Segway_tb.sv
+FC:/Work/ECE551/Ex23/Segway_tb.sv
+!i122 336
+L0 1 242
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Work/ECE551/Ex23/Segway_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-cover|sbcet3|-stats=none|C:/Work/ECE551/Ex23/Segway_tb.sv|
+!i113 1
+R7
+R8
+R9
+n@segway_tb
+vSegwayMath
+R0
+R15
+!i10b 1
+!s100 lLS`o7V2z9@LSl3@LOF372
+R2
+I5Pj>88P;:c<7?:a@YVK2>3
+R3
+S1
+R4
+R12
+8../Ex18/SegwayMath.sv
+F../Ex18/SegwayMath.sv
+!i122 315
+L0 1 109
+R5
+r1
+!s85 0
+31
+R16
+!s107 ../Ex18/SegwayMath.sv|
+!s90 -sv|../Ex18/SegwayMath.sv|
+!i113 1
+o-sv
+R9
+n@segway@math
+vSegwayModel
+R0
+Z22 !s110 1764779083
+!i10b 1
+!s100 iz^E?Y=h=5@SlL;FS;BlO2
+R2
+IW>kDF;fSdHaaDZUjSKG]h2
+R3
+S1
+R4
+R10
+8C:/Work/ECE551/Ex23/SegwayModel.sv
+FC:/Work/ECE551/Ex23/SegwayModel.sv
+!i122 337
+L0 1 454
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Work/ECE551/Ex23/SegwayModel.sv|
+!s90 -reportprogress|300|-work|work|-sv|-cover|sbcet3|-stats=none|C:/Work/ECE551/Ex23/SegwayModel.sv|
+!i113 1
+R7
+R8
+R9
+n@segway@model
+vSPI_ADC128S
+R0
+R22
+!i10b 1
+!s100 93oj0i;UV@::cHMPGHMJ>1
+R2
+IKgiiM]J38;Re5[OU[Xe^H3
+R3
+S1
+R4
+R10
+8C:/Work/ECE551/Ex23/SPI_ADC128S.sv
+FC:/Work/ECE551/Ex23/SPI_ADC128S.sv
+!i122 338
+L0 1 140
+R5
+r1
+!s85 0
+31
+Z23 !s108 1764779083.000000
+!s107 C:/Work/ECE551/Ex23/SPI_ADC128S.sv|
+!s90 -reportprogress|300|-work|work|-sv|-cover|sbcet3|-stats=none|C:/Work/ECE551/Ex23/SPI_ADC128S.sv|
+!i113 1
+R7
+R8
+R9
+n@s@p@i_@a@d@c128@s
+vSPI_mnrch
+R0
+R11
+!i10b 1
+!s100 haLU5lc^N_lec>7<e:PLF2
+R2
+I3Bd7gzmhDB[WhEGIEd0N=1
+R3
+S1
+R4
+w1762143676
+8../Ex16/SPI_mnrch.sv
+F../Ex16/SPI_mnrch.sv
+!i122 307
+L0 1 209
+R5
+r1
+!s85 0
+31
+R14
+!s107 ../Ex16/SPI_mnrch.sv|
+!s90 -sv|../Ex16/SPI_mnrch.sv|
+!i113 1
+o-sv
+R9
+n@s@p@i_mnrch
+vsteer_en
+R0
+R22
+!i10b 1
+!s100 Wf4o=;V3NEmhYi>bIoR<K1
+R2
+IRBzckQLn_n?Y]BTH0kf532
+R3
+S1
+R4
+w1764001760
+8C:/Work/ECE551/Ex23/steer_en.sv
+FC:/Work/ECE551/Ex23/steer_en.sv
+!i122 339
+L0 1 79
+R5
+r1
+!s85 0
+31
+R23
+!s107 C:/Work/ECE551/Ex23/steer_en.sv|
+!s90 -reportprogress|300|-work|work|-sv|-cover|sbcet3|-stats=none|C:/Work/ECE551/Ex23/steer_en.sv|
+!i113 1
+R7
+R8
+R9
+vsteer_en_SM
+R0
+R15
+!i10b 1
+!s100 RN7>FVh^S`n]f`M3kC`lZ0
+R2
+IRH0_Z^cdQ7NR5XFG`m24]1
+R3
+S1
+R4
+R12
+8../HW3/steer_en_SM.sv
+F../HW3/steer_en_SM.sv
+!i122 317
+R13
+R5
+r1
+!s85 0
+31
+R16
+!s107 ../HW3/steer_en_SM.sv|
+!s90 -sv|../HW3/steer_en_SM.sv|
+!i113 1
+o-sv
+R9
+nsteer_en_@s@m
+vUART_rx
+R0
+R20
+!i10b 1
+!s100 O_=1O3Q7L5_M7=8bG10U^1
+R2
+Ibml4LFQWEoO5?o4<]zMjQ0
+R3
+S1
+R4
+R12
+8../Ex14/UART_rx.sv
+F../Ex14/UART_rx.sv
+!i122 304
+L0 1 122
+R5
+r1
+!s85 0
+31
+R21
+!s107 ../Ex14/UART_rx.sv|
+!s90 -sv|../Ex14/UART_rx.sv|
+!i113 1
+o-sv
+R9
+n@u@a@r@t_rx
+vUART_tx
+R0
+R11
+!i10b 1
+!s100 ]@R2L15nK4SFV=bnkRFC90
+R2
+IeQV49C`N8>SL74AC3@RG:3
+R3
+S1
+R4
+R12
+8../Ex14/UART_tx.sv
+F../Ex14/UART_tx.sv
+!i122 305
+L0 1 72
+R5
+r1
+!s85 0
+31
+R14
+!s107 ../Ex14/UART_tx.sv|
+!s90 -sv|../Ex14/UART_tx.sv|
+!i113 1
+o-sv
+R9
+n@u@a@r@t_tx

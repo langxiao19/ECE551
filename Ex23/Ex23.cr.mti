@@ -1,0 +1,60 @@
+C:/Work/ECE551/Ex23/A2D_intf.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex23/A2D_intf.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module A2D_intf
+
+Top level modules:
+	A2D_intf
+
+} {} {}} C:/Work/ECE551/Ex23/Segway.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex23/Segway.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Segway
+
+Top level modules:
+	Segway
+
+} {} {}} C:/Work/ECE551/Ex23/Segway_tb.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex23/Segway_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Segway_tb
+
+Top level modules:
+	Segway_tb
+
+} {} {}} C:/Work/ECE551/Ex23/steer_en.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex23/steer_en.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module steer_en
+
+Top level modules:
+	steer_en
+
+} {} {}} C:/Work/ECE551/Ex23/SPI_ADC128S.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex23/SPI_ADC128S.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SPI_ADC128S
+
+Top level modules:
+	SPI_ADC128S
+
+} {} {}} C:/Work/ECE551/Ex23/SegwayModel.sv {2 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex23/SegwayModel.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SegwayModel
+** Warning: C:/Work/ECE551/Ex23/SegwayModel.sv(141): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: C:/Work/ECE551/Ex23/SegwayModel.sv(254): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: C:/Work/ECE551/Ex23/SegwayModel.sv(256): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+Top level modules:
+	SegwayModel
+
+} {} {}} C:/Work/ECE551/Ex23/inert_intf.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex23/inert_intf.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module inert_intf
+
+Top level modules:
+	inert_intf
+
+} {} {}} C:/Work/ECE551/Ex23/ADC128S_FC.sv {1 {vlog -work work -sv -stats=none C:/Work/ECE551/Ex23/ADC128S_FC.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ADC128S_FC
+
+Top level modules:
+	ADC128S_FC
+
+} {} {}}
